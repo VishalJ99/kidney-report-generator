@@ -1,0 +1,236 @@
+#!/usr/bin/env python3
+import json
+import re
+
+def parse_transplant_phrases():
+    """Parse the transplant phrases from the source files"""
+    
+    phrases = {
+        "patient_info": {
+            "coder": ["CR", "AS", "NS"],
+            "consent": ["PISv.8", "TB", "U"]
+        },
+        "light_microscopy": {
+            "sample": {
+                "C": "The sample consists of cortex only.",
+                "M": "The sample consists of medulla only.",
+                "CT": "The sample consists of connective tissue only.",
+                "CM": "The sample consists of cortex and medulla.",
+                "CCT": "The sample consists of cortex and connective tissue.",
+                "MCT": "The sample consists of medulla and connective tissue.",
+                "CMCT": "The sample consists of cortex, medulla and connective tissue.",
+                "C2M1": "There are 2 samples of cortex and 1 sample of medulla.",
+                "C2": "There are 2 samples of cortex.",
+                "C1M1": "There is 1 sample of cortex and 1 sample of medulla."
+            }
+        },
+        "glomeruli": {
+            "total": "Total number of glomeruli: {}",
+            "globally_sclerosed": {
+                "GS0": "No globally sclerosed glomeruli.",
+                "GS_pattern": "Number of globally sclerosed glomeruli: {}"
+            },
+            "segmental_sclerosis": {
+                "SS0": "No segmental sclerosis is seen.",
+                "SS1_NOS": "One glomerulus shows segmental sclerosis (NOS).",
+                "SS_pattern_NOS": "{} glomeruli show segmental sclerosis (NOS)",
+                "SS_pattern_coll": "{} glomeruli show segmental sclerosis (collapsing variant)",
+                "SS_pattern_tip": "{} glomeruli show segmental sclerosis (tip variant)"
+            },
+            "mesangial_matrix": {
+                "MM0": "There is no increase in mesangial matrix.",
+                "MM1": "There is a mild increase in mesangial matrix.",
+                "MM2": "There is a moderate increase in mesangial matrix.",
+                "MM3": "There is a marked increase in mesangial matrix."
+            },
+            "mesangial_cellularity": {
+                "MC0": "There is no increase in mesangial cellularity.",
+                "MC1": "There is a mild increase in mesangial cellularity.",
+                "MC2": "There is a moderate increase in mesangial cellularity.",
+                "MC3": "There is a marked increase in mesangial cellularity."
+            },
+            "ischaemic": {
+                "ISCH1": "Some glomeruli show mild ischaemic-type capillary deflation.",
+                "ISCH2": "Some glomeruli marked ischaemic-type capillary deflation with thickening of Bowman's capsule."
+            },
+            "glomerulitis": {
+                "G0": "There is no glomerulitis.",
+                "G1": "There is mild glomerulitis (g1).",
+                "G2": "There is moderate glomerulitis (g2).",
+                "G3": "There is severe glomerulitis (g3)."
+            },
+            "capillary_double_contours": {
+                "CG0": "No capillary wall double contours are seen on light microscopy (cg0).",
+                "CG1": "A few segmental capillary wall double contours are seen (cg1b).",
+                "CG2": "Capillary wall double contours are seen affecting up to 50% of capillary walls (cg2).",
+                "CG3": "Capillary wall double contours are seen affecting >50% of capillary walls (cg3)."
+            }
+        },
+        "tubulointerstitium": {
+            "acute_tubular_injury": {
+                "ATI1": "There is mild acute tubular injury.",
+                "ATI2": "There is severe acute tubular injury, with granular casts.",
+                "ATI_micro": "There acute tubular injury with tubular epithelial cell cytoplasmic microvacuolation.",
+                "ATI micro": "There is mild acute tubular injury."
+            },
+            "neutrophil_casts": {
+                "Np1": "Occasional tubules contain neutrophil casts.",
+                "Np2": "Many tubules contain neutrophil casts."
+            },
+            "fibrosis": {
+                "IFTA_pattern": "Tubular atrophy/interstitial fibrosis (nearest 10%): {}%",
+                "IFTA10": "Tubular atrophy/interstitial fibrosis (nearest 10%): 10%",
+                "IFTA20": "Tubular atrophy/interstitial fibrosis (nearest 10%): 20%",
+                "IFTA30": "Tubular atrophy/interstitial fibrosis (nearest 10%): 30%",
+                "IFTA40": "Tubular atrophy/interstitial fibrosis (nearest 10%): 40%",
+                "IFTA50": "Tubular atrophy/interstitial fibrosis (nearest 10%): 50%"
+            },
+            "ct_ci_scores": {
+                "CT1CI0": "(ct1,ci0)",
+                "CTCI1": "(ct1, ci1)",
+                "CTCI2": "(ct2, ci2)",
+                "CTCI3": "(ct3, ci3)"
+            },
+            "tubulitis": {
+                "T0": "Tubulitis is not present in >1 focus of non-severely atrophic tubules (t0).",
+                "T1": "Mild tubulitis is present in >1 focus of non-severely atrophic tubules (t1).",
+                "T2": "Moderate tubulitis is present in >1 focus of non-severely atrophic tubules (t2).",
+                "T3": "Severe tubulitis is present in >1 focus of non-severely atrophic tubules (t3)."
+            },
+            "inflammation": {
+                "I0_I-IFTA0": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and <10% of scarred cortex (i0,i-IFTA0).",
+                "I1_I-IFTA0": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and <10% of scarred cortex (i1, i-IFTA0).",
+                "I2_I-IFTA0": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and <10% of scarred cortex(i2, i-IFTA0).",
+                "I3_I-IFTA0": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and <10% of scarred cortex(i3, i-IFTA0).",
+                "I0_I-IFTA1": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and 10-25% of scarred cortex (i0, i-IFTA1).",
+                "I1_I-IFTA1": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and 10-25% of scarred cortex(i1, i-IFTA1).",
+                "I2_I-IFTA1": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and 10-25% of scarred cortex(i2, i-IFTA1).",
+                "I3_I-IFTA1": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and 10-25% of scarred cortex (i3, i-IFTA1).",
+                "I0_I-IFTA2": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and 25-50% of scarred cortex (i0, i-IFTA2).",
+                "I1_I-IFTA2": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and 25-50% of scarred cortex (i1, i-IFTA2).",
+                "I2_I-IFTA2": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and 25-50% of scarred cortex (i2, i-IFTA2).",
+                "I3_I-IFTA2": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and 25-50% of scarred cortex (i3, i-IFTA1).",
+                "I0_I-IFTA3": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and >50% of scarred cortex (i0, i-IFTA3).",
+                "I1_I-IFTA3": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and >50% of scarred cortex (i1, i-IFTA3).",
+                "I2_I-IFTA3": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and >50% of scarred cortex (i2, i-IFTA3).",
+                "I3_I-IFTA3": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and >50% of scarred cortex (i3, i-IFTA3)."
+            },
+            "total_inflammation": {
+                "TI0": "Total cortical interstitial inflammation amount to <10% of cortex (ti0).",
+                "TI1": "Total cortical interstitial inflammation amount to 10-25% of cortex (ti1).",
+                "TI2": "Total cortical interstitial inflammation amount to 25-50% of cortex (ti2).",
+                "TI3": "Total cortical interstitial inflammation amount to >50% of cortex (ti3)."
+            }
+        },
+        "blood_vessels": {
+            "arteries": {
+                "A_pattern": "{} arteries are present in the sampled kidney.",
+                "A1": "One artery is present in the sampled kidney.",
+                "A2": "Two arteries are present in the sampled kidney.",
+                "A3": "Three arteries are present in the sampled kidney."
+            },
+            "artery_types": {
+                "1IL_0Ar": "One is interlobular.",
+                "2IL_1Ar": "Two are interlobular, 1 is arcuate.",
+                "pattern": "{} are interlobular, {} are arcuate."
+            },
+            "fibrointimal_thickening": {
+                "CV0": "Arteries show no fibrointimal thickening (cv0).",
+                "CV1": "Arteries show mild fibrointimal thickening (cv1).",
+                "CV2": "Arteries show moderate fibrointimal thickening (cv2).",
+                "CV3": "Arteries show severe fibrointimal thickening (cv3)."
+            },
+            "chronic_allograft_arteriopathy": {
+                "CAA0": "No features of chronic allograft arteriopathy are present.",
+                "CAA1": "Features of chronic allograft arteriopathy (inflammatory cells in the thickened intima and/or lack of elastic lamina reduplication) are present."
+            },
+            "endarteritis": {
+                "V0": "No endarteritis (v0).",
+                "V1": "Mild endarteritis is seen (v1).",
+                "V2": "Moderate endarteritis is seen (v2).",
+                "V3": "Severe endarteritis is present (v3)."
+            },
+            "arteriolar_hyalinosis": {
+                "AH0": "No arteriolar hyalinosis (ah0).",
+                "AH1": "Mild arteriolar hyalinosis (ah1).",
+                "AH2": "Moderate arteriolar hyalinosis (ah2).",
+                "AH3": "Severe arteriolar hyalinosis (ah3)."
+            },
+            "peritubular_capillaritis": {
+                "PTC0": "Peritubular capillary inflammation is present in <10% of cortical peritubular capillaries (ptc0).",
+                "PTC1": "Peritubular capillary inflammation with a maximum of 3-4 cells is present in >10% of cortical peritubular capillaries (ptc1).",
+                "PTC2": "Peritubular capillary inflammation with a maximum of 9 cells is present in >10% of cortical peritubular capillaries (ptc2).",
+                "PTC3": "Peritubular capillary inflammation with 10 or more cells is present in >10% of cortical peritubular capillaries (ptc3)."
+            }
+        },
+        "immunohistochemistry": {
+            "c4d": {
+                "C4D0": "C4d: negative (C4d0)",
+                "C4D1": "C4d: positive in 10-25% of PTC (C4d1)",
+                "C4D2": "C4d: positive in 25-50% of PTC (C4d2)",
+                "C4D3": "C4d: positive in >50% of PTC (C4d3)"
+            },
+            "sv40": {
+                "SV40_0": "SV40: negative",
+                "SV40_1": "SV40: positive nuclear staining in a small number of tubules.",
+                "SV40_2": "SV40: positive nuclear staining in many tubules."
+            }
+        },
+        "electron_microscopy": {
+            "EM_0": "No sample for EM",
+            "EM0": "Ultrastructural examination was not performed.",
+            "EM1": "Ultrastructural examination was performed."
+        },
+        "immunofluorescence": {
+            "FR_0": "No frozen sample",
+            "FR0": "Frozen sampled received but not examined"
+        },
+        "conclusion": {
+            "ATI": "Acute tubular injury",
+            "ATI_micro": "Acute tubular injury with tubular epithelial cell cytoplasmic microvacuolation",
+            "BL": "Borderline for T cell-mediated rejection",
+            "CATCMR1A": "Chronic active T cell-mediated rejection (grade 1a)",
+            "TCMR1A": "T cell-mediated rejection grade 1a",
+            "TCMR1B": "T cell-mediated rejection grade 1b",
+            "MildIFTA": "Mild interstitial fibrosis/tubular atrophy",
+            "ModIFTA": "Moderate interstitial fibrosis/tubular atrophy",
+            "MVI+": "Microcirculation inflammation present, C4d-negative, DSA-negative"
+        },
+        "comment": {
+            "EM": "The electron microscopy component of this report is not currently UKAS accredited due to a change in equipment.",
+            "DP": "This case was reported using the Digital Pathology Whole Slide Acquisition. The laboratory is not UKAS accredited for this test.",
+            "NR": "There is no evidence of rejection.",
+            "SC?": "The cause for the scarring is not apparent.",
+            "NRNR": "There is no evidence of rejection or of recurrent disease.",
+            "CR?": "The cause for the recent rise in creatinine is not clear.",
+            "CRSUB?": "The cause for the suboptimal creatinine is not clear.",
+            "MVI+": "MVI above the histological threshold, without circulating DSA and with negative C4d staining in peritubular capillaries has been observed in patients with normal or abnormal kidney function. This is a purely descriptive phenotype, and the cause remains unclear. Further research is necessary to determine the prevalence, the causes and related biological processes and best treatment for this pattern. These cases may represent alloreactive T cell mediated responses; autoreactive or alloreactive non-HLA antibodies; primary NK cell activation through missing self; viral infection; other mechanisms of innate immune activation; ischemia reperfusion injury, etc.",
+            "ATI_micro": "Tubular epithelial microvacuolation is not specific but has been described in acute CNI toxicity. Other associations include IVIG, plasma expanders and radiolabeled contrast media.",
+            "UTI": "In view of the neutrophilic tubulitis, please exclude a urinary tract infection."
+        }
+    }
+    
+    return phrases
+
+if __name__ == "__main__":
+    phrases = parse_transplant_phrases()
+    
+    # Save to JSON file
+    with open('phrases_transplant.json', 'w') as f:
+        json.dump(phrases, f, indent=2)
+    
+    print(f"Saved transplant phrases to phrases_transplant.json")
+    
+    # Count total phrases
+    def count_phrases(d):
+        count = 0
+        for v in d.values():
+            if isinstance(v, dict):
+                count += count_phrases(v)
+            elif isinstance(v, list):
+                count += len(v)
+            else:
+                count += 1
+        return count
+    
+    print(f"Total phrases: {count_phrases(phrases)}")
