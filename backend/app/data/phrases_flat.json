@@ -1,0 +1,171 @@
+{
+  "!A": "A. LIGHT MICROSCOPY",
+  "!G": "GLOMERULI",
+  "!T": "TUBULOINTERSTITIUM",
+  "!BV": "BLOOD VESSELS",
+  "!IHC": "IMMUNOHISTOCHEMISTRY",
+  "!EM": "B. ELECTRON MICROSCOPY",
+  "!IF": "C. IMMUNOFLUORESCENCE (frozen tissue sample)",
+  "!CONC": "CONCLUSION",
+  "!COM": "COMMENT",
+  
+  "C": "The sample consists of cortex only.",
+  "M": "The sample consists of medulla only.",
+  "CT": "The sample consists of connective tissue only.",
+  "CM": "The sample consists of cortex and medulla.",
+  "CCT": "The sample consists of cortex and connective tissue.",
+  "MCT": "The sample consists of medulla and connective tissue.",
+  "CMCT": "The sample consists of cortex, medulla and connective tissue.",
+  "~C(\\d+)M(\\d+)": "There are {1} samples of cortex and {2} sample of medulla.",
+  
+  "~TG(\\d+)": "Total number of glomeruli: {1}",
+  "~GS(\\d+)": "Number of globally sclerosed glomeruli: {1}",
+  "~SS(\\d+)_NOS": "{1} glomeruli show segmental sclerosis (NOS)",
+  "~SS(\\d+)_COLL": "{1} glomeruli show segmental sclerosis (collapsing variant)",
+  "~SS(\\d+)_TIP": "{1} glomeruli show segmental sclerosis (tip variant)",
+  "SS0": "No segmental sclerosis is seen.",
+  
+  "MM0": "There is no increase in mesangial matrix.",
+  "MM1": "There is a mild increase in mesangial matrix.",
+  "MM2": "There is a moderate increase in mesangial matrix.",
+  "MM3": "There is a marked increase in mesangial matrix.",
+  
+  "MC0": "There is no increase in mesangial cellularity.",
+  "MC1": "There is a mild increase in mesangial cellularity.",
+  "MC2": "There is a moderate increase in mesangial cellularity.",
+  "MC3": "There is a marked increase in mesangial cellularity.",
+  
+  "ISCH1": "Some glomeruli show mild ischaemic-type capillary deflation.",
+  "ISCH2": "Some glomeruli marked ischaemic-type capillary deflation with thickening of Bowman's capsule.",
+  
+  "G0": "There is no glomerulitis.",
+  "G1": "There is mild glomerulitis (g1).",
+  "G2": "There is moderate glomerulitis (g2).",
+  "G3": "There is severe glomerulitis (g3).",
+  
+  "CG0": "No capillary wall double contours are seen on light microscopy (cg0).",
+  "CG1": "A few segmental capillary wall double contours are seen (cg1b).",
+  "CG2": "Capillary wall double contours are seen affecting up to 50% of capillary walls (cg2).",
+  "CG3": "Capillary wall double contours are seen affecting >50% of capillary walls (cg3).",
+  
+  "ATI1": "There is mild acute tubular injury.",
+  "ATI2": "There is severe acute tubular injury, with granular casts",
+  "ATI_MICRO": "There acute tubular injury with tubular epithelial cell cytoplasmic microvacuolation.",
+  
+  "NP1": "Occasional tubules contain neutrophil casts.",
+  "NP2": "Many tubules contain neutrophil casts.",
+  
+  "~IFTA(\\d+)": "Tubular atrophy/interstitial fibrosis (nearest 10%): {1}%",
+  
+  "CT1CI0": "(ct1,ci0)",
+  "CTCI1": "(ct1, ci1)",
+  "CTCI2": "(ct2, ci2)",
+  "CTCI3": "(ct3, ci3)",
+  
+  "T0": "Tubulitis is not present in >1 focus of non-severely atrophic tubules (t0).",
+  "T1": "Mild tubulitis is present in >1 focus of non-severely atrophic tubules (t1).",
+  "T2": "Moderate tubulitis is present in >1 focus of non-severely atrophic tubules (t2).",
+  "T3": "Severe tubulitis is present in >1 focus of non-severely atrophic tubules (t3).",
+  
+  "I0_I-IFTA0": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and <10% of scarred cortex (i0,i-IFTA0).",
+  "I1_I-IFTA0": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and <10% of scarred cortex (i1, i-IFTA0).",
+  "I2_I-IFTA0": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and <10% of scarred cortex(i2, i-IFTA0).",
+  "I3_I-IFTA0": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and <10% of scarred cortex(i3, i-IFTA0).",
+  
+  "I0_I-IFTA1": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and 10-25% of scarred cortex (i0, i-IFTA1).",
+  "I1_I-IFTA1": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and 10-25% of scarred cortex(i1, i-IFTA1).",
+  "I2_I-IFTA1": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and 10-25% of scarred cortex(i2, i-IFTA1).",
+  "I3_I-IFTA1": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and 10-25% of scarred cortex (i3, i-IFTA1).",
+  
+  "I0_I-IFTA2": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and 25-50% of scarred cortex (i0, i-IFTA2).",
+  "I1_I-IFTA2": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and 25-50% of scarred cortex (i1, i-IFTA2).",
+  "I2_I-IFTA2": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and 25-50% of scarred cortex (i2, i-IFTA2).",
+  "I3_I-IFTA2": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and 25-50% of scarred cortex (i3, i-IFTA1).",
+  
+  "I0_I-IFTA3": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and >50% of scarred cortex (i0, i-IFTA3).",
+  "I1_I-IFTA3": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and >50% of scarred cortex (i1, i-IFTA3).",
+  "I2_I-IFTA3": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and >50% of scarred cortex (i2, i-IFTA3).",
+  "I3_I-IFTA3": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and >50% of scarred cortex (i3, i-IFTA3).",
+  
+  "TI0": "Total cortical interstitial inflammation amount to <10% of cortex (ti0).",
+  "TI1": "Total cortical interstitial inflammation amount to 10-25% of cortex (ti1).",
+  "TI2": "Total cortical interstitial inflammation amount to 25-50% of cortex (ti2).",
+  "TI3": "Total cortical interstitial inflammation amount to >50% of cortex (ti3).",
+  
+  "~A(\\d+)": "{1} arteries are present in the sampled kidney.",
+  "~(\\d+)IL_(\\d+)AR": "{1} are interlobular, {2} are arcuate.",
+  
+  "CV0": "Arteries show no fibrointimal thickening (cv0).",
+  "CV1": "Arteries show mild fibrointimal thickening (cv1).",
+  "CV2": "Arteries show moderate fibrointimal thickening (cv2).",
+  "CV3": "Arteries show severe fibrointimal thickening (cv3).",
+  
+  "CAA0": "No features of chronic allograft arteriopathy are present.",
+  "CAA1": "Features of chronic allograft arteriopathy (inflammatory cells in the thickened intima and/or lack of elastic lamina reduplication) are present.",
+  
+  "V0": "No endarteritis (v0).",
+  "V1": "Mild endarteritis is seen (v1).",
+  "V2": "Moderate endarteritis is seen (v2).",
+  "V3": "Severe endarteritis is present (v3).",
+  
+  "AH0": "No arteriolar hyalinosis (ah0).",
+  "AH1": "Mild arteriolar hyalinosis (ah1).",
+  "AH2": "Moderate arteriolar hyalinosis (ah2).",
+  "AH3": "Severe arteriolar hyalinosis (sh3).",
+  
+  "PTC0": "Peritubular capillary inflammation is present in <10% of cortical peritubular capillaries (ptc0).",
+  "PTC1": "Peritubular capillary inflammation with a maximum of 3-4 cells is present in >10% of cortical peritubular capillaries (ptc1).",
+  "PTC2": "Peritubular capillary inflammation with a maximum of 9 cells is present in >10% of cortical peritubular capillaries (ptc2).",
+  "PTC3": "Peritubular capillary inflammation with 10 or more cells is present in >10% of cortical peritubular capillaries (ptc3).",
+  
+  "C4D0": "C4d: negative (C4d0)",
+  "C4D1": "C4d: positive in 10-25% of PTC (C4d1)",
+  "C4D2": "C4d: positive in 25-50% of PTC (C4d2)",
+  "C4D3": "C4d: positive in >50% of PTC (C4d3)",
+  
+  "SV40_0": "SV40: negative",
+  "SV40_1": "SV40: positive nuclear staining in a small number of tubules.",
+  "SV40_2": "SV40: positive nuclear staining in many tubules.",
+  
+  "IFP": "Immunofluorescence was performed on paraffin sections after protease digestion.",
+  
+  "EM0": "Ultrastructural examination was not performed.",
+  "EM1": "Ultrastructural examination was performed.",
+  "TB": "Toluidine blue sections from the sample for electron microscopy were examined.",
+  "LM": "(reported by Dr Linda Moran)",
+  "HB": "(reported by Dr Heather Brooks)",
+  
+  "FR0": "Frozen sampled received but not examined",
+  
+  "ATI": "Acute tubular injury",
+  "ATI_MICRO_CONC": "Acute tubular injury with tubular epithelial cell cytoplasmic microvacuolation",
+  "BL": "Borderline for T cell-mediated rejection",
+  "CATCMR1A": "Chronic active T cell-mediated rejection (grade 1a)",
+  "TCMR1A": "T cell-mediated rejection grade 1a",
+  "TCMR1B": "T cell-mediated rejection grade 1b",
+  "MILDIFTA": "Mild interstitial fibrosis/tubular atrophy",
+  "MODIFTA": "Moderate interstitial fibrosis/tubular atrophy",
+  "MVI+": "Microcirculation inflammation present, C4d-negative, DSA-negative",
+  
+  "EM_COM": "The electron microscopy component of this report is not currently UKAS accredited due to a change in equipment.",
+  "DP": "This case was reported using the Digital Pathology Whole Slide Acquisition. The laboratory is not UKAS accredited for this test.",
+  "NR": "There is no evidence of rejection.",
+  "SC?": "The cause for the scarring is not apparent.",
+  "NRNR": "There is no evidence of rejection or of recurrent disease.",
+  "CR?": "The cause for the recent rise in creatinine is not clear.",
+  "CRSUB?": "The cause for the suboptimal creatinine is not clear.",
+  
+  "FSGS": "In the post-transplant setting, glomerular segmental sclerosis can be recurrence of primary FSGS or, more commonly, a glomerular pattern developed secondary to a number of glomerular insults. Careful clinic-pathological correlation is needed to distinguish these. A history of (or evocative of) primary FSGS in the development of ESRF, early post-transplant development of new onset proteinuria, and extensive foot process effacement of epithelial cells would favour recurrent primary FSGS. Late post-transplant development of new onset proteinuria, previous or concurrent significant glomerular or tubulointerstitial disease of a different nature (e.g. alloimmune), as well as segmental foot process effacement favour secondary adaptive FSGS. This can be seen in association with reduction of functioning nephrons, increased haemodynamic stress on a normal nephron population, or in association with some infections (e.g. HIV) and drugs (including CNI and heroin use). In this case, the features overall favour...",
+  
+  "MB": "This membranous glomerulonephritis could represent recurrent primary disease. However, de novo membranous has also been described in association with DSA and the usual causes, such as malignancies and infections.",
+  
+  "ATI_MICRO_COM": "Tubular epithelial microvacuolation is not specific but has been described in acute CNI toxicity. Other associations include IVIG, plasma expanders and radiolabeled contrast media.",
+  "UTI": "In view of the neutrophilic tubulitis, please exclude a urinary tract infection.",
+  "I-IFTA": "There is marked inflammation in scarred areas of cortex, without other features of rejection. Please consider possible causes, such as chronic obstruction/pyelonephritis, poor perfusion or previous BK nephropathy or rejection (T cell or antibody-mediated). Please check for a DSA.",
+  "AH_COM": "Possible causes for arteriolar hyalinosis include donor-derived hyalinosis, chronic CNI toxicity, diabetes or hypertension.",
+  "ABOI": "There is positive staining for C4d in peritubular capillaries, as is often observed in ABOi grafts.",
+  "C4D_WER": "There is positive staining for C4d in peritubular capillaries in the absence of histological features of antibody-mediated rejection – the significance of this finding is not known. Please correlate with serum DSA levels.",
+  "PAMR": "In the context of circulating DSA, individual lesions of MVI (g, ptc, v, acute TMA, cg, ptcml) below the histological threshold for MVI (g+ptc<2) and in the absence of C4d deposition in peritubular capillaries, probably indicate antibody activity. This phenotype can be diagnosed in patients with normal or abnormal kidney function. Depending on the clinical context, antibody-targeted treatment could be considered. Further research is necessary to determine the prevalence, impact, and best treatment for this phenotype.",
+  "MVI+_COM": "MVI above the histological threshold, without circulating DSA and with negative C4d staining in peritubular capillaries has been observed in patients with normal or abnormal kidney function. This is a purely descriptive phenotype, and the cause remains unclear. Further research is necessary to determine the prevalence, the causes and related biological processes and best treatment for this pattern. These cases may represent alloreactive T cell mediated responses; autoreactive or alloreactive non-HLA antibodies; primary NK cell activation through missing self; viral infection; other mechanisms of innate immune activation; ischemia reperfusion injury, etc.",
+  "TMA": "In view of the presence of TMA, in addition to AMR, other potential triggers (including transplant, infection, drugs, malignancy, paraprotein, pregnancy, etc) and underlying etiologies (genetic or metabolic) should be considered and standard nomenclature followed (ref: https://doi.org/10.1016/j.kint.2024.05.021)."
+}
