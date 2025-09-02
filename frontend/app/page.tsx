@@ -37,7 +37,13 @@ export default function Home() {
 
   // Debounced report generation
   useEffect(() => {
-    if (!autoGenerate || !shorthandText.trim()) {
+    if (!autoGenerate) {
+      return;
+    }
+
+    // Clear report immediately when input is empty
+    if (!shorthandText.trim()) {
+      setGeneratedReport('');
       return;
     }
 
