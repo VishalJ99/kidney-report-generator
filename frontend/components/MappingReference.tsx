@@ -96,7 +96,7 @@ const MappingReference: React.FC<MappingReferenceProps> = ({ isOpen, mappings })
               Shorthand Reference Guide
             </h2>
             <span className="text-sm text-gray-500">
-              Hold SHIFT to keep open
+              Press SHIFT to toggle
             </span>
           </div>
           
@@ -121,7 +121,7 @@ const MappingReference: React.FC<MappingReferenceProps> = ({ isOpen, mappings })
             <div className="space-y-6">
               {Object.entries(filteredCategories).map(([category, items]) => (
                 <div key={category}>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-3 sticky top-0 bg-white py-1">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-3">
                     {category}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
