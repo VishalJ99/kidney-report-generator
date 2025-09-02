@@ -7,6 +7,8 @@ import PatientInfo from '@/components/PatientInfo';
 import ShorthandInput from '@/components/ShorthandInput';
 import ReportPreview from '@/components/ReportPreview';
 import QuickActions from '@/components/QuickActions';
+import MappingReference from '@/components/MappingReference';
+import { usePhraseMappings } from '@/hooks/usePhraseMappings';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -33,6 +35,11 @@ export default function Home() {
   const [shorthandText, setShorthandText] = useState('');
   const [generatedReport, setGeneratedReport] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isReferenceOpen, setIsReferenceOpen] = useState(false);
+  
+  // Fetch phrase mappings
+  const { mappings } = usePhraseMappings(reportType);
+  
   // Always auto-generate - no toggle needed
 
   // Streaming report generation (near-instant)
@@ -49,6 +56,29 @@ export default function Home() {
 
     return () => clearTimeout(timer);
   }, [shorthandText]);
+
+  // Keyboard event handlers for Shift key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Shift' && !e.repeat) {
+        setIsReferenceOpen(true);
+      }
+    };
+
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key === 'Shift') {
+        setIsReferenceOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
 
   const generateReport = useCallback(async () => {
     if (!shorthandText.trim()) {
@@ -98,6 +128,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Toaster position="top-right" />
+      
+      {/* Mapping Reference Popup */}
+      <MappingReference isOpen={isReferenceOpen} mappings={mappings} />
       
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8">

@@ -246,13 +246,13 @@ async def get_phrases(report_type: str):
         report_type: Type of report (transplant or native)
         
     Returns:
-        Dictionary of available phrases
+        Dictionary of available phrases from flat JSON
     """
     if report_type not in ["transplant", "native"]:
         raise HTTPException(status_code=400, detail="Invalid report type")
     
-    # For now, return transplant phrases
-    return template_engine.phrases
+    # Return the flat mappings directly from SimpleMapper
+    return simple_mapper.mappings
 
 
 if __name__ == "__main__":
