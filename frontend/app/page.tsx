@@ -8,6 +8,7 @@ import ShorthandInput from '@/components/ShorthandInput';
 import ReportPreview from '@/components/ReportPreview';
 import QuickActions from '@/components/QuickActions';
 import { EditEntry, ManualAddition, GeneratedReportResponse, LineMapping } from '@/types/report';
+import { detectEdits } from '@/utils/editDetector';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -57,6 +58,21 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [shorthandText]);
 
+  const captureCurrentEdits = useCallback(() => {
+    if (isEditMode && generatedReport && editableReport) {
+      // Capture edits if we're in edit mode
+      const { editOverlay: newOverlay, manualAdditions: newAdditions } = detectEdits(
+        generatedReport,
+        editableReport,
+        lineMappings
+      );
+      setEditOverlay(newOverlay);
+      setManualAdditions(newAdditions);
+      return { newOverlay, newAdditions };
+    }
+    return { newOverlay: editOverlay, newAdditions: manualAdditions };
+  }, [isEditMode, generatedReport, editableReport, lineMappings, editOverlay, manualAdditions]);
+
   const applyEditOverlay = useCallback((baseReport: string, overlay: Map<number, EditEntry>, additions: ManualAddition[]) => {
     // Split report into lines
     const lines = baseReport.split('\n');
@@ -89,6 +105,9 @@ export default function Home() {
       return;
     }
 
+    // Capture current edits before regenerating
+    const { newOverlay, newAdditions } = captureCurrentEdits();
+
     setIsGenerating(true);
     try {
       const response = await axios.post<GeneratedReportResponse>(`${API_URL}/api/generate`, {
@@ -99,9 +118,9 @@ export default function Home() {
       // Store line mappings
       setLineMappings(response.data.line_mappings || []);
       
-      // Apply edit overlay if we have edits
-      const finalReport = editOverlay.size > 0 || manualAdditions.length > 0
-        ? applyEditOverlay(response.data.report_text, editOverlay, manualAdditions)
+      // Apply edit overlay with captured edits
+      const finalReport = newOverlay.size > 0 || newAdditions.length > 0
+        ? applyEditOverlay(response.data.report_text, newOverlay, newAdditions)
         : response.data.report_text;
       
       setGeneratedReport(finalReport);
@@ -112,7 +131,7 @@ export default function Home() {
     } finally {
       setIsGenerating(false);
     }
-  }, [shorthandText, reportType, editOverlay, manualAdditions, applyEditOverlay]);
+  }, [shorthandText, reportType, captureCurrentEdits, applyEditOverlay]);
 
   const handleCopyReport = () => {
     if (generatedReport) {
@@ -137,15 +156,22 @@ export default function Home() {
   }, []);
   
   const toggleEditMode = useCallback(() => {
-    setIsEditMode(prev => !prev);
-    if (!isEditMode) {
+    if (isEditMode) {
+      // Leaving edit mode - capture edits before switching
+      const { editOverlay: newOverlay, manualAdditions: newAdditions } = detectEdits(
+        generatedReport,
+        editableReport,
+        lineMappings
+      );
+      setEditOverlay(newOverlay);
+      setManualAdditions(newAdditions);
+      toast.success('Edit mode disabled - changes preserved');
+    } else {
       // Entering edit mode
       toast.success('Edit mode enabled - changes will be preserved');
-    } else {
-      // Leaving edit mode - could detect changes here
-      toast.success('Edit mode disabled');
     }
-  }, [isEditMode]);
+    setIsEditMode(prev => !prev);
+  }, [isEditMode, generatedReport, editableReport, lineMappings]);
 
   const handleLoadExample = () => {
     setShorthandText(EXAMPLE_SHORTHAND);
