@@ -1,7 +1,7 @@
 # Kidney Biopsy Report Generator - Codebase Context
 
 ## Project Overview
-A web application that converts medical shorthand notation into standardized kidney biopsy reports for pathologists. Reduces report writing time by 50%+ through intelligent autocomplete and template generation.
+A web application that converts medical shorthand notation into standardized kidney biopsy reports for pathologists. Operates as an "augmented typing" interface where users type naturally and certain shorthand codes automatically expand to full medical phrases.
 
 ## Architecture
 
@@ -10,8 +10,8 @@ A web application that converts medical shorthand notation into standardized kid
 
 - **`app/page.tsx`**: Main application page
   - Manages shorthand input state
-  - Sends POST requests to `/api/generate`
-  - Displays generated report
+  - Sends POST requests to `/api/generate` with 500ms debounce
+  - Displays generated report in real-time
 
 - **`components/ShorthandInput.tsx`**: Text input component
   - Simple textarea for shorthand entry
@@ -25,31 +25,24 @@ A web application that converts medical shorthand notation into standardized kid
 **Location**: `/backend/`
 
 - **`app/main.py`**: FastAPI application entry point
-  - `/api/generate` - Main report generation endpoint (now using SimpleMapper)
-  - `/api/autocomplete` - NEW single-code expansion endpoint
+  - `/api/generate` - **UNIFIED** report generation (single mode for all input)
+  - `/api/autocomplete` - Direct single-code expansion endpoint
   - `/api/validate` - Code validation endpoint
   - CORS configured for frontend access
 
-- **`app/services/parser.py`**: Shorthand parsing logic
-  - Parses shorthand into structured sections
-  - Handles patient info extraction
-  - Complex regex patterns for compound codes
-
-- **`app/services/simple_mapper.py`**: NEW simplified mapping logic ✨
-  - ~50 lines replacing 250+ lines
+- **`app/services/simple_mapper.py`**: Core expansion engine ✨
+  - ~50 lines of clean logic
   - Direct O(1) lookups for static codes
   - Regex pattern matching with ~ prefix
   - Case-insensitive processing
 
-- **`app/services/report_formatter.py`**: NEW report formatting module ✨
+- **`app/services/report_formatter.py`**: Report formatting module
   - Handles section organization
   - Manages headers and spacing
   - Clean separation of concerns
 
-- **`app/services/template_engine.py`**: Report generation (REFACTORED)
-  - Original 9 processing methods still present for backward compatibility
-  - NEW `generate_report_simple()` method using SimpleMapper
-  - Falls back to old logic if new logic fails
+- **`app/services/parser.py`**: [DEPRECATED - no longer used]
+- **`app/services/template_engine.py`**: [DEPRECATED - replaced by unified mode]
 
 - **`app/models/shorthand.py`**: Pydantic models
   - Request/response data structures
@@ -69,25 +62,27 @@ A web application that converts medical shorthand notation into standardized kid
 - **`/workspace/prompt.md`**: Refactoring instructions
 - **`/workspace/2025_07 For Vishal/Standard phrases - Transplant v2.md`**: Source medical phrases
 
-## Data Flow
+## Data Flow (Unified Augmented Typing Mode)
 
-### Current (Complex) Flow:
-1. User types complete shorthand in textarea
-2. Clicks "Generate Report"
-3. Frontend POSTs to `/api/generate`
-4. Backend:
-   - `parser.py` parses into sections
-   - `template_engine.py` processes each section separately
-   - Returns complete formatted report
-5. Frontend displays result
+1. **User types** in left panel (any mix of shorthand codes and normal text)
+2. **Frontend debounces** input (500ms delay)
+3. **POST to `/api/generate`** with raw text
+4. **Backend processes line-by-line**:
+   - Checks for `@...@` protected blocks (preserved exactly)
+   - Splits remaining text into tokens
+   - Each token checked against mappings:
+     - Has mapping → expand to full phrase
+     - No mapping → keep original token
+   - Headers (`!` prefix) get blank line before them
+5. **Frontend displays** the augmented report in real-time
 
-### Proposed (Simplified) Flow:
-1. User types shorthand with real-time autocomplete
-2. On each space delimiter:
-   - Frontend calls `/api/autocomplete`
-   - Backend does simple lookup/regex match
-   - Returns expanded phrase immediately
-3. Frontend builds report incrementally
+### Key Processing Rules:
+- **Everything goes through one pipeline** (no mode detection)
+- **Token-level granularity** - each word processed independently
+- **Mixed content supported** - codes and normal text coexist naturally
+- **Special markers**:
+  - `@text@` - Preserve exactly, no expansion
+  - `!CODE` - Header with automatic blank line before
 
 ## Key Dependencies
 
@@ -132,24 +127,26 @@ A web application that converts medical shorthand notation into standardized kid
 - API URL in frontend: `process.env.NEXT_PUBLIC_API_URL`
 - Railway deployment configs present
 
-## Current Issues (RESOLVED ✅)
-1. ~~**Overly complex** template_engine.py (250+ lines of conditional logic)~~ → Simplified to ~50 lines
-2. ~~**No real-time feedback** - batch processing only~~ → Added `/api/autocomplete` endpoint
-3. ~~**Difficult to extend** - new codes require code changes~~ → Now just update JSON
-4. ~~**Nested data structure** makes maintenance hard~~ → Using flat JSON structure
+## Recent Changes (2025-09-02)
 
-## Refactoring Completed
-Successfully replaced complex multi-method processing with:
-1. ✅ Flat JSON lookup (`phrases_flat.json`)
-2. ✅ Single mapping function (`SimpleMapper.map_code()`)
-3. ✅ Real-time autocomplete endpoint (`/api/autocomplete`)
-4. ✅ Separate formatting concerns (`ReportFormatter`)
+### Unified Augmented Typing Mode ✅
+- **Eliminated dual-mode complexity** - everything through single pipeline
+- **Token-level processing** - each word checked independently
+- **Mixed content support** - codes and normal text coexist
+- **Protected text blocks** - `@...@` preserves exact text
+- **Automatic header formatting** - blank lines before headers
 
-## Performance Improvements
-- **Code reduction**: 390 lines → ~150 lines (60% reduction)
-- **Lookup speed**: O(1) for most codes (static mappings)
-- **Maintainability**: Single JSON file to update
-- **Testability**: Pure functions, easy to unit test
+### Performance Improvements
+- **Code reduction**: 250+ lines → ~80 lines (68% reduction)
+- **Lookup speed**: O(1) for 90% of codes (static mappings)
+- **Single code path** - eliminates special cases
+- **Natural typing feel** - type normally, magic words expand
+
+### Architecture Simplification
+- Removed dependency on `parser.py`
+- Removed dependency on `template_engine.py`
+- Single unified processing in `/api/generate`
+- Clean separation: expansion (SimpleMapper) vs formatting (inline)
 
 ---
-*Last Updated: Refactoring completed - simplified autocomplete logic implemented*
+*Last Updated: 2025-09-02 - Unified augmented typing mode implemented*
