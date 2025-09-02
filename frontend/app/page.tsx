@@ -57,11 +57,13 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [shorthandText]);
 
-  // Keyboard event handlers for Shift key
+  // Keyboard event handlers for Shift key and Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Shift' && !e.repeat) {
         setIsReferenceOpen(prev => !prev);
+      } else if (e.key === 'Escape' && isReferenceOpen) {
+        setIsReferenceOpen(false);
       }
     };
 
@@ -70,7 +72,7 @@ export default function Home() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [isReferenceOpen]);
 
   const generateReport = useCallback(async () => {
     if (!shorthandText.trim()) {

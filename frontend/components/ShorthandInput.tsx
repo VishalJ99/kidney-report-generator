@@ -23,7 +23,12 @@ const ShorthandInput: React.FC<ShorthandInputProps> = ({ value, onChange, onLoad
   return (
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Shorthand Entry</h2>
+        <div className="flex items-center gap-3">
+          <h2 className="text-lg font-semibold">Shorthand Entry</h2>
+          <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
+            Press SHIFT for reference
+          </span>
+        </div>
         <button
           onClick={onLoadExample}
           className="text-sm text-blue-600 hover:text-blue-700 underline"

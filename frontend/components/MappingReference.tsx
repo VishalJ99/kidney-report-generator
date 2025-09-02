@@ -96,7 +96,7 @@ const MappingReference: React.FC<MappingReferenceProps> = ({ isOpen, mappings })
               Shorthand Reference Guide
             </h2>
             <span className="text-sm text-gray-500">
-              Press SHIFT to toggle
+              Press ESC or SHIFT to close
             </span>
           </div>
           
