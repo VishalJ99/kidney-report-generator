@@ -33,14 +33,10 @@ export default function Home() {
   const [shorthandText, setShorthandText] = useState('');
   const [generatedReport, setGeneratedReport] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
-  const [autoGenerate, setAutoGenerate] = useState(true);
+  // Always auto-generate - no toggle needed
 
   // Streaming report generation (near-instant)
   useEffect(() => {
-    if (!autoGenerate) {
-      return;
-    }
-
     // Clear report immediately when input is empty
     if (!shorthandText.trim()) {
       setGeneratedReport('');
@@ -52,7 +48,7 @@ export default function Home() {
     }, 25);  // 25ms for smooth streaming feel (40 updates/second)
 
     return () => clearTimeout(timer);
-  }, [shorthandText, autoGenerate]);
+  }, [shorthandText]);
 
   const generateReport = useCallback(async () => {
     if (!shorthandText.trim()) {
@@ -154,27 +150,11 @@ export default function Home() {
             {/* Actions */}
             <div className="flex gap-2">
               <button
-                onClick={generateReport}
-                disabled={isGenerating || !shorthandText.trim()}
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-300"
-              >
-                {isGenerating ? 'Generating...' : 'Generate Report'}
-              </button>
-              <button
                 onClick={handleClear}
                 className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
               >
                 Clear
               </button>
-              <label className="flex items-center ml-auto">
-                <input
-                  type="checkbox"
-                  checked={autoGenerate}
-                  onChange={(e) => setAutoGenerate(e.target.checked)}
-                  className="mr-2"
-                />
-                <span className="text-sm">Auto-generate</span>
-              </label>
             </div>
           </div>
 

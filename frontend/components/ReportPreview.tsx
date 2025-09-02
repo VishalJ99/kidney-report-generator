@@ -10,9 +10,6 @@ const ReportPreview: React.FC<ReportPreviewProps> = ({ report, isGenerating }) =
     <div className="bg-white rounded-lg shadow p-6">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-lg font-semibold">Generated Report</h2>
-        {isGenerating && (
-          <span className="text-sm text-blue-600 animate-pulse">Generating...</span>
-        )}
       </div>
       
       <div className="relative">
