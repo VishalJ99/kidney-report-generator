@@ -3,7 +3,14 @@ Pydantic models for shorthand input and output
 """
 
 from pydantic import BaseModel, Field
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
+
+
+class LineMapping(BaseModel):
+    """Model for tracking which shorthand code generated which line"""
+    line_number: int = Field(..., description="Line number in the generated report (1-indexed)")
+    source_code: str = Field(..., description="The shorthand code that generated this line")
+    original_text: str = Field(..., description="The original generated text for this line")
 
 
 class ShorthandInput(BaseModel):
@@ -17,6 +24,7 @@ class GeneratedReport(BaseModel):
     report_text: str = Field(..., description="Generated report text")
     parsed_data: Dict[str, Any] = Field(..., description="Parsed structured data")
     validation_errors: list = Field(default=[], description="Any validation errors found")
+    line_mappings: List[LineMapping] = Field(default=[], description="Mapping of lines to source shorthand codes")
     
 
 class ValidationResponse(BaseModel):

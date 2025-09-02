@@ -1,0 +1,90 @@
+/* Styles for the report edit overlay system */
+
+/* Edited lines - amber theme */
+.edited-line {
+  background-color: rgba(251, 191, 36, 0.08); /* very subtle amber background */
+  border-left: 3px solid #f59e0b;
+  padding-left: 12px;
+  margin-left: -12px;
+  transition: background-color 0.2s ease;
+}
+
+.edited-line:hover {
+  background-color: rgba(251, 191, 36, 0.12);
+}
+
+/* Manual additions - green theme */
+.manual-addition {
+  background-color: rgba(34, 197, 94, 0.08); /* very subtle green background */
+  border-left: 3px solid #22c55e;
+  padding-left: 12px;
+  margin-left: -12px;
+  transition: background-color 0.2s ease;
+}
+
+.manual-addition:hover {
+  background-color: rgba(34, 197, 94, 0.12);
+}
+
+/* Editable report textarea styling */
+.report-editable {
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+}
+
+/* Report display styling */
+.report-display {
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+  letter-spacing: 0.025em;
+}
+
+/* Subtle divider for appended content */
+.append-divider {
+  border-top: 1px dashed #9ca3af;
+  margin: 16px 0;
+  padding-top: 16px;
+  position: relative;
+}
+
+.append-divider::before {
+  content: 'Additional entries';
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background-color: #f9fafb;
+  padding: 0 8px;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Edit mode indicator */
+.edit-mode-active {
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* Animation for mode toggle */
+@keyframes modeToggle {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+.mode-toggle-animation {
+  animation: modeToggle 0.2s ease;
+}

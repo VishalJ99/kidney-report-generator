@@ -7,6 +7,7 @@ import PatientInfo from '@/components/PatientInfo';
 import ShorthandInput from '@/components/ShorthandInput';
 import ReportPreview from '@/components/ReportPreview';
 import QuickActions from '@/components/QuickActions';
+import { EditEntry, ManualAddition, GeneratedReportResponse, LineMapping } from '@/types/report';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -33,7 +34,13 @@ export default function Home() {
   const [shorthandText, setShorthandText] = useState('');
   const [generatedReport, setGeneratedReport] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
-  // Always auto-generate - no toggle needed
+  
+  // Edit overlay system state
+  const [editOverlay, setEditOverlay] = useState<Map<number, EditEntry>>(new Map());
+  const [manualAdditions, setManualAdditions] = useState<ManualAddition[]>([]);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [lineMappings, setLineMappings] = useState<LineMapping[]>([]);
+  const [editableReport, setEditableReport] = useState('');
 
   // Streaming report generation (near-instant)
   useEffect(() => {
@@ -50,27 +57,62 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [shorthandText]);
 
+  const applyEditOverlay = useCallback((baseReport: string, overlay: Map<number, EditEntry>, additions: ManualAddition[]) => {
+    // Split report into lines
+    const lines = baseReport.split('\n');
+    
+    // Apply edits from overlay
+    const editedLines = lines.map((line, index) => {
+      const lineNumber = index + 1;
+      const edit = overlay.get(lineNumber);
+      return edit ? edit.editedText : line;
+    });
+    
+    // Apply manual additions (sorted by position)
+    const sortedAdditions = [...additions].sort((a, b) => a.afterLine - b.afterLine);
+    let result = [...editedLines];
+    let offset = 0;
+    
+    for (const addition of sortedAdditions) {
+      const insertIndex = addition.afterLine + offset;
+      result.splice(insertIndex, 0, addition.text);
+      offset++;
+    }
+    
+    return result.join('\n');
+  }, []);
+
   const generateReport = useCallback(async () => {
     if (!shorthandText.trim()) {
       setGeneratedReport('');
+      setEditableReport('');
       return;
     }
 
     setIsGenerating(true);
     try {
-      const response = await axios.post(`${API_URL}/api/generate`, {
+      const response = await axios.post<GeneratedReportResponse>(`${API_URL}/api/generate`, {
         shorthand_text: shorthandText,
         report_type: reportType,
       });
 
-      setGeneratedReport(response.data.report_text);
+      // Store line mappings
+      setLineMappings(response.data.line_mappings || []);
+      
+      // Apply edit overlay if we have edits
+      const finalReport = editOverlay.size > 0 || manualAdditions.length > 0
+        ? applyEditOverlay(response.data.report_text, editOverlay, manualAdditions)
+        : response.data.report_text;
+      
+      setGeneratedReport(finalReport);
+      setEditableReport(finalReport);
     } catch (error: any) {
       console.error('Error generating report:', error);
       toast.error(error.response?.data?.detail || 'Failed to generate report');
     } finally {
       setIsGenerating(false);
     }
-  }, [shorthandText, reportType]);
+  }, [shorthandText, reportType, editOverlay, manualAdditions, applyEditOverlay]);
 
   const handleCopyReport = () => {
     if (generatedReport) {
@@ -82,7 +124,28 @@ export default function Home() {
   const handleClear = () => {
     setShorthandText('');
     setGeneratedReport('');
+    setEditableReport('');
+    setEditOverlay(new Map());
+    setManualAdditions([]);
+    setLineMappings([]);
+    setIsEditMode(false);
   };
+  
+  const handleReportEdit = useCallback((editedText: string) => {
+    setEditableReport(editedText);
+    // Edit detection will be handled by the utility function we'll create
+  }, []);
+  
+  const toggleEditMode = useCallback(() => {
+    setIsEditMode(prev => !prev);
+    if (!isEditMode) {
+      // Entering edit mode
+      toast.success('Edit mode enabled - changes will be preserved');
+    } else {
+      // Leaving edit mode - could detect changes here
+      toast.success('Edit mode disabled');
+    }
+  }, [isEditMode]);
 
   const handleLoadExample = () => {
     setShorthandText(EXAMPLE_SHORTHAND);
@@ -162,7 +225,13 @@ export default function Home() {
           <div className="space-y-6">
             <ReportPreview
               report={generatedReport}
+              editableReport={editableReport}
               isGenerating={isGenerating}
+              isEditMode={isEditMode}
+              onToggleEditMode={toggleEditMode}
+              onReportEdit={handleReportEdit}
+              editOverlay={editOverlay}
+              manualAdditions={manualAdditions}
             />
             
             <QuickActions

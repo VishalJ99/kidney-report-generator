@@ -129,6 +129,16 @@ A web application that converts medical shorthand notation into standardized kid
 
 ## Recent Changes (2025-09-02)
 
+### Edit Overlay System Implementation ✅
+- **Added bidirectional editing capability** - Users can edit generated reports
+- **Edit preservation system** - Edits survive regeneration via overlay pattern
+- **Line mapping tracking** - Backend tracks which shorthand generates which line
+- **Visual indicators** - Subtle highlighting for edited (amber) and added (green) lines
+- **Edit mode toggle** - Switch between view-only and editable modes
+- **No emoji approach** - Professional appearance with colored borders instead
+
+## Recent Changes (2025-09-02)
+
 ### Unified Augmented Typing Mode ✅
 - **Eliminated dual-mode complexity** - everything through single pipeline
 - **Token-level processing** - each word checked independently
