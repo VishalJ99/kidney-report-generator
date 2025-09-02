@@ -11,21 +11,53 @@ A web application that converts medical shorthand notation into standardized kid
 - **`app/page.tsx`**: Main application page
   - Manages shorthand input state
   - Sends POST requests to `/api/generate` with 500ms debounce
-  - Displays generated report in real-time
+  - **NEW**: Edit overlay state management (editOverlay Map, manualAdditions array)
+  - **NEW**: `applyEditOverlay()` - Applies preserved edits to regenerated reports
+  - **NEW**: `toggleEditMode()` - Switches between view/edit modes
+  - **NEW**: `handleReportEdit()` - Processes user edits to report text
+  - Displays generated report in real-time with edit preservation
 
 - **`components/ShorthandInput.tsx`**: Text input component
   - Simple textarea for shorthand entry
   - Shows quick reference hints
 
 - **`components/ReportPreview.tsx`**: Report display component
+  - **ENHANCED**: Now supports editable mode with textarea
+  - **NEW**: Edit mode toggle button
+  - **NEW**: Status badges showing edit count
+  - **NEW**: Conditional rendering based on edit mode
+  - **NEW**: Auto-resize textarea functionality
+
 - **`components/QuickActions.tsx`**: Copy/export buttons
 - **`components/PatientInfo.tsx`**: Patient data display
+
+#### New Frontend Modules
+
+- **`types/report.ts`**: TypeScript interfaces for edit system
+  - `LineMapping`: Maps line numbers to source shorthand codes
+  - `EditEntry`: Tracks original vs edited text per line
+  - `ManualAddition`: Tracks user-added text
+  - `GeneratedReportResponse`: API response with line mappings
+
+- **`utils/editDetector.ts`**: Edit detection and management
+  - `detectEdits()`: Compares original vs edited text, returns overlay
+  - `getEditedLineNumbers()`: Identifies edited lines for highlighting
+  - `getLineStatus()`: Determines if line is original/edited/added
+
+- **`styles/report.css`**: Visual styling for edit system
+  - `.edited-line`: Amber border/background for edited lines
+  - `.manual-addition`: Green border/background for added lines
+  - `.report-editable`: Textarea styling for edit mode
+  - Professional appearance without emojis
 
 ### Backend (FastAPI + Python)
 **Location**: `/backend/`
 
 - **`app/main.py`**: FastAPI application entry point
   - `/api/generate` - **UNIFIED** report generation (single mode for all input)
+    - **ENHANCED**: Now returns `line_mappings` array with each response
+    - **NEW**: Tracks which shorthand code generates which line
+    - **NEW**: Builds LineMapping objects during report generation
   - `/api/autocomplete` - Direct single-code expansion endpoint
   - `/api/validate` - Code validation endpoint
   - CORS configured for frontend access
@@ -47,6 +79,8 @@ A web application that converts medical shorthand notation into standardized kid
 - **`app/models/shorthand.py`**: Pydantic models
   - Request/response data structures
   - Added AutocompleteRequest/Response models
+  - **NEW**: `LineMapping` model - tracks line_number, source_code, original_text
+  - **ENHANCED**: `GeneratedReport` model now includes `line_mappings` field
 
 ### Data Files
 **Location**: `/backend/app/data/`
@@ -62,7 +96,7 @@ A web application that converts medical shorthand notation into standardized kid
 - **`/workspace/prompt.md`**: Refactoring instructions
 - **`/workspace/2025_07 For Vishal/Standard phrases - Transplant v2.md`**: Source medical phrases
 
-## Data Flow (Unified Augmented Typing Mode)
+## Data Flow (Unified Augmented Typing Mode with Edit Overlay)
 
 1. **User types** in left panel (any mix of shorthand codes and normal text)
 2. **Frontend debounces** input (500ms delay)
@@ -74,7 +108,27 @@ A web application that converts medical shorthand notation into standardized kid
      - Has mapping → expand to full phrase
      - No mapping → keep original token
    - Headers (`!` prefix) get blank line before them
-5. **Frontend displays** the augmented report in real-time
+   - **NEW**: Builds `line_mappings` array tracking source codes
+5. **Frontend receives** report + line mappings
+6. **Apply edit overlay** (if exists):
+   - Check each line against edit overlay Map
+   - Replace with edited version if found
+   - Append manual additions at specified positions
+7. **Frontend displays** the final report (base + edits)
+
+### Edit Mode Flow
+
+1. **User clicks "Edit Report"** → enters edit mode
+2. **Textarea replaces <pre>** → user can edit directly
+3. **On edit completion**:
+   - `detectEdits()` compares original vs edited
+   - Creates edit overlay entries for changed lines
+   - Identifies manual additions
+4. **User adds more shorthand**:
+   - Generate fresh report from backend
+   - Apply saved edit overlay
+   - New content appends at end
+5. **Edits persist** through regeneration cycles
 
 ### Key Processing Rules:
 - **Everything goes through one pipeline** (no mode detection)
@@ -159,4 +213,4 @@ A web application that converts medical shorthand notation into standardized kid
 - Clean separation: expansion (SimpleMapper) vs formatting (inline)
 
 ---
-*Last Updated: 2025-09-02 - Unified augmented typing mode implemented*
+*Last Updated: 2025-09-02 - Edit overlay system implemented with bidirectional editing*
