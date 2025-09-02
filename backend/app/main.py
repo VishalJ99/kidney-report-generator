@@ -82,79 +82,91 @@ async def generate_report(input_data: ShorthandInput):
         GeneratedReport with the formatted report text
     """
     try:
-        import re
-        
         shorthand = input_data.shorthand_text
         if not shorthand:
             return GeneratedReport(report_text="", parsed_data={}, validation_errors=[])
         
-        # Process line by line to preserve structure
-        lines = shorthand.split('\n')
-        output_lines = []
+        # Process character by character, only expanding on word boundaries
+        output = []
+        current_token = ""
+        in_protected_block = False
+        protected_content = ""
         
-        for line in lines:
-            # Handle @...@ protected blocks
-            if '@' in line:
-                # Split by @ markers to find protected text
-                parts = re.split(r'@([^@]*)@', line)
-                processed_parts = []
-                
-                for i, part in enumerate(parts):
-                    if i % 2 == 1:  # Odd indices are inside @ markers
-                        # Keep this text exactly as-is
-                        processed_parts.append(part)
-                    else:  # Even indices are outside @ markers
-                        # Process tokens for possible expansion
-                        if part.strip():
-                            tokens = part.split()
-                            expanded_tokens = []
-                            
-                            for token in tokens:
-                                expansion = simple_mapper.map_code(token.upper().strip())
-                                if expansion:
-                                    # Headers always get blank line before
-                                    if token.upper().startswith('!'):
-                                        if output_lines:  # Not the very first line
-                                            output_lines.append('')  # Blank line
-                                        expanded_tokens = [expansion]  # Replace entire line with header
-                                        break  # Headers take the whole line
-                                    else:
-                                        expanded_tokens.append(expansion)
-                                else:
-                                    # No mapping - keep original token
-                                    expanded_tokens.append(token)
-                            
-                            processed_parts.append(' '.join(expanded_tokens))
-                
-                output_lines.append(''.join(processed_parts))
-            else:
-                # No @ markers - process entire line normally
-                if not line.strip():
-                    output_lines.append('')  # Preserve blank lines
-                    continue
-                
-                tokens = line.split()
-                expanded_tokens = []
-                
-                for token in tokens:
-                    expansion = simple_mapper.map_code(token.upper().strip())
-                    if expansion:
-                        # Headers always get blank line before
-                        if token.upper().startswith('!'):
-                            if output_lines:  # Not the very first line
-                                output_lines.append('')  # Blank line
-                            expanded_tokens = [expansion]  # Replace entire line with header
-                            break  # Headers take the whole line
-                        else:
-                            expanded_tokens.append(expansion)
+        i = 0
+        while i < len(shorthand):
+            char = shorthand[i]
+            
+            # Handle @ markers
+            if char == '@':
+                if in_protected_block:
+                    # Check if there's a space or newline after closing @
+                    next_char = shorthand[i+1] if i+1 < len(shorthand) else ''
+                    if next_char in [' ', '\n'] or next_char == '':
+                        # Confirmed closed block - hide @ markers
+                        output.append(protected_content)
+                        protected_content = ""
+                        in_protected_block = False
+                        i += 1  # Skip the @
+                        if next_char:
+                            output.append(next_char)
+                            i += 1  # Skip the space/newline
+                        continue
                     else:
-                        # No mapping - keep original token
-                        expanded_tokens.append(token)
+                        # Not followed by boundary - treat as literal @
+                        protected_content += char
+                else:
+                    # Opening @ or standalone @
+                    # First, process any pending token
+                    if current_token:
+                        output.append(current_token)  # Don't expand incomplete tokens
+                        current_token = ""
+                    
+                    # Start protected block
+                    in_protected_block = True
+                    protected_content = ""
+            
+            elif in_protected_block:
+                # Inside @ block - just accumulate, never expand
+                protected_content += char
+            
+            elif char in [' ', '\n']:
+                # Word boundary - check for expansion
+                if current_token:
+                    # Check if it's a header
+                    if current_token.upper().startswith('!'):
+                        expansion = simple_mapper.map_code(current_token.upper())
+                        if expansion:
+                            # Add blank line before header if not first content
+                            if output and output[-1] != '\n':
+                                output.append('\n')
+                            output.append(expansion)
+                        else:
+                            output.append(current_token)
+                    else:
+                        # Regular token - try to expand
+                        expansion = simple_mapper.map_code(current_token.upper())
+                        output.append(expansion if expansion else current_token)
+                    
+                    current_token = ""
                 
-                output_lines.append(' '.join(expanded_tokens))
+                # Add the space or newline
+                output.append(char)
+            
+            else:
+                # Regular character - accumulate token
+                current_token += char
+            
+            i += 1
         
-        # Join all lines to create final report
-        report_text = '\n'.join(output_lines)
+        # Handle any remaining content
+        if in_protected_block:
+            # Unclosed @ block - show everything including @
+            output.append('@' + protected_content)
+        elif current_token:
+            # Last token without space - don't expand (still typing)
+            output.append(current_token)
+        
+        report_text = ''.join(output)
         
         return GeneratedReport(
             report_text=report_text,

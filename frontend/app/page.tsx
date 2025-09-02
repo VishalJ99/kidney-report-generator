@@ -35,7 +35,7 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [autoGenerate, setAutoGenerate] = useState(true);
 
-  // Debounced report generation
+  // Streaming report generation (near-instant)
   useEffect(() => {
     if (!autoGenerate) {
       return;
@@ -49,7 +49,7 @@ export default function Home() {
 
     const timer = setTimeout(() => {
       generateReport();
-    }, 500);
+    }, 25);  // 25ms for smooth streaming feel (40 updates/second)
 
     return () => clearTimeout(timer);
   }, [shorthandText, autoGenerate]);
