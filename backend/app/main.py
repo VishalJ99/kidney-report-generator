@@ -82,33 +82,89 @@ async def generate_report(input_data: ShorthandInput):
         GeneratedReport with the formatted report text
     """
     try:
-        # Parse the shorthand input
-        parsed_data = parser.parse(input_data.shorthand_text)
+        import re
         
-        # Generate the report using the new simplified method
-        # This replaces 250+ lines of complex logic with ~50 lines
-        report_text = template_engine.generate_report_simple(parsed_data)
+        shorthand = input_data.shorthand_text
+        if not shorthand:
+            return GeneratedReport(report_text="", parsed_data={}, validation_errors=[])
         
-        # Return the generated report
+        # Process line by line to preserve structure
+        lines = shorthand.split('\n')
+        output_lines = []
+        
+        for line in lines:
+            # Handle @...@ protected blocks
+            if '@' in line:
+                # Split by @ markers to find protected text
+                parts = re.split(r'@([^@]*)@', line)
+                processed_parts = []
+                
+                for i, part in enumerate(parts):
+                    if i % 2 == 1:  # Odd indices are inside @ markers
+                        # Keep this text exactly as-is
+                        processed_parts.append(part)
+                    else:  # Even indices are outside @ markers
+                        # Process tokens for possible expansion
+                        if part.strip():
+                            tokens = part.split()
+                            expanded_tokens = []
+                            
+                            for token in tokens:
+                                expansion = simple_mapper.map_code(token.upper().strip())
+                                if expansion:
+                                    # Headers always get blank line before
+                                    if token.upper().startswith('!'):
+                                        if output_lines:  # Not the very first line
+                                            output_lines.append('')  # Blank line
+                                        expanded_tokens = [expansion]  # Replace entire line with header
+                                        break  # Headers take the whole line
+                                    else:
+                                        expanded_tokens.append(expansion)
+                                else:
+                                    # No mapping - keep original token
+                                    expanded_tokens.append(token)
+                            
+                            processed_parts.append(' '.join(expanded_tokens))
+                
+                output_lines.append(''.join(processed_parts))
+            else:
+                # No @ markers - process entire line normally
+                if not line.strip():
+                    output_lines.append('')  # Preserve blank lines
+                    continue
+                
+                tokens = line.split()
+                expanded_tokens = []
+                
+                for token in tokens:
+                    expansion = simple_mapper.map_code(token.upper().strip())
+                    if expansion:
+                        # Headers always get blank line before
+                        if token.upper().startswith('!'):
+                            if output_lines:  # Not the very first line
+                                output_lines.append('')  # Blank line
+                            expanded_tokens = [expansion]  # Replace entire line with header
+                            break  # Headers take the whole line
+                        else:
+                            expanded_tokens.append(expansion)
+                    else:
+                        # No mapping - keep original token
+                        expanded_tokens.append(token)
+                
+                output_lines.append(' '.join(expanded_tokens))
+        
+        # Join all lines to create final report
+        report_text = '\n'.join(output_lines)
+        
         return GeneratedReport(
             report_text=report_text,
-            parsed_data=parsed_data,
+            parsed_data={},
             validation_errors=[]
         )
         
     except Exception as e:
         logger.error(f"Error generating report: {str(e)}")
-        # Fallback to old method if new one fails
-        try:
-            parsed_data = parser.parse(input_data.shorthand_text)
-            report_text = template_engine.generate_report(parsed_data)
-            return GeneratedReport(
-                report_text=report_text,
-                parsed_data=parsed_data,
-                validation_errors=[]
-            )
-        except:
-            raise HTTPException(status_code=500, detail=f"Error generating report: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error generating report: {str(e)}")
 
 
 @app.post("/api/validate", response_model=ValidationResponse)
