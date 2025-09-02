@@ -19,9 +19,10 @@ WORKDIR /app
 
 # Copy built application
 COPY --from=builder /app/.next ./.next
-COPY --from=builder /app/public ./public
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/next.config.js ./
+# Copy public directory if it exists (Next.js apps might not have one)
+COPY --from=builder /app/public* ./public/
 
 # Install production dependencies only
 RUN npm ci --only=production

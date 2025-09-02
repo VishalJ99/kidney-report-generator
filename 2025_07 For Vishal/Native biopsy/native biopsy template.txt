@@ -1,0 +1,50 @@
+NHS number:
+Hospital number:
+NS number: NS
+Name: 
+
+Coder: 
+
+Consent:
+
+Date of biopsy:
+
+
+A. LIGHT MICROSCOPY
+
+
+
+GLOMERULI
+
+
+
+TUBULOINTERSTITIUM
+
+
+
+BLOOD VESSELS
+
+
+
+IMMUNOHISTOCHEMISTRY
+
+
+
+B.ELECTRON MICROSCOPY
+
+
+C.IMMUNOFLUORESCENCE (frozen tissue sample)
+
+
+
+
+
+CONCLUSION
+Native kidney biopsy:
+	
+
+COMMENT
+
+[The electron microscopy component of this report is not currently UKAS accredited due to a change in equipment.]
+
+

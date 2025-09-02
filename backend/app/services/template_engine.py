@@ -7,6 +7,8 @@ import json
 import re
 from typing import Dict, List, Any, Optional
 from pathlib import Path
+from app.services.simple_mapper import SimpleMapper
+from app.services.report_formatter import ReportFormatter
 
 
 class TemplateEngine:
@@ -25,6 +27,68 @@ class TemplateEngine:
         """Load phrases from JSON file"""
         with open(filepath, 'r') as f:
             return json.load(f)
+    
+    def generate_report_simple(self, parsed_data: Dict[str, Any]) -> str:
+        """
+        Simplified report generation using flat JSON lookup.
+        Replaces 250+ lines of complex logic with ~50 lines.
+        
+        Args:
+            parsed_data: Structured data from parser
+            
+        Returns:
+            Complete formatted report text
+        """
+        # Initialize the simple mapper and formatter
+        mapper = SimpleMapper()
+        formatter = ReportFormatter()
+        
+        # Collect all expanded phrases
+        phrases = []
+        
+        # Add patient information
+        patient_info = parsed_data.get('patient_info', {})
+        if patient_info:
+            for key, value in patient_info.items():
+                if value:
+                    phrases.append(f"{key.replace('_', ' ').title()}: {value}")
+            phrases.append("")  # Blank line after patient info
+        
+        # Process all sections
+        sections = parsed_data.get('sections', {})
+        for section_name, codes in sections.items():
+            # Add section header if needed
+            header_code = self._get_header_code(section_name)
+            if header_code:
+                header_phrase = mapper.map_code(header_code)
+                if header_phrase:
+                    phrases.append(header_phrase)
+            
+            # Process codes in this section
+            if isinstance(codes, list):
+                for code in codes:
+                    if code and code.strip():
+                        expanded = mapper.map_code(code.strip())
+                        if expanded:
+                            phrases.append(expanded)
+        
+        # Format the report
+        return formatter.format_report(phrases)
+    
+    def _get_header_code(self, section_name: str) -> Optional[str]:
+        """Map section names to header codes."""
+        header_map = {
+            'light_microscopy': '!A',
+            'glomeruli': '!G',
+            'tubulointerstitium': '!T',
+            'blood_vessels': '!BV',
+            'immunohistochemistry': '!IHC',
+            'electron_microscopy': '!EM',
+            'immunofluorescence': '!IF',
+            'conclusion': '!CONC',
+            'comment': '!COM'
+        }
+        return header_map.get(section_name.lower())
     
     def generate_report(self, parsed_data: Dict[str, Any]) -> str:
         """

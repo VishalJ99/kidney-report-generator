@@ -1,0 +1,109 @@
+Name: 
+NS25-
+
+Pathologist: Dr Roufosse
+
+NHS number:
+Hospital number:
+NS number: NS
+Name: 
+
+
+
+A. LIGHT MICROSCOPY
+
+
+
+Glomeruli
+Total number of glomeruli: 
+Number of globally sclerosed glomeruli: 
+
+
+
+Tubules and interstitium:
+
+
+
+Blood vessels
+Arterial intimal thickening: 
+Vasculitis: 
+Arteriolar hyalinosis: 
+No other vascular pathology is present.
+
+Congo red stain
+
+IMMUNOHISTOCHEMISTRY
+
+
+B.ELECTRON MICROSCOPY
+
+
+C.IMMUNOFLUORESCENCE (frozen tissue sample)
+
+
+
+
+
+CONCLUSION
+Native kidney biopsy:
+	
+
+COMMENT
+
+
+
+A.	LIGHT MICROSCOPY
+Cortex: present, sampled
+Medulla: present, sampled
+
+Glomeruli
+Total number of glomeruli: 
+Number of globally sclerosed glomeruli: 
+Glomerulitis: None (g)
+Capillary wall double contours: None (cg)
+No glomerular abnormalities are seen (mm).
+
+Tubules and interstitium
+There are features of acute tubular injury; several of the tubules contain granular casts.
+Tubular atrophy/interstitial fibrosis (nearest 10%): % (ct, ci)
+Tubulitis in tubules that are not severely atrophic: (t)
+Interstitial inflammation in non-scarred cortex: % (i)
+Interstitial inflammation in scarred cortex: % (iIFTA)                                       
+Interstitial inflammation in total cortex: % (ti)
+
+Blood vessels
+Number of arteries: 
+Arterial intimal thickening: None (cv)
+Vasculitis: None (v)            
+Chronic allograft arteriopathy: None
+Arteriolar hyalinosis: None (ah)
+Peritubular capillaritis: None in the cortex (ptc)
+No other vascular pathology is present.
+
+IMMUNOHISTOCHEMISTRY
+C4d in peritubular capillaries: % 
+SV40 (BKV): 
+
+
+B.	ELECTRON MICROSCOPY (Dr. L Moran)
+Ultrastructural examination was not performed.
+
+C.	IMMUNOFLUORESCENCE
+Immunofluorescence on frozen core of cortex medulla with glomeruli.
+
+
+
+
+
+Transplant kidney biopsy:
+	1.
+	2.
+	3.
+
+
+COMMENT
+
+[The electron microscopy component of this report is not currently UKAS accredited due to a change in equipment.]
+[This case was reported using the Digital Pathology Whole Slide Acquisition. The laboratory is not UKAS accredited for this test.]
+
+

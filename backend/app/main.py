@@ -10,6 +10,9 @@ import logging
 from app.models.shorthand import ShorthandInput, GeneratedReport, ValidationResponse
 from app.services.parser import ShorthandParser
 from app.services.template_engine import TemplateEngine
+from app.services.simple_mapper import SimpleMapper
+from pydantic import BaseModel, Field
+from typing import Optional
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -34,6 +37,17 @@ app.add_middleware(
 # Initialize services
 parser = ShorthandParser()
 template_engine = TemplateEngine()
+simple_mapper = SimpleMapper()
+
+# Autocomplete models
+class AutocompleteRequest(BaseModel):
+    """Request model for autocomplete endpoint"""
+    code: str = Field(..., description="Single shorthand code to expand")
+
+class AutocompleteResponse(BaseModel):
+    """Response model for autocomplete endpoint"""
+    code: str = Field(..., description="Original shorthand code")
+    expansion: Optional[str] = Field(None, description="Expanded medical phrase")
 
 
 @app.get("/")
@@ -71,8 +85,9 @@ async def generate_report(input_data: ShorthandInput):
         # Parse the shorthand input
         parsed_data = parser.parse(input_data.shorthand_text)
         
-        # Generate the report
-        report_text = template_engine.generate_report(parsed_data)
+        # Generate the report using the new simplified method
+        # This replaces 250+ lines of complex logic with ~50 lines
+        report_text = template_engine.generate_report_simple(parsed_data)
         
         # Return the generated report
         return GeneratedReport(
@@ -83,7 +98,17 @@ async def generate_report(input_data: ShorthandInput):
         
     except Exception as e:
         logger.error(f"Error generating report: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Error generating report: {str(e)}")
+        # Fallback to old method if new one fails
+        try:
+            parsed_data = parser.parse(input_data.shorthand_text)
+            report_text = template_engine.generate_report(parsed_data)
+            return GeneratedReport(
+                report_text=report_text,
+                parsed_data=parsed_data,
+                validation_errors=[]
+            )
+        except:
+            raise HTTPException(status_code=500, detail=f"Error generating report: {str(e)}")
 
 
 @app.post("/api/validate", response_model=ValidationResponse)
@@ -115,6 +140,32 @@ async def validate_codes(input_data: ShorthandInput):
             is_valid=False,
             invalid_codes=[],
             suggestions={}
+        )
+
+
+@app.post("/api/autocomplete", response_model=AutocompleteResponse)
+async def autocomplete(request: AutocompleteRequest):
+    """
+    Convert a single shorthand code to its full medical phrase.
+    This replaces the complex 250+ line processing with a simple lookup.
+    
+    Args:
+        request: AutocompleteRequest containing a single shorthand code
+        
+    Returns:
+        AutocompleteResponse with the expanded phrase or None if not found
+    """
+    try:
+        expansion = simple_mapper.map_code(request.code)
+        return AutocompleteResponse(
+            code=request.code,
+            expansion=expansion
+        )
+    except Exception as e:
+        logger.error(f"Error in autocomplete: {str(e)}")
+        return AutocompleteResponse(
+            code=request.code,
+            expansion=None
         )
 
 

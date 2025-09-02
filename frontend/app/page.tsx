@@ -88,7 +88,9 @@ export default function Home() {
 
   const handleExportCSV = () => {
     // TODO: Implement CSV export
-    toast.info('CSV export coming soon!');
+    toast('CSV export coming soon!', {
+      icon: 'ℹ️',
+    });
   };
 
   return (

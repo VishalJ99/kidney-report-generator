@@ -1,0 +1,78 @@
+Standard phrases - Native
+
+
+
+
+
+
+
+
+
+GLOMERULI
+
+SS0	No segmental sclerosis.
+SS1	A few glomeruli have segmental sclerosis.
+SS2	Several glomeruli have segmental sclerosis.
+
+ISCH1	Some glomeruli show mild ischaemic-type capillary deflation.
+ISCH2	Some glomeruli marked ischaemic-type capillary deflation with thickening of Bowman’s capsule.
+
+MH0	No mesangial hypercellularity.
+MH1
+MH2
+MH3
+
+E0	No endocapillary hypercellularity.
+E1	Several glomeruli have endocapillary hypercellularity.
+
+FN0	No fibrinoid necrosis.
+FNx	x glomeruli have fibrinoid necrosis.
+CC0	No crescents.
+CCx	x glomeruli have cellular crescents.
+
+
+TUBULOINTERSTITIUM
+
+
+I-IFTA1	There is a scarce atrophy-associated chronic inflammatory infiltrate.
+I-IFTA2	There is a patchy atrophy-associated chronic inflammatory infiltrate. No tubulitis.
+
+I0	No significant tubulointerstitial inflammatory infiltrate is present.
+I1T	There is a patchy interstitial chronic inflammatory infiltrate with several foci of tubulitis.
+I2T	There is a marked interstitial chronic inflammatory infiltrate with several foci of tubulitis.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+DRAFT....
+
+The cause of the scarring is not evident.
+The cause of the rise in creatinine is not evident.
+There is severe arterial intimal thickening in keeping with hypertensive change. This may explain some of the dysfunction.
+There is no evidence of an active glomerulonephritis or tubulointerstitial nephritis.
+There is no evidence of a paraprotein-related disease.
+
+There is tubulointerstitial scarring with focal global glomerulosclerosis, and without any obvious cause. Is there a family history of kidney disease ? Please consider genetic testing for autosomal dominant tubulointerstitial kidney disease and other potential genetic causes.
+
+
+
+There is an interstitial aggregate of Tamm-Horsfall protein – please rule out urinary tract obstruction.
+
+arterial fibrointimal thickening
+
+There is a dilated venous structure – please rule out renal vein thrombosis
