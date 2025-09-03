@@ -26,7 +26,7 @@ const ShorthandInput: React.FC<ShorthandInputProps> = ({ value, onChange, onLoad
         <div className="flex items-center gap-3">
           <h2 className="text-lg font-semibold">Shorthand Entry</h2>
           <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">
-            Press SHIFT for reference
+            Press TAB for reference
           </span>
         </div>
         <button

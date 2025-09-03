@@ -13,7 +13,14 @@ import { usePhraseMappings } from '@/hooks/usePhraseMappings';
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 // Example shorthand for demo
-const EXAMPLE_SHORTHAND = `!A
+const EXAMPLE_SHORTHAND = `NHS 234 4567 2345
+HN 31098674
+NS 25-67890
+Name Smith
+Coder CR
+Consent PISv.8
+Date 12/07/2025
+!LM
 CM
 C2M1
 !G
@@ -60,10 +67,11 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [shorthandText]);
 
-  // Keyboard event handlers for Shift key and Escape
+  // Keyboard event handlers for Tab key and Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Shift' && !e.repeat) {
+      if (e.key === 'Tab') {
+        e.preventDefault(); // Prevent default tab behavior
         setIsReferenceOpen(prev => !prev);
       } else if (e.key === 'Escape' && isReferenceOpen) {
         setIsReferenceOpen(false);
@@ -80,37 +88,24 @@ export default function Home() {
   const generateReport = useCallback(async () => {
     if (!shorthandText.trim()) {
       setGeneratedReport('');
-      setEditableReport('');
       return;
     }
 
-    // Capture current edits before regenerating
-    const { newOverlay, newAdditions } = captureCurrentEdits();
-
     setIsGenerating(true);
     try {
-      const response = await axios.post<GeneratedReportResponse>(`${API_URL}/api/generate`, {
+      const response = await axios.post(`${API_URL}/api/generate`, {
         shorthand_text: shorthandText,
         report_type: reportType,
       });
 
-      // Store line mappings
-      setLineMappings(response.data.line_mappings || []);
-      
-      // Apply edit overlay with captured edits
-      const finalReport = newOverlay.size > 0 || newAdditions.length > 0
-        ? applyEditOverlay(response.data.report_text, newOverlay, newAdditions)
-        : response.data.report_text;
-      
-      setGeneratedReport(finalReport);
-      setEditableReport(finalReport);
+      setGeneratedReport(response.data.report_text);
     } catch (error: any) {
       console.error('Error generating report:', error);
       toast.error(error.response?.data?.detail || 'Failed to generate report');
     } finally {
       setIsGenerating(false);
     }
-  }, [shorthandText, reportType, captureCurrentEdits, applyEditOverlay]);
+  }, [shorthandText, reportType]);
 
   const handleCopyReport = () => {
     if (generatedReport) {
@@ -122,35 +117,7 @@ export default function Home() {
   const handleClear = () => {
     setShorthandText('');
     setGeneratedReport('');
-    setEditableReport('');
-    setEditOverlay(new Map());
-    setManualAdditions([]);
-    setLineMappings([]);
-    setIsEditMode(false);
   };
-  
-  const handleReportEdit = useCallback((editedText: string) => {
-    setEditableReport(editedText);
-    // Edit detection will be handled by the utility function we'll create
-  }, []);
-  
-  const toggleEditMode = useCallback(() => {
-    if (isEditMode) {
-      // Leaving edit mode - capture edits before switching
-      const { editOverlay: newOverlay, manualAdditions: newAdditions } = detectEdits(
-        generatedReport,
-        editableReport,
-        lineMappings
-      );
-      setEditOverlay(newOverlay);
-      setManualAdditions(newAdditions);
-      toast.success('Edit mode disabled - changes preserved');
-    } else {
-      // Entering edit mode
-      toast.success('Edit mode enabled - changes will be preserved');
-    }
-    setIsEditMode(prev => !prev);
-  }, [isEditMode, generatedReport, editableReport, lineMappings]);
 
   const handleLoadExample = () => {
     setShorthandText(EXAMPLE_SHORTHAND);
@@ -233,13 +200,7 @@ export default function Home() {
           <div className="space-y-6">
             <ReportPreview
               report={generatedReport}
-              editableReport={editableReport}
               isGenerating={isGenerating}
-              isEditMode={isEditMode}
-              onToggleEditMode={toggleEditMode}
-              onReportEdit={handleReportEdit}
-              editOverlay={editOverlay}
-              manualAdditions={manualAdditions}
             />
             
             <QuickActions
