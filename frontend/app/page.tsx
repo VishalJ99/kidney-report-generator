@@ -13,22 +13,25 @@ import { usePhraseMappings } from '@/hooks/usePhraseMappings';
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 // Example shorthand for demo
-const EXAMPLE_SHORTHAND = `NHS: 234 4567 2345
-HN: 31098674
-NS: 25-67890
-Name: Smith
-Coder: CR
-Consent: PISv.8
-Date of biopsy: 12/07/2025
-LM: CM, C2M1
-Glom: 31, Gs7, Ss1_NOS, Mm1, Mc1, G2, Cg1
-TI: ATI micro, IFTA20, CTCI1, T1, I1_I-IFTA3, TI2
-Ves: A3, 2IL_1Ar, Cv2, Caa0, V0, Ah1, Ptc1
-IHC: C4d0, SV40_0
-EM: EM0
-IFFR: FR_0
-CONCLUSION: BL, MVI+, MildIFTA
-COMMENT: MVI+, DP`;
+const EXAMPLE_SHORTHAND = `!A
+CM
+C2M1
+!G
+TG31 GS7 SS1_NOS MM1 MC1 G2 CG1
+!T
+ATI_MICRO IFTA20 CTCI1 T1 I1_I-IFTA3 TI2
+!BV
+A3 2IL_1AR CV2 CAA0 V0 AH1 PTC1
+!IHC
+C4D0 SV40_0
+!EM
+EM0
+!IF
+FR0
+!CONC
+BL MVI+ MILDIFTA
+!COM
+MVI+_COM DP`;
 
 export default function Home() {
   const [reportType, setReportType] = useState<'transplant' | 'native'>('transplant');

@@ -1,5 +1,13 @@
 {
-  "!A": "A. LIGHT MICROSCOPY",
+  "NHS": "NHS Number:",
+  "HN": "Hospital Number:",
+  "NS": "NS Number:",
+  "Name": "Name:",
+  "Coder": "Coder:",
+  "Consent": "Consent:",
+  "Date": "Date of biopsy:",
+
+  "!LM": "A. LIGHT MICROSCOPY",
   "!G": "GLOMERULI",
   "!T": "TUBULOINTERSTITIUM",
   "!BV": "BLOOD VESSELS",
