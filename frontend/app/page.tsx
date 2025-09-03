@@ -7,8 +7,8 @@ import PatientInfo from '@/components/PatientInfo';
 import ShorthandInput from '@/components/ShorthandInput';
 import ReportPreview from '@/components/ReportPreview';
 import QuickActions from '@/components/QuickActions';
-import { EditEntry, ManualAddition, GeneratedReportResponse, LineMapping } from '@/types/report';
-import { detectEdits } from '@/utils/editDetector';
+import MappingReference from '@/components/MappingReference';
+import { usePhraseMappings } from '@/hooks/usePhraseMappings';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -35,13 +35,12 @@ export default function Home() {
   const [shorthandText, setShorthandText] = useState('');
   const [generatedReport, setGeneratedReport] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [isReferenceOpen, setIsReferenceOpen] = useState(false);
   
-  // Edit overlay system state
-  const [editOverlay, setEditOverlay] = useState<Map<number, EditEntry>>(new Map());
-  const [manualAdditions, setManualAdditions] = useState<ManualAddition[]>([]);
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [lineMappings, setLineMappings] = useState<LineMapping[]>([]);
-  const [editableReport, setEditableReport] = useState('');
+  // Fetch phrase mappings
+  const { mappings } = usePhraseMappings(reportType);
+  
+  // Always auto-generate - no toggle needed
 
   // Streaming report generation (near-instant)
   useEffect(() => {
@@ -58,45 +57,22 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, [shorthandText]);
 
-  const captureCurrentEdits = useCallback(() => {
-    if (isEditMode && generatedReport && editableReport) {
-      // Capture edits if we're in edit mode
-      const { editOverlay: newOverlay, manualAdditions: newAdditions } = detectEdits(
-        generatedReport,
-        editableReport,
-        lineMappings
-      );
-      setEditOverlay(newOverlay);
-      setManualAdditions(newAdditions);
-      return { newOverlay, newAdditions };
-    }
-    return { newOverlay: editOverlay, newAdditions: manualAdditions };
-  }, [isEditMode, generatedReport, editableReport, lineMappings, editOverlay, manualAdditions]);
+  // Keyboard event handlers for Shift key and Escape
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Shift' && !e.repeat) {
+        setIsReferenceOpen(prev => !prev);
+      } else if (e.key === 'Escape' && isReferenceOpen) {
+        setIsReferenceOpen(false);
+      }
+    };
 
-  const applyEditOverlay = useCallback((baseReport: string, overlay: Map<number, EditEntry>, additions: ManualAddition[]) => {
-    // Split report into lines
-    const lines = baseReport.split('\n');
-    
-    // Apply edits from overlay
-    const editedLines = lines.map((line, index) => {
-      const lineNumber = index + 1;
-      const edit = overlay.get(lineNumber);
-      return edit ? edit.editedText : line;
-    });
-    
-    // Apply manual additions (sorted by position)
-    const sortedAdditions = [...additions].sort((a, b) => a.afterLine - b.afterLine);
-    let result = [...editedLines];
-    let offset = 0;
-    
-    for (const addition of sortedAdditions) {
-      const insertIndex = addition.afterLine + offset;
-      result.splice(insertIndex, 0, addition.text);
-      offset++;
-    }
-    
-    return result.join('\n');
-  }, []);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isReferenceOpen]);
 
   const generateReport = useCallback(async () => {
     if (!shorthandText.trim()) {
@@ -187,6 +163,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-50">
       <Toaster position="top-right" />
+      
+      {/* Mapping Reference Popup */}
+      <MappingReference isOpen={isReferenceOpen} mappings={mappings} />
       
       <div className="container mx-auto px-4 py-8">
         <header className="mb-8">

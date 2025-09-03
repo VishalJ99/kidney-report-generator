@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import logging
 
-from app.models.shorthand import ShorthandInput, GeneratedReport, ValidationResponse, LineMapping
+from app.models.shorthand import ShorthandInput, GeneratedReport, ValidationResponse
 from app.services.parser import ShorthandParser
 from app.services.template_engine import TemplateEngine
 from app.services.simple_mapper import SimpleMapper
@@ -84,13 +84,11 @@ async def generate_report(input_data: ShorthandInput):
     try:
         shorthand = input_data.shorthand_text
         if not shorthand:
-            return GeneratedReport(report_text="", parsed_data={}, validation_errors=[], line_mappings=[])
+            return GeneratedReport(report_text="", parsed_data={}, validation_errors=[])
         
         # Process character by character, only expanding on word boundaries
         output = []
-        line_mappings = []  # Track which code generates which line
         current_token = ""
-        current_source_code = ""  # Track the current shorthand code being processed
         in_protected_block = False
         protected_content = ""
         
@@ -134,7 +132,6 @@ async def generate_report(input_data: ShorthandInput):
             elif char in [' ', '\n']:
                 # Word boundary - check for expansion
                 if current_token:
-                    current_source_code = current_token.upper()
                     # Check if it's a header
                     if current_token.upper().startswith('!'):
                         expansion = simple_mapper.map_code(current_token.upper())
@@ -171,24 +168,10 @@ async def generate_report(input_data: ShorthandInput):
         
         report_text = ''.join(output)
         
-        # Build line mappings - parse the generated report to track lines
-        # This is a simplified version - in production, track during generation
-        lines = report_text.split('\n')
-        for i, line in enumerate(lines, 1):
-            if line.strip():  # Only track non-empty lines
-                # For now, we'll add basic tracking
-                # In a full implementation, we'd track the actual source codes during generation
-                line_mappings.append(LineMapping(
-                    line_number=i,
-                    source_code="",  # Would be filled during generation
-                    original_text=line
-                ))
-        
         return GeneratedReport(
             report_text=report_text,
             parsed_data={},
-            validation_errors=[],
-            line_mappings=line_mappings
+            validation_errors=[]
         )
         
     except Exception as e:
@@ -263,13 +246,13 @@ async def get_phrases(report_type: str):
         report_type: Type of report (transplant or native)
         
     Returns:
-        Dictionary of available phrases
+        Dictionary of available phrases from flat JSON
     """
     if report_type not in ["transplant", "native"]:
         raise HTTPException(status_code=400, detail="Invalid report type")
     
-    # For now, return transplant phrases
-    return template_engine.phrases
+    # Return the flat mappings directly from SimpleMapper
+    return simple_mapper.mappings
 
 
 if __name__ == "__main__":
