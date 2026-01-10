@@ -42,9 +42,9 @@ EM0
 !IF
 FR0
 !CONC
-BL MVI+ MILDIFTA
+BL MVI MILD-IFTA
 !COM
-MVI+_COM DP`;
+MVI-C4D0-DSA0 DP`;
 
 export default function Home() {
   const [reportType, setReportType] = useState<'transplant' | 'native'>('transplant');
