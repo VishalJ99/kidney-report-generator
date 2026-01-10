@@ -1,0 +1,2341 @@
+{
+  "!bv": {
+    "main_body": "BLOOD VESSELS",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!com": {
+    "main_body": "COMMENT",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!conc": {
+    "main_body": "CONCLUSION",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!em": {
+    "main_body": "B. ELECTRON MICROSCOPY",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!g": {
+    "main_body": "GLOMERULI",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!iff": {
+    "main_body": "C. IMMUNOFLUORESCENCE (frozen tissue sample)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!ifp": {
+    "main_body": "IMMUNOFLUORESCENCE Immunofluorescence was performed on paraffin sections after protease digestion.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!ihc": {
+    "main_body": "IMMUNOHISTOCHEMISTRY",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!ip": {
+    "main_body": "IMMUNOPEROXIDASE",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!lm": {
+    "main_body": "A. LIGHT MICROSCOPY",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "!t": {
+    "main_body": "TUBULOINTERSTITIUM",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "a-amr": {
+    "main_body": "",
+    "conclusion": "Acute/active antibody-mediated rejection",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "ac-amr": {
+    "main_body": "",
+    "conclusion": "Chronic active antibody-mediated rejection",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "adtkd": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is tubulointerstitial scarring with focal global glomerulosclerosis, and without any obvious cause. Is there a family history of kidney disease\u00a0? Please consider genetic testing for autosomal dominant tubulointerstitial kidney disease and other potential genetic causes.",
+    "codes": {}
+  },
+  "ah": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Possible causes for arteriolar hyalinosis include donor-derived hyalinosis , chronic CNI toxicity, diabetes or hypertension.",
+    "codes": {}
+  },
+  "ah0": {
+    "main_body": "No arteriolar hyalinosis (ah0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ah1": {
+    "main_body": "Mild arteriolar hyalinosis (ah1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ah2": {
+    "main_body": "Moderate arteriolar hyalinosis (ah2).",
+    "conclusion": "Moderate arteriolar hyalinosis",
+    "comments": "",
+    "codes": {}
+  },
+  "ah3": {
+    "main_body": "Severe arteriolar hyalinosis (ah3).",
+    "conclusion": "Severe arteriolar hyalinosis",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "alport": {
+    "main_body": "",
+    "conclusion": "Histological features in keeping with Alport's syndrome",
+    "comments": "",
+    "codes": {
+      "native1": "46814",
+      "kbc": "174"
+    }
+  },
+  "amr": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "AMR can be diagnosed in patients with normal or abnormal kidney function. Further differentiation into active AMR, chronic active AMR, and chronic AMR, or activity and chronicity indices, can guide therapeutic decision-making.",
+    "codes": {}
+  },
+  "amyl-aa": {
+    "main_body": "",
+    "conclusion": "Amyloid, AL",
+    "comments": "Secondary amyloidosis is seen in condition associated with chronic immune activation, including rheumatoid arthritis, ankylosing spondylitis, chronic infections (osteomyelitis, skin infections, ulcers, bronchiectasis), Crohn\u2019s disease, tuberculosis and familial Mediterranean fever.",
+    "codes": {
+      "native1": "55101",
+      "kbc": "223"
+    }
+  },
+  "amyl-al": {
+    "main_body": "",
+    "conclusion": "Amyloid, AA",
+    "comments": "",
+    "codes": {
+      "native1": "55102",
+      "kbc": "222"
+    }
+  },
+  "amyl-neg": {
+    "main_body": "",
+    "conclusion": "Amyloid, NOS",
+    "comments": "",
+    "codes": {
+      "native1": "55100",
+      "kbc": "221"
+    }
+  },
+  "amyl-nos": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Please note that about 10% of AL deposits (the commonest type of amyloid) do not stain with antibodies against light chains, and therefore AL is not excluded by this result.",
+    "codes": {}
+  },
+  "anca-drug": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Please consider drug-induced ANCA vasculitis. The most common drugs associated with DAV are propylthiouracyl, levamisole (cocaine contaminant), hydralazine, anti-TNF but many other drugs can be responsible. There is often cutaneous involvement and other auto-antibodies (e.g. ANA, antiPL) can also be present. Medullary angeitis can be noted.",
+    "codes": {}
+  },
+  "anca-gn": {
+    "main_body": "",
+    "conclusion": "Pauci-immune segmental necrotising glomerulonephritis in keeping with an ANCA-mediated process",
+    "comments": "",
+    "codes": {
+      "native1": "46823",
+      "kbc": "127"
+    }
+  },
+  "anca1": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "This native kidney biopsy shows a pauci-immune segmental necrotizing glomerulonephritis consistent with an ANCA-mediated process. \u2026 class according to JASN 21;1628-1636, 2010",
+    "codes": {}
+  },
+  "anti-coag": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There are numerous red blood cell casts, out of proportion to the degree of glomerular injury. Given that the patient has received anti-coagulants, this could represent anti-coagulant related nephropathy (ARN). An underlying glomerular disease \u2013 such as a GN or glomerulitis \u2013 is commonly seen in biopsies with ARN, and may be a trigger for the abundant tubular red cell casts.",
+    "codes": {}
+  },
+  "anti-gbm": {
+    "main_body": "",
+    "conclusion": "Anti-glomerular basement membrane glomerulonephritis",
+    "comments": "",
+    "codes": {
+      "native1": "46822",
+      "kbc": "130"
+    }
+  },
+  "anti-gbm-atyp": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "This entity is a variant of anti-GBM disease characterised by a more indolent clinical course, less severe histology (mesangial or endocapillary proliferative rather than crescentic GN), usually absence of pulmonary involvement and often negative serology. [Ref\u00a0: Nasr et al. KI 2016, 89\u00a0:897; Chaveau et al. AJKD 2024, 83:717]",
+    "codes": {}
+  },
+  "anti-gbm-covid": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "We observed a significant disease cluster of anti-GBM disease coinciding with the development of the COVID-19 pandemic in the United Kingdom (Prendecki M, Clarke C, Cairns T, et al. Anti-glomerular basement membrane disease during the COVID-19 pandemic. Kidney Int. 2020;98(3):780\u2013781).",
+    "codes": {}
+  },
+  "anti-gbm-mb": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Coexistence of membranous GN (Mb GN) with anti-GBM disease may occur more often than by chance alone (McAdoo SP, Pusey CD. Anti-glomerular basement membrane disease. Clin J Am Soc Nephrol. 2017;12(7):1162\u20131172). This can be anti-GBM followed by Mb GN, Mb GN followed by anti-GBM, or simultaneous presentation of both Mb GN and anti-GBM (Basford AW, Lewis J, Dwyer JP, Fogo AB. Membranous nephropathy with crescents.  J Am Soc Nephrol. 011;22(10):1804\u20131808). The original insult \u2014whether anti-GBM or Mb GN \u2014 might result in exposure of cryptic epitopes, leading to the development of antibodies to the PLA2R or the Goodpasture antigen respectively. Genetic susceptibility (HLA DRB1 in anti-GBM and HLA DQ1 in MBGN) may also play a role in antibody development.",
+    "codes": {}
+  },
+  "art-hy": {
+    "main_body": "",
+    "conclusion": "Arteriolar hyalinosis",
+    "comments": "",
+    "codes": {
+      "kbc": "354"
+    }
+  },
+  "art-scl": {
+    "main_body": "",
+    "conclusion": "Arterial fibrointimal thickening",
+    "comments": "",
+    "codes": {
+      "native1": "73810",
+      "kbc": "74"
+    }
+  },
+  "as": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is irregular \"basket-weave\" appearance of the glomerular basement membrane. This can be seen in the setting of Alport Syndrome. Please correlate with family history of renal disease, hearing loss or ocular defects.",
+    "codes": {}
+  },
+  "ati": {
+    "main_body": "",
+    "conclusion": "Acute tubular injury",
+    "comments": "",
+    "codes": {
+      "native1": "46840",
+      "kbc": "216"
+    }
+  },
+  "ati-micro": {
+    "main_body": "",
+    "conclusion": "Acute tubular injury with tubular epithelial cell cytoplasmic microvacuolation",
+    "comments": "There is acute tubular injury with isometric clear vacuolation of tubular epithelial cells. Possible causes include acute tubular toxicity related to calcineurin inhibitors (tends to be focal), or osmotic tubulopathy (tends to be diffuse). The latter can be seen with plasma expanders (e.g. mannitol, dextran), some pre-transplant perfusion solutions (containing hydroxyethyl starch), some radiological contrast solutions, IVIg (due to the stabilising agents) and SGLT2i (due to inhibition of glucose resorption in proximal S1 tubule).",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "ati-vac": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is acute tubular injury with clear vacuoles of various sizes in tubular epithelial cells. This is seen in ischaemic tubular injury, or in hypokalaemia (rounded \"punched out\" vesicles).",
+    "codes": {}
+  },
+  "ati1": {
+    "main_body": "There is mild acute tubular injury.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ati2": {
+    "main_body": "There is severe acute tubular injury, with granular casts",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ati_micro": {
+    "main_body": "There acute tubular injury with tubular epithelial cell cytoplasmic microvacuolation.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "bartonella": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Can be associated with several patterns of glomerulonephritis\u00a0: a membranoproliferative pattern immune complex-mediated infection-related glomerulonephritis (can be \u00ab\u00a0lupoid\u00a0\u00bb - full house), a C3-dominant infection-related glomerulonephritis or an ANCA-positive or -negative pauci-immune necrotising glomerulonephritis. Other reported kidney manifestations of bartonella infection include renal microabscesses, thrombotic microaniopathy (TMA) and hemophagocytic lymphohistiocytosis (HLH - mostly seen in patients with kidney transplant). Granulomas might conceivaby be seen in disseminated cases in immunocompromised patients.",
+    "codes": {}
+  },
+  "behcets": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Vasculitis, all vessels size from small to large (aortic aneurysms); thromboembolism; can also give collapsing FSGS",
+    "codes": {}
+  },
+  "bl": {
+    "main_body": "",
+    "conclusion": "Borderline for T cell-mediated rejection",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "c": {
+    "main_body": "The sample consists of cortex only.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "c-amr": {
+    "main_body": "",
+    "conclusion": "Chronic antibody-mediated rejection",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "c1q-np": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is a minimal change/FSGS/mesangialproliferative (but not MPGN) pattern with predominant C1q immunostaining (2+ or more C1q, can also have IgG, IgA, IgM and C3). In the absence of clinical lupus diagnosis and active infections, the features are in keeping with C1q nephropathy. C1q nephropathy tends to behave in line with the associated pattern, with a tendancy to more steroid-resistance.",
+    "codes": {}
+  },
+  "c3-gn": {
+    "main_body": "",
+    "conclusion": "C3 glomerulonephritis",
+    "comments": "",
+    "codes": {
+      "kbc": "137"
+    }
+  },
+  "c3-gp": {
+    "main_body": "",
+    "conclusion": "C3 glomerulopathy",
+    "comments": "",
+    "codes": {
+      "kbc": "136"
+    }
+  },
+  "c3gn": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The findings are of a C3 predominant glomerulonephritis. The differential diagnosis includes a post-infectious glomerulonephritis and C3 glomerulonephritis.  Laboratory evidence of infection is required to make the former diagnosis. Possible infections include both Steptococcal and Staphylococcal as well as a range of other bacterial, mycotic and parasitic infections. The infection may be clinically apparent or occult (e.g. endocarditis). Please investigate for abnormalities of the alternative pathway of complement activation and ASOT and anti-DNase B serologies. Clinical features and evolution of renal function may also assist in the differential diagnosis. Given the EM appearances, the findings are most in keeping with C3 glomerulonephritis, although this could also represent a post-infectious glomerulonephritis.",
+    "codes": {}
+  },
+  "c3gn-cr": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The presence of crescents is a poor prognostic feature in older patients with infection-related GN.",
+    "codes": {}
+  },
+  "c3gn-mgrs": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Please note that in older patients, C3 GN can be seen in association with a paraprotein, and may be caused by activation of the alternative pathway of complement by the paraprotein.",
+    "codes": {}
+  },
+  "c4d-wer": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is positive staining for C4d in peritubular capillaries with acute tubular injury, but without other histological features of antibody-mediated rejection. Molecular analysis for features of AMR is not available. In ABO-i transplants: This represents accommodation. In sensitised patients early post-transplant: This represents probable AMR. In DSA-negative ABO-compatible transplants this likely represents no AMR. In DSA-positive ABO-compatible transplants, later post-transplant: The significance of the C4d-positivity is currently unknown. Please correlate with serum DSA levels.",
+    "codes": {}
+  },
+  "c4d0": {
+    "main_body": "C4d: negative (C4d0)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "c4d1": {
+    "main_body": "C4d: positive in 10-25% of PTC (C4d1)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "c4d2": {
+    "main_body": "C4d: positive in 25-50% of PTC (C4d2)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "c4d3": {
+    "main_body": "C4d: positive in >50% of PTC (C4d3)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ca-phos": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There are numerous/several tubulointerstitial calcifications. Possible causes include nephrocalcinosis due to hypercalcaemia, and acute phosphate nephropathy, due to phosphate ingestion (bowel prep, phosphate supplementation).",
+    "codes": {}
+  },
+  "caa0": {
+    "main_body": "No features of chronic allograft arteriopathy are present.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "caa1": {
+    "main_body": "Features of chronic allograft arteriopathy (inflammatory cells in the thickened intima and/or lack of elastic lamina reduplication) are present.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cast-neut": {
+    "main_body": "",
+    "conclusion": "Neutrophil casts",
+    "comments": "",
+    "codes": {
+      "kbc": "280"
+    }
+  },
+  "cct": {
+    "main_body": "The sample consists of cortex and connective tissue.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cg0": {
+    "main_body": "No capillary wall double contours are seen on light microscopy (cg0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cg1": {
+    "main_body": "A few segmental capillary wall double contours are seen (cg1b).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cg2": {
+    "main_body": "Capillary wall double contours are seen affecting up to 50% of capillary walls (cg2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cg3": {
+    "main_body": "Capillary wall double contours are seen affecting >50% of capillary walls (cg3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "chol-emb": {
+    "main_body": "",
+    "conclusion": "Cholesterol emboli",
+    "comments": "",
+    "codes": {
+      "native1": "35360",
+      "kbc": "68"
+    }
+  },
+  "cm": {
+    "main_body": "The sample consists of cortex and medulla.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cmct": {
+    "main_body": "The sample consists of cortex, medulla and connective tissue.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "coll3": {
+    "main_body": "",
+    "conclusion": "Collagenofibrotic glomerulopathy",
+    "comments": "",
+    "codes": {
+      "kbc": "178"
+    }
+  },
+  "cr0": {
+    "main_body": "Congo red stain is negative.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cr1": {
+    "main_body": "Congo red stain is positive.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "creat-rise?": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The cause for the recent rise in creatinine is not clear.",
+    "codes": {}
+  },
+  "creat-subopt?": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The cause for the suboptimal creatinine is not clear.",
+    "codes": {}
+  },
+  "crohn": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Crohn disease can cause several lesions in the kidney: IgA nephropathy, AA amyloidosis, granulomatous tubulointerstitial nephritis (untreated Crohn) and secondary oxalosis. In addition, some of the drugs administered for Crohn disease may also cause renal injury,",
+    "codes": {}
+  },
+  "cryo 1": {
+    "main_body": "",
+    "conclusion": "Type 1 cryoglobulinaemic GN",
+    "comments": "",
+    "codes": {
+      "native1": "47600",
+      "kbc": "134"
+    }
+  },
+  "cryo-2": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The immunofluorescence pattern is in keeping with a type 2 cryoglobulin. Potential causes include hepatitis C, auto-immune diseases, and lymphoma. Please correlate with clinical and serological findings.",
+    "codes": {}
+  },
+  "cryo-gn": {
+    "main_body": "",
+    "conclusion": "Cryoglobulinaemic glomerulonephritis",
+    "comments": "",
+    "codes": {
+      "native1": "47600",
+      "kbc": "271"
+    }
+  },
+  "cryo-seroneg": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Most non-hepatitis-associated cryoglobulinaemic GN cases (types I and II), even those that are polytypic for light chains, are due to a hematologic condition and are associated with favorable outcome after clone-directed therapy. Seronegative cryoglobulinaemic GN is seen in about a quarter of cases, mostly as a kidney-limited disease. [Javaugue et al. Kidney Int. 2022 Aug;102(2):382-394. doi: 10.1016/j.kint.2022.03.030]",
+    "codes": {}
+  },
+  "crystal-drug": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Birefringent crystals are noted \u2013 unknown exact type; possible causes include calcium oxalate and certain drugs (e.g. methotrexate, antibiotics etc.).",
+    "codes": {}
+  },
+  "crystal-gn": {
+    "main_body": "",
+    "conclusion": "Crystalglobulin-induced nephropathy",
+    "comments": "",
+    "codes": {
+      "native1": "46835",
+      "kbc": "451"
+    }
+  },
+  "crystalcryo-gn": {
+    "main_body": "",
+    "conclusion": "Crystalline Cryoglobulinaemic GN type 1",
+    "comments": "",
+    "codes": {
+      "native1": "46835",
+      "kbc": "134"
+    }
+  },
+  "ct": {
+    "main_body": "The sample consists of connective tissue only.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ct1ci0": {
+    "main_body": "(ct1,ci0)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ctci1": {
+    "main_body": "(ct1, ci1)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ctci2": {
+    "main_body": "(ct2, ci2)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ctci3": {
+    "main_body": "(ct3, ci3)",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cv0": {
+    "main_body": "Arteries show no fibrointimal thickening (cv0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cv1": {
+    "main_body": "Arteries show mild fibrointimal thickening (cv1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cv2": {
+    "main_body": "Arteries show moderate fibrointimal thickening (cv2).",
+    "conclusion": "Moderate arterial fibrointimal thickening",
+    "comments": "",
+    "codes": {}
+  },
+  "cv3": {
+    "main_body": "Arteries show severe fibrointimal thickening (cv3).",
+    "conclusion": "Severe arterial fibrointimal thickening",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "cw-irr": {
+    "main_body": "There is diffuse capillary wall thickening, with irregularities (holes/splitting) on silver stain.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cw-sp": {
+    "main_body": "There is diffuse capillary wall thickening, with \"spikes\" on silver stain.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cw0": {
+    "main_body": "There is no capillary wall thickening.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cw1": {
+    "main_body": "There is segmental capillary wall thickening.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cw2": {
+    "main_body": "There is diffuse capillary wall thickening.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "cystine": {
+    "main_body": "",
+    "conclusion": "Cystine deposition",
+    "comments": "",
+    "codes": {
+      "kbc": "62"
+    }
+  },
+  "ddd": {
+    "main_body": "",
+    "conclusion": "Dense deposit disease",
+    "comments": "",
+    "codes": {
+      "native1": "46827",
+      "kbc": "138"
+    }
+  },
+  "dha": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is tubulointerstitial scarring with crystals in tubular lumina, tubular cell cytoplasm, and in the interstitium, consistent with 2,8-dihydroxyadenine [Polarizable, golden, needle to rhomboid-shaped crystals, with or without giant cell reaction]. DHA crystalline nephropathy is a rare autosomal recessive disorder caused by adenine phosphoribosyltransferase (APRT) deficiency (Nephrol Dial Transplant 25:1909-1915, 2010).",
+    "codes": {}
+  },
+  "dha2-8": {
+    "main_body": "",
+    "conclusion": "2,8-DHA deposition",
+    "comments": "",
+    "codes": {
+      "kbc": "61"
+    }
+  },
+  "diab": {
+    "main_body": "Glomeruli are abnormal and show a marked, often nodular increase in mesangial matrix, with a mild increase in mesangial cellularity. Capillary walls are also markedly thickened.",
+    "conclusion": "Diabetic glomerulopathy",
+    "comments": "Glomerular basement membranes are thickened and there is an increase in mesangial matrix. Although not specific, the findings are most often associated with diabetes \u2013 although the patient is not stated to be diabetic, please correlate with glycaemic parameters. In the absence of diabetes, such features are referred to as \u201cidiopathic nodular glomerulosclerosis\u201d and can be seen in association with smoking and hypertension (Idiopathic Nodular Glomerulosclerosis Is a Distinct Clinicopathologic Entity Linked to Hypertension and Smoking.  Markowitz G et al. Human Pathology 2002)",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "diab-diff": {
+    "main_body": "",
+    "conclusion": "Diffuse diabetic glomerulopathy",
+    "comments": "",
+    "codes": {
+      "native1": "46832",
+      "native2": "23810.0",
+      "kbc": "171"
+    }
+  },
+  "diab-nod": {
+    "main_body": "",
+    "conclusion": "Nodular diabetic glomerulopathy",
+    "comments": "",
+    "codes": {
+      "native1": "46832",
+      "native2": "23810.0",
+      "kbc": "171"
+    }
+  },
+  "diab-tma": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There are glomerular microaneurysms, which are a feature of (thrombotic) microangiopathy (TMA), These are frequently observed in the context of severe diabetic glomerulopathy. However, please consider whether there may be another additional cause of TMA",
+    "codes": {}
+  },
+  "drhb": {
+    "main_body": "Viewed and reported by Dr Heather Brooks",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "drlm": {
+    "main_body": "Viewed and reported by Dr Linda Moran",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "e-hc": {
+    "main_body": "",
+    "conclusion": "Endocapillary hypercellularity",
+    "comments": "",
+    "codes": {
+      "native1": "46820",
+      "kbc": "3"
+    }
+  },
+  "e0": {
+    "main_body": "No endocapillary hypercellularity.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "em-com": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The electron microscopy component of this report is not currently UKAS accredited due to a change in equipment.",
+    "codes": {}
+  },
+  "em0": {
+    "main_body": "Ultrastructural examination was not performed.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "em1": {
+    "main_body": "Ultrastructural examination was performed.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "emh": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Interstitial renal extramedullary haemopoiesis is a rare findings, most often seen in association with myelofibrosis. Outcomes are dictated by therapy of the underlying neoplasm but are often poor (M Alexander et al. Mod Path 2015;28:1574-1583). Myeloproliferative neoplasm-related glomerulopathy is an under-recognized late renal complication of MPN with poor prognosis. It is characterized clinically by heavy proteinuria and renal insufficiency and histologically by variable degrees of mesangial sclerosis and hypercellularity, segmental sclerosis, features of chronic TMA, and intracapillary hematopoietic cell infiltration (Said et al.KI 2011)",
+    "codes": {}
+  },
+  "fabry": {
+    "main_body": "",
+    "conclusion": "Fabry's disease",
+    "comments": "",
+    "codes": {
+      "kbc": "181"
+    }
+  },
+  "fibr": {
+    "main_body": "",
+    "conclusion": "Fibrillary glomerulonephritis, DNAJB9-positive",
+    "comments": "",
+    "codes": {
+      "native1": "46834"
+    }
+  },
+  "fibrillary": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "This entity is most often idiopathic but in a minoroty of cases is associated with autoimmune diseases, solid malignant neoplasms, paraproteins and HCV infection; investigations to rule these out are recommended at baseline and on follow-up (Nasr S KI 2019). Extraglomerular/renal involvement is rare and usually limited to the spleen. Crescents are a less common pattern present in around 20% of cases and are generally associated with worse outcomes.Rare cases are monoclonal (only kappa or lambda): need to check with IF on paraffin, but if confirmed, and DNAJB9-positive, usually no associated with monoclonal gammopathy, and is an MGRS. If Ig without light chain usually DNAJB9 \u2013negative: rare, but usually do have monoclonal gammopathy (\u201cheavy chain fibrillary GN\u201d)",
+    "codes": {}
+  },
+  "fibronectin": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Fibronectin glomerulopathy is a rare non-immune glomerulopathy related to massive glomerular accumulation of fibronectin. It is an autosomal dominant genetic disease with with variable age-related penetrance, although in some cases no family history can be elicited. A mutation is identified in FN1 in about 40% of patients, and leads to glomerular accumulation of mutant fibronectin. The disease can recur after transplantation (limited data due to rarity of disease).",
+    "codes": {}
+  },
+  "fn-gp": {
+    "main_body": "",
+    "conclusion": "Fibronectin glomerulopathy",
+    "comments": "",
+    "codes": {
+      "kbc": "177"
+    }
+  },
+  "fn0": {
+    "main_body": "No fibrinoid necrosis.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "fr0": {
+    "main_body": "Frozen sampled received but not examined",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "fsgs": {
+    "main_body": "",
+    "conclusion": "Focal and segmenal glomerulosclerosis",
+    "comments": "In the post-transplant setting, glomerular segmental sclerosis can be recurrence of primary FSGS or, more commonly, a glomerular pattern developed secondary to a number of glomerular insults. Careful clinico-pathological correlation is needed to distinguish these. A history of (or evocative of) primary FSGS in the development of ESRF, early post-transplant development of new onset proteinuria, and extensive foot process effacement of epithelial cells would favour recurrent primary FSGS.Late post-transplant development of new onset proteinuria, previous or concurrent significant glomerular or tubulointerstitial disease of a different nature (e.g. alloimmune), as well as segmental foot process effacement favour secondary adaptive FSGS.  This can be seen in association with reduction of functioning nephrons, increased haemodynamic stress on a normal nephron population, or in association with some infections (e.g. HIV) and drugs (e.g. CNI, heroin). In this case, the features overall favour...",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "fsgs-apo": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There may be a genetic component related to african ancestry.",
+    "codes": {}
+  },
+  "fsgs-cell": {
+    "main_body": "",
+    "conclusion": "Focal and segmental glomerulosclerosis, cellular variant",
+    "comments": "",
+    "codes": {
+      "native1": "46812",
+      "kbc": "22"
+    }
+  },
+  "fsgs-cellular": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Segmental glomerular proliferation with neutrophils is unusual in the context of primary FSGS \u2013 it can be seen in cellular type FSGS, or also in the context of renal vein thrombosis.",
+    "codes": {}
+  },
+  "fsgs-coll": {
+    "main_body": "",
+    "conclusion": "Focal and segmental glomerulosclerosis, collapsing variant",
+    "comments": "The collapsing variant of focal segmental glomerulosclerosis may be idiopathic, particularly in patients of african descent, or can be seen in association with drugs (bisphosphonate, interferon therapy, CNI, lithium), infections (HIV, CMV, parvovirus B19, COVID-19), inflammatory disorders (Still disease, haemophagocytic syndrome) or ischaemia. ??genetic disorders",
+    "codes": {
+      "native1": "46812",
+      "kbc": "20"
+    }
+  },
+  "fsgs-nos": {
+    "main_body": "",
+    "conclusion": "Focal and segmental glomerulosclerosis, NOS",
+    "comments": "",
+    "codes": {
+      "native1": "46812",
+      "kbc": "19"
+    }
+  },
+  "fsgs-perih": {
+    "main_body": "",
+    "conclusion": "Focal and segmental glomerulosclerosis, perihilar variant",
+    "comments": "",
+    "codes": {
+      "native1": "46812",
+      "kbc": "23"
+    }
+  },
+  "fsgs-primary": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The nephrotic range proteinuria, acute onset of oedema and extensive foot process effacement of epithelial cells are in favour of primary FSGS.",
+    "codes": {}
+  },
+  "fsgs-second": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Proteinuria is in the non-nephrotic range, segmental glomerular scarring is perihilar, foot process effacement is segmental, and there is glomerulomegaly. These features argue in favour of secondary adaptive FSGS. This can be seen in association with reduction of functioning nephrons (previous glomerulonephritis or tubulointerstitial nephritis, inherited nephropathies, agenesis, reflux, low birth weight, unsampled scarring elsewhere in the kidney etc.), or increased haemodynamic stress on a normal nephron population (obesity, increased lean body mass due to body-building or anabolic steroids, cyanotic heart disease, sickle cell anaemia etc.). There are no EM features to suggest a type IV genetic collagenopathy, Fabry\u2019s disease or uromodulin-related ADTIKD. However, in the presence of a family history, please consider testing for genetic causes of FSGS and CKD, some of which may manifest later in life, including collagen type IV alpha chain mutations and ApoL1 risk variants. In view of the lack of response to immunosuppressive therapy, it is worth considering referring for testing for genetic FSGS. Is there a family history?",
+    "codes": {}
+  },
+  "fsgs-tip": {
+    "main_body": "",
+    "conclusion": "Focal and segmental glomerulosclerosis, tip variant",
+    "comments": "",
+    "codes": {
+      "native1": "46812",
+      "kbc": "21"
+    }
+  },
+  "g0": {
+    "main_body": "There is no glomerulitis (g0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "g1": {
+    "main_body": "There is mild glomerulitis (g1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "g2": {
+    "main_body": "There is moderate glomerulitis (g2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "g3": {
+    "main_body": "There is severe glomerulitis (g3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ght": {
+    "main_body": "Some glomeruli are enlarged.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "glom-gs": {
+    "main_body": "",
+    "conclusion": "Global glomerulosclerosis above expected for age",
+    "comments": "",
+    "codes": {
+      "kbc": "29"
+    }
+  },
+  "glom-ht": {
+    "main_body": "",
+    "conclusion": "Glomerulomegaly",
+    "comments": "",
+    "codes": {
+      "kbc": "24"
+    }
+  },
+  "glom-sch": {
+    "main_body": "",
+    "conclusion": "Glomerular ischaemia",
+    "comments": "",
+    "codes": {
+      "kbc": "36"
+    }
+  },
+  "gn-nos": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is an immune complex related glomerulonephritis (IC-GN), that could be recurrent or de novo disease. A subset of post-transplant IC-GN are unexplained (\u201cimmune-complex glomerulopathy not otherwise specified, ICG-NOS\u201d), defy classification and may be related to alloimmunity. (Chin et al. https://www.kireports.org/article/S2468-0249(20)30043-7/fulltext)",
+    "codes": {}
+  },
+  "gn0-tin0": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is no evidence of an active glomerulonephritis or tubulointerstitial nephritis.",
+    "codes": {}
+  },
+  "gnorm": {
+    "main_body": "Glomeruli appear normal.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "gout": {
+    "main_body": "",
+    "conclusion": "Uric acid crystal deposition",
+    "comments": "",
+    "codes": {
+      "native1": "12010",
+      "kbc": "59"
+    }
+  },
+  "hc0": {
+    "main_body": "No hypercellularity.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ht": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is severe arterial intimal thickening in keeping with hypertensive change. This may explain some of the dysfunction.",
+    "codes": {}
+  },
+  "huvs": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "In view of the history of a rash and low complement - please consider whether this could represent hypocomplementaemic urticarial vasculitis, which can present with a \"lupus-like\" MPGN exudative glomerulonephritis.",
+    "codes": {}
+  },
+  "i-ifta": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is marked inflammation in scarred areas of cortex, without other features of rejection. Please consider possible causes, such as chronic obstruction/pyelonephritis, poor perfusion or previous BK nephropathy or rejection (T cell or antibody-mediated). Please check for a DSA.",
+    "codes": {}
+  },
+  "i0_i-ifta0": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and <10% of scarred cortex (i0,i-IFTA0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i0_i-ifta1": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and 10-25% of scarred cortex (i0, i-IFTA1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i0_i-ifta2": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and 25-50% of scarred cortex (i0, i-IFTA2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i0_i-ifta3": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects <10% of non-scarred cortex and >50% of scarred cortex (i0, i-IFTA3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i1_i-ifta0": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and <10% of scarred cortex (i1, i-IFTA0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i1_i-ifta1": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and 10-25% of scarred cortex(i1, i-IFTA1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i1_i-ifta2": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and 25-50% of scarred cortex (i1, i-IFTA2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i1_i-ifta3": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects 10-25% of non-scarred cortex and >50% of scarred cortex (i1, i-IFTA3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i2_i-ifta0": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and <10% of scarred cortex(i2, i-IFTA0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i2_i-ifta1": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and 10-25% of scarred cortex(i2, i-IFTA1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i2_i-ifta2": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and 25-50% of scarred cortex (i2, i-IFTA2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i2_i-ifta3": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects 25-50% of non-scarred cortex and >50% of scarred cortex (i2, i-IFTA3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i3_i-ifta0": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and <10% of scarred cortex(i3, i-IFTA0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i3_i-ifta1": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and 10-25% of scarred cortex (i3, i-IFTA1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i3_i-ifta2": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and 25-50% of scarred cortex (i3, i-IFTA1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "i3_i-ifta3": {
+    "main_body": "There is a chronic interstitial inflammatory infiltrate, that affects >50% of non-scarred cortex and >50% of scarred cortex (i3, i-IFTA3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ic-gn": {
+    "main_body": "",
+    "conclusion": "Immune complex glomerulonephritis, NOS",
+    "comments": "",
+    "codes": {
+      "native1": "46833",
+      "kbc": "101"
+    }
+  },
+  "ifp": {
+    "main_body": "Immunofluorescence was performed on paraffin sections after protease digestion.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ifta": {
+    "main_body": "",
+    "conclusion": "Tubulointerstitial scarring, NOS",
+    "comments": "",
+    "codes": {
+      "native1": "46850",
+      "kbc": "276"
+    }
+  },
+  "ifta-cause0": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is tubulointerstitial scarring with focal global glomerulosclerosis, and without any obvious cause. Is there a family history of kidney disease ? Please consider genetic testing for autosomal dominant tubulointerstitial kidney disease and other potential genetic causes.",
+    "codes": {}
+  },
+  "ifta-diff": {
+    "main_body": "Tubules are mostly preserved with no tubular basement membrane thickening. Interstitial fibrosis is hard to estimate in view of the oedema; using diagnostic aids for diffuse fibrosis without atrophy, interstitial fibrosis is estimated at around \u2026% (ref supplemental figure 4, Farris et al. AJT 2014; 14: 897\u2013907).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "iga": {
+    "main_body": "",
+    "conclusion": "IgA nephropathy",
+    "comments": "Histological grading of the lesion of IgA nephropathy according to the Oxford Classification is MEST. Scores of M1 and S1, respectively, indicate mesangial hypercellularity and focal segmental sclerosis, and by themselves indicate a mildly increased risk of renal functional deterioration; however, together these suggest a considerable risk of such deterioration. Tubular atrophy (T) scores of 1 and 2 indicate progressively greater risk of renal functional decline compared with T0, and augment the poor prognosis associated with M1 and S1. Endocapillary proliferation (E1), if present, suggests a lesion which may improve with immunosuppressive therapy (Reference: Kidney Int. 76:534-545 and 546-556, 2009).",
+    "codes": {
+      "native1": "46818",
+      "kbc": "102"
+    }
+  },
+  "iga-gbm": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Structural abnormalities of the glomerular basement membranes (thinning and or splitting) are not uncommon in IgA nephropathy and do not necessarily indicate an additional pathology such as a genetic abnormality of the collagen IV alpha chain genes. However, recent evidence suggests that in some cases of both sporadic and familial IgA nephropathy, there is a genuine dual pathology, with 30% of sporadic cases showing a genetic abnormality of collagen type IV. Patients without a genetic abnormality of collagen type IV tend to have more IgA and C3 deposition and more M,E and S scores compared to patients with a genetic abonrmality. Please check family history and give consideration to genetic testing. (Refs: Li et al. KI 2020;5(7):1075-77; Yuan et al. JASN 2023;34(1):132-44).",
+    "codes": {}
+  },
+  "iga-humps": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The histological features are unusual for an IgA nephropathy or IgA vasculitis, although on occasion atypical histological presentations of these entities can be seen. Several of these features would be instead in keeping with an infection-related glomerulonephritis (IRGN): \u201chumps\u201d on electron microscopy, neutrophils and fibrinoid necrosis in the glomeruli and strong staining with C3 alongside IgA. Possible underlying infections for infection-related GN include Staphylococcus/MRSA but also gram negative bacilli and a variety of other microorganisms including some fastidious (e.g. Bartonella) and/or occult infections (e.g. endocarditis).Clinical factors favouring IRGN over IgA nephropathy include older age, diabetes, presentation with acute renal failure, intercurrent culture-documented infection, hypocomplementemia, positive ANCA and vasculitic rash (Refs: Satoskar, Nat Rev Nephrol DOI: 10.1038/s41581-019-0178-8; Satoskar et al. ClinJASN 1: 1179\u20131186, 2006; Nasr et al. Nephron Clin Pract 2011;119:c18\u2013c26). Please carefully rule out occult infections (e.g. endocarditis) and \u201cculture negative\u201d microorganisms.",
+    "codes": {}
+  },
+  "iga-lupus": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The histological \"lupus-like\" features are unusual for standard IgA nephropathy but are described in rare cases of Staphylococcus/MRSAl-infection related IgA dominant glomerulonephritis (DOI: 10.1016/j.ekir.2018.05.010; . doi: 10.2215/CJN.01030306), and in cirrhosis-related IgA-dominant glomerulonephritis, often but not always in assocation with a concomittant bacterial infection acting as a 2nd hit (https://doi.org/10.1371/journal.pone.0193274). Although mostly these entities show polyclonal light chains, on occasion, one light chain can predominate as seen in this case. It would however be prudent to exclude a glomerulonephritis related to an IgA lambda paraprotein.",
+    "codes": {}
+  },
+  "iga-mpgn": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Membranoproliferative pattern glomerulonephritis with IgA lambda predominance could represent an MPGN-pattern IgA nephropathy, or an IgA-dominant PGNMID (proliferative glomerulonephritis with monotypic Ig deposits). There are no firm histological criteria to distinguish these and clinicopathological correlation is required. MPGN-pattern IgA nephropathy can be seen in patient with liver disease and infections, please check for these (https://doi.org/10.1016/j.humpath.2018.06.031). IgA-dominant PGNMID is associated with monoclonal IgA clone in ~40% of cases (DOI: 10.1681/ASN.202489y1e9vh), and these often respond to clone-directed therapy. Full haematological work up is advised.",
+    "codes": {}
+  },
+  "iga-podo": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Minimal change has been described in association with mild IgA nephropathy and these cases are thought to behave in terms of outcome and treatment response like IgA nephropathy with superimposed minimal change \u2013 i.e., this represents a dual pathology, and the minimal change dominates the clinical picture and treatment response. (Ref: Herlitz et al. Clin JASN).",
+    "codes": {}
+  },
+  "iga-recurr": {
+    "main_body": "",
+    "conclusion": "Recurrent IgA nephropathy",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "iga-sec": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The IgA deposition could also be secondary \u2013 please correlate with clinical features, including any history of hepatobiliary or bowel disease (IBD). IgA nephropathy can be secondary to ulcerative colitis. There are no specific histological features that differentiate primary from secondary IgA nephropathy. It can present with a vasculitic rash/HSP type picture in this context \u2013 please check for any such features in view of the glomerular fibrinoid necrosis (Ambruzs et al Clin J Am Soc Nephrol 9: 265\u2013270, 2014).",
+    "codes": {}
+  },
+  "iga-tma": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Features of TMA particularly in arterioles can be seen in association with IgA nephropathy where it is often a marker of poor prognosis, and may be associated with elevated hypertension, but not always. However, please consider other causes of TMA, such as malignant hypertension, disorders of the regulation of the alternative pathway of complement activation, antiphospholipid antibodies, or drugs or infections. (Ref: Khalil El Karoui et al., J Am Soc Nephrol 23: 137\u2013148, 2012).",
+    "codes": {}
+  },
+  "iga-vasc": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "In the correct clinical context the findings would be in keeping with Henoch-Schonlein purpura. Oxford classification is not validated for use in HSP, but would be MESTC",
+    "codes": {}
+  },
+  "igg4": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The well-demarcated areas of fibrosis and inflammation, storiform stroma, abundant IgG4-positive plasma cells (>10/HPF) and tubular basement membrane electron dense deposits are features most often seen in association with IgG4-related tubulointerstitial nephritis (IgG4-TIN). Diagnosis of IgG4-TIN requires the histologic features of plasma cell\u2013rich TIN with increased IgG4 plasma cells and at least one other feature: typical imaging, serology (elevated serum IgG4 or total IgG level) and/or other organ involvement (Includes autoimmune pancreatitis, sclerosing cholangitis, inflammatory masses in any organ, sialadenitis, inflammatory aortic aneurysm, lung involvement, retroperitoneal fibrosis) (see JASN 2011;22:1343-1352).",
+    "codes": {}
+  },
+  "igm": {
+    "main_body": "",
+    "conclusion": "Features in keeping with IgM nephropathy",
+    "comments": "",
+    "codes": {
+      "native1": "46817"
+    }
+  },
+  "igm-cap": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "This lesion is seen in association with Waldenstrom\u2019s macroglobulinaemia or other IgM-producing lymphoproliferative disorders.",
+    "codes": {}
+  },
+  "inad": {
+    "main_body": "",
+    "conclusion": "Inadequate/suboptimal biopsy",
+    "comments": "",
+    "codes": {
+      "native1": "9000",
+      "kbc": "259"
+    }
+  },
+  "inf": {
+    "main_body": "An area of cortical infarction is present.",
+    "conclusion": "Infarction",
+    "comments": "",
+    "codes": {
+      "native1": "44321",
+      "kbc": "75"
+    }
+  },
+  "inf-gn": {
+    "main_body": "",
+    "conclusion": "Infection-related glomerulonephritis",
+    "comments": "",
+    "codes": {
+      "kbc": "107"
+    }
+  },
+  "infar": {
+    "main_body": "",
+    "conclusion": "Infarted kidney",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "intracap-igm": {
+    "main_body": "",
+    "conclusion": "Intracapillary monoclonal IgM glomerulopathy",
+    "comments": "",
+    "codes": {
+      "native1": "46835",
+      "kbc": "363"
+    }
+  },
+  "isch": {
+    "main_body": "",
+    "conclusion": "Glomerular ischaemia",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "isch1": {
+    "main_body": "Some glomeruli show mild ischaemic-type capillary deflation.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "isch2": {
+    "main_body": "Some glomeruli marked ischaemic-type capillary deflation with thickening of Bowman's capsule.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "it-gn": {
+    "main_body": "",
+    "conclusion": "Monoclonal Immunotactoid glomerulopathy",
+    "comments": "",
+    "codes": {
+      "native1": "46836",
+      "kbc": "453"
+    }
+  },
+  "jga": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Hyperplasia of the juxtaglomerular apparatus has been described in association with the following situations: Bartter and Gitelman syndromes, insulin-dependent diabetes mellitus with microalbuminuria, chronic renal ischemia, chronic volume depletion (diuretics, laxatives), chronic calcineurin inhibitor treatment (especially if nephrotoxicity is present) and ACEIs or ARBs (or dual angiotensin blockade).",
+    "codes": {}
+  },
+  "karpinski": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Karpinski score (semi-quantitative score for renal implantation biopsy): -/12. (Karpinski et al. Transplantation 1999; 67: 1162\u20131167)",
+    "codes": {}
+  },
+  "key": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Value",
+    "codes": {}
+  },
+  "lc-hist": {
+    "main_body": "",
+    "conclusion": "Light chain crystal-storing histiocytosis",
+    "comments": "",
+    "codes": {
+      "native1": "46835",
+      "kbc": "439"
+    }
+  },
+  "lc-podo": {
+    "main_body": "",
+    "conclusion": "Light chain crytalline podocytopathy",
+    "comments": "",
+    "codes": {
+      "native1": "46835"
+    }
+  },
+  "lcat": {
+    "main_body": "",
+    "conclusion": "Lecithin-Cholesterol Acyltransferase (LCAT) Deficiency",
+    "comments": "LCAT deficiency due to LCAT genetic mutations\u200b may be complicated by chronic progressive nephrotic syndrome, resulting in end-stage kidney disease usually by the fourth or fifth decade of life. \u200b In LCAT deficiency the lack of esterification of cholesterol esters on HDL results in hypoalphaliproteinaemia, hypercholesterolaemia and increased lipid tissue deposition, which in the kidney occurs in the mesangium and glomerular basement membrane leading to progressive glomerulosclerosis. Acquired LCAT deficiency, due to anti-LCAT circulating antibodies, histologically appear similar to congenital LCAT deficiency. There is a single report of association with membranous nephropathy with acquired LCAT deficiency. In this case report, the authors demonstrated that the LCAT antigen was the antigen implicated in the immune complexes of the membranous nephropathy.",
+    "codes": {
+      "kbc": "179"
+    }
+  },
+  "lccn": {
+    "main_body": "",
+    "conclusion": "Light chain cast nephropathy",
+    "comments": "in routine clinical practice, we propose to report only the highest number of casts per square millimeter in the cortex, using simple cutoffs of <5, 5 to 10, and >10 casts/mm2. https://doi.org/10.1182/blood.2019003807",
+    "codes": {
+      "native1": "46835"
+    }
+  },
+  "lcpt": {
+    "main_body": "",
+    "conclusion": "Light chain proximal tubulopathy, crystalline/non-crystalline",
+    "comments": "",
+    "codes": {
+      "native1": "46835",
+      "kbc": "263"
+    }
+  },
+  "lcpt-noncrys": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Although there is increase lambda light chain in proximal tubules, the distinction of non-crystalline variant light chain proximal tubulopathy (LCPT) from the regular physiological trafficking of light chains within proximal tubular cells can pose a diagnostic dilemma. In the absence of abnormal proximal tubular epithelial cell light and ultrastructural features (such as expanded cytoplasm containing abnormal fibrils or lysosomes), the findings here are not diagnostic for LCPT. A marked increase in intra-cytoplasmic and/or abnormal appearing lysosomes (in particular the presence of fibrils) offers support for a diagnosis of non-crystalline proximal light chain tubulopathy.",
+    "codes": {}
+  },
+  "ln-1": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 1",
+    "comments": "",
+    "codes": {
+      "native2": "38720.0",
+      "kbc": "116"
+    }
+  },
+  "ln-2": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 2",
+    "comments": "",
+    "codes": {
+      "native1": "46819",
+      "native2": "38720.0",
+      "kbc": "117"
+    }
+  },
+  "ln-3": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 3",
+    "comments": "",
+    "codes": {
+      "native1": "46820",
+      "native2": "38720.0",
+      "kbc": "118"
+    }
+  },
+  "ln-3-4": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 3+5",
+    "comments": "",
+    "codes": {
+      "native2": "38720.0"
+    }
+  },
+  "ln-3-5": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 3+4",
+    "comments": "",
+    "codes": {
+      "native2": "38720.0"
+    }
+  },
+  "ln-4": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 4",
+    "comments": "",
+    "codes": {
+      "native1": "46815",
+      "native2": "38720.0",
+      "kbc": "119"
+    }
+  },
+  "ln-5": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 5",
+    "comments": "",
+    "codes": {
+      "native1": "46829",
+      "native2": "38720.0",
+      "kbc": "120"
+    }
+  },
+  "lupus": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "According to recently published guidelines (Bajema et al. KI 2018;93:789-796): Modified NIH activity index =/24;Modified NIH Chronicity index = /12",
+    "codes": {}
+  },
+  "m": {
+    "main_body": "The sample consists of medulla only.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mamyl": {
+    "main_body": "There are amorphous, Congo red positive mesangial amyloid deposits.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mb": {
+    "main_body": "",
+    "conclusion": "Membranous glomerulopathy",
+    "comments": "Membranous glomerulonephritis can be a primary or secondary disease. There are no histological findings to suggest a secondary membranous, but please correlate with serological and radiological findings. Possible causes for a secondary membranous glomerulonephritis include malignancies (carcinomas, sarcomas and leukaemias), infections (hepatitis B and C, syphilis, filariasis), autoimmune diseases (SLE, rheumatoid arthritis, Sjogren syndrome, mixed connective tissue disease, Hashimoto thyroiditis, Graves disease) and drugs/toxins (penicillamine, gold, mercuric chloride, captopril, cationic bovine serum albumin). Please correlate with clinical, radiological and serological findings.",
+    "codes": {
+      "native1": "46829",
+      "kbc": "139"
+    }
+  },
+  "mb-cll": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is no evidence of light chain restriction; this is a usual type, polyclonal membranous glomerulonephritis. Cases of membranous glomerulonephritis have been described in association with CLL and some have shown remission in response to successful treatment of CLL. However, please also consider other more common potential causes of PLA2R-negative membranous glomerulonephritis, such as epithelial malignancies, drugs (including NSAIDS) and infection (e.g. syphilis).",
+    "codes": {}
+  },
+  "mb-em": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is a mixture of \u201cnew\u201d (stages 1+2) and \u201cold\u201d (stages 3+4) deposits (Ehrenreich and Churg, Pathology Annual Vol 3: 145-186, 1968), in the following approximate percentages: \u201cnew\u201d %, \u201cold\u201d %.",
+    "codes": {}
+  },
+  "mb-masked": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The overall findings are characteristic of membranous-like glomerulopathy with masked IgG kappa deposits (MGMID). MGMID is rare (0.1% of kidney biopsies), and usually affects young female individuals with most <40 years. All patients described to date have proteinuria with a mean 24-hour urine protein of 3.5 g and around 1/3 are nephrotic; 30% have elevated creatinine at biopsy, and hematuria is common. Autoimmune serologic tests are positive in about half of patients (weak ANA most common), but few meet criteria for a defined autoimmune disease. Although the \u201cmasked\u201d deposits appear monoclonal, the great majority of patients do not have an identifiable paraprotein or lymphoproliferative disorder. Optimal treatment for MGMID is not known, and clinical course is unpredictable; approximately 50% have complete or partial remission, and 11% progress to end stage kidney disease. Recurrence in the transplant has been described. The etiology of this entity remains unknown. (Ref: Kidney Int Rep. 2016 Nov; 1(4): 299\u2013305).",
+    "codes": {}
+  },
+  "mb-mono": {
+    "main_body": "",
+    "conclusion": "Monoclonal membranous nephropathy",
+    "comments": "",
+    "codes": {
+      "native1": "46835"
+    }
+  },
+  "mb-pla2r": {
+    "main_body": "",
+    "conclusion": "Membranous glomerulopathy, PLA2R-positive",
+    "comments": "PLA2R-positive membranous GP can be a primary disease, or can be secondary to infections (viral), autoimmune diseases, and malignancy.",
+    "codes": {
+      "native1": "46829",
+      "kbc": "141"
+    }
+  },
+  "mb-pla2r0": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Please rule out causes of secondary membranous glomerulonephritis: malignancies (carcinomas, sarcomas and leukaemias), infections (hepatitis B and C, syphilis, filariasis), autoimmune diseases (SLE, rheumatoid arthritis, Sjogren syndrome, mixed connective tissue disease, Hashimoto thyroiditis, Graves disease) and drugs/toxins (penicillamine, gold, mercuric chloride, captopril, cationic bovine serum albumin). Please correlate with clinical, radiological and serological findings.",
+    "codes": {}
+  },
+  "mb-recurr": {
+    "main_body": "",
+    "conclusion": "Recurrent membranous nephropathy",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "mb-rvt": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There are segmental endocapillary neutrophils and/or thrombi; these features are described in association with renal vein thrombosis, although this feature is not very specific or sensitive.",
+    "codes": {}
+  },
+  "mb-sec": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Histological features that suggest a secondary membranous glomerulonephritis (mesangial electron dense deposits) or a lupus membranous glomerulonephritis (full house of immunoglobulin staining, tubuloreticular inclusions) are present.Possible causes for a secondary membranous glomerulonephritis include malignancies (carcinomas, sarcomas and leukaemias), infections (hepatitis B and C, syphilis, filariasis), autoimmune diseases (SLE, rheumatoid arthritis, Sjogren syndrome, mixed connective tissue disease, Hashimoto thyroiditis, Graves disease) and drugs/toxins (penicillamine, gold, mercuric chloride, captopril, cationic bovine serum albumin). Please correlate with clinical, radiological and serological findings.",
+    "codes": {}
+  },
+  "mb-spherules": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Membranous glomerulonephritis with microspherular deposits is considered by most to be a variant of membranous glomerulonephritis. This type of membranous GN is most often PLA2R-negative and is frequently associated with auto-immunity (especially SLE, Sjogren's).Other less common associations include infections (especially Hep C) and sometimes malignancies (haematological and non-haematological). Please carefully consider and rule out these associations clinically. Little is known on outcome/response to therapy. (Refs: Ren et al. Glomerular Dis 2023; 3(1):197-210; Choung et al. Ultrastructural Path 2022; 46(4):377-387)",
+    "codes": {}
+  },
+  "mc0": {
+    "main_body": "There is no increase in mesangial cellularity.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mc1": {
+    "main_body": "There is a mild increase in mesangial cellularity.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mc2": {
+    "main_body": "There is a moderate increase in mesangial cellularity.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mc3": {
+    "main_body": "There is a marked increase in mesangial cellularity.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mct": {
+    "main_body": "The sample consists of medulla and connective tissue.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mdt": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "This case has not been discussed at an MDT yet; if there are any changes to the report after MDT discussion, an addendum will be signed out.",
+    "codes": {}
+  },
+  "mdt0": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "This case has not been discussed at an MDT yet; if there are any changes to the report after MDT discussion, an addendum will be signed out.",
+    "codes": {}
+  },
+  "mexp1": {
+    "main_body": "There is mild mesangial expansion.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mexp2": {
+    "main_body": "There is moderate mesangial expansion.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mexp3": {
+    "main_body": "There is severe mesangial expansion.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mgrs": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "This is within the spectrum of diseases described as monoclonal gammopathy of renal significance (Bridoux F et al KI 2015; 698-711)",
+    "codes": {}
+  },
+  "mgrs0": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is no evidence of a paraprotein-related disease.",
+    "codes": {}
+  },
+  "midd": {
+    "main_body": "",
+    "conclusion": "Monoclonal Immunoglobulin Deposition Disease (LCDD, HCDD, LHCDD)",
+    "comments": "",
+    "codes": {
+      "native1": "46835",
+      "kbc": "172"
+    }
+  },
+  "midd-if": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "When presenting in the form of combined light chain cast nephropathy + light chain deposition disease, it is not unusual for ultrastructural examination to be negative for granular deposits; this is referred to as LCDD, immunofluorescence-only. Compared to cases of LCDD without light chain cast nephropathy, LCDD + light chain cast nephropathy tends to occur in older patients with more severe renal insufficiency and less severe proteinuria and more likely to fulfill criteria for multiple myeloma. The clinical, pathologic, and outcome data of this group are more typical of + light chain cast nephropathy than LCDD (Lin et al J Am Soc Nephrol 12: 1482\u20131492, 2001).",
+    "codes": {}
+  },
+  "midd-pgnmid": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The differential diagnosis is between a Monoclonal Immunoglobulin Deposition Disease (MIDD, in this case heavy and light chain deposition) and Proliferative Glomerulonephritis with Monoclonal Immunoglobulin Deposition (PGNMID). The linear powdery EM deposits favour the former, but there is known morphological overlap between the 2 entities. Clinicopathological correlation is advised: MIDD is more often associated with a paraprotein and identifiable clone, whereas most cases of PGNMID have neither paraprotein nor clone identified.",
+    "codes": {}
+  },
+  "mild-ifta": {
+    "main_body": "",
+    "conclusion": "Mild interstitial fibrosis/tubular atrophy",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "min-ch": {
+    "main_body": "",
+    "conclusion": "Minimal change disease",
+    "comments": "",
+    "codes": {
+      "native1": "46810",
+      "kbc": "155"
+    }
+  },
+  "min-glom": {
+    "main_body": "",
+    "conclusion": "Minor/No glomerular abnormalities",
+    "comments": "",
+    "codes": {
+      "native1": "46811",
+      "kbc": "30"
+    }
+  },
+  "minch-igm": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is scanty mesangial IgM immune complex deposition, without mesangial hypercellularity. The significance of this is controversial; it may be associated with a less good response to treatment.",
+    "codes": {}
+  },
+  "minch-old": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Minimal change disease is a disorder usually encountered in young children with nephrotic syndrome. Nevertheless, minimal change disease can also be observed in adults with nephrotic syndrome and, rarely, as a disease secondary to a systemic process (such as Hodgkin\u2019s disease, thymoma, or drug hypersensitivity).",
+    "codes": {}
+  },
+  "mito": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There are abnormal mitochondria in (glomeruli and/or tubules), increased in size, of irregular shape, and with fragmented/disrupted cristae and increased granular and fibrillar matrix. These changes can be seen in diseases with mutated DNA in mitochondria, or can be acquired with drugs that interfere with mtDNA replication or cytochrome oxidase 1 (COX1), e.g. reverse transcriptase inhibitors, tyrosine kinase inhibitors etc. Please correlate with clinical features and drug history.",
+    "codes": {}
+  },
+  "mm0": {
+    "main_body": "There is no increase in mesangial matrix.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mm1": {
+    "main_body": "There is a mild increase in mesangial matrix.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mm2": {
+    "main_body": "There is a moderate increase in mesangial matrix.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mm3": {
+    "main_body": "There is a marked increase in mesangial matrix.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mod-ifta": {
+    "main_body": "",
+    "conclusion": "Moderate interstitial fibrosis/tubular atrophy",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "mpgn": {
+    "main_body": "Glomeruli show a membranoproliferative pattern glomerulonephritis.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "mpgn-ic": {
+    "main_body": "",
+    "conclusion": "Membranoproliferative glomerulonephritis, immune complex type (IC-MPGN)",
+    "comments": "A membranoproliferative pattern glomerulonephritis with polyclonal immune complex deposition is seen in association with infections (including Hep C and HIV, occult infections such as endocarditis or rare infections such as Bartonella henselae \u2013 cats?), autoimmune disease (including lupus) and cryoglobulins. It can also be seen as part of an acute, generally infection-related exacerbations of an underlying C3-predominant GN, so investigations for abnormalities of the alternative pathway of complement activation are warranted. Patients with IC-MPGN can have a genetic or acquired abnormality of the alternative pathway of complement activation in ~5-10% of cases, and transition between IC-MPGN and C3-dominant forms is described. The exudative pattern (neutrophil-rich) is more commonly seen in cryoglobulinaemia and C3 GN. In some cases no cause is identified despite extensive investigation, and these are referred to as \"idiopathic\".",
+    "codes": {
+      "native1": "46826",
+      "kbc": "16"
+    }
+  },
+  "mvi": {
+    "main_body": "",
+    "conclusion": "Microcirculation inflammation, C4d-negative, DSA-negative",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "mvi-c4d0-dsa0": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "MVI above the histological threshold, without circulating DSA and with negative C4d staining in peritubular capillaries has been observed in patients with normal or abnormal kidney function. This is a purely descriptive phenotype, and the cause remains unclear. Further research is necessary to determine the prevalence, the causes and related biological processes and best treatment for this pattern. These cases may represent alloreactive T cell mediated responses; autoreactive or alloreactive non-HLA antibodies; primary NK cell activation through missing self; viral infection; other mechanisms of innate immune activation; ischemia reperfusion injury, etc.",
+    "codes": {}
+  },
+  "myelinoid": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There are also occasional myelinoid whorls/zebra bodies in a epithelial cells. Please consider genetic testing for Fabry\u2019s disease. These features can also be seen in association with other genetic causes (e.g. LMX1B) and certain drugs (e.g. (hydroxyl)chloroquine, aminoglycosides, amiodarone etc.)",
+    "codes": {}
+  },
+  "myoglobin": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Does the patient have any clinical evidence of recent rhabdomyolysis such as muscle pain and weakness, general manifestations of malaise, fever, tachycardia, nausea and vomiting or cardiac arrhythmia? Please correlate with serum CK level, and presence of myoglobinemia or myoglobinuria; however these can normalise before the acute kidney injury becomes clinically apparent.Co-morbidities (immobilisation, dehydration, infections can render patients susceptible to the myotoxic potential of certain drugs (e.g. zidovudin) or to rhabdomyolysis. HIV protease inhibitors can potentiate the myotoxicity of statins. For a list of drugs please see Dalakas et al J Neurol Neurosurg Psychiatry 2009;80:832\u2013838.",
+    "codes": {}
+  },
+  "neut": {
+    "main_body": "",
+    "conclusion": "Neutrophilic tubulitis",
+    "comments": "In view of the small focus of neutrophilic tubulitis, please exclude a urinary tract infection.",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "nod-gs": {
+    "main_body": "",
+    "conclusion": "Nodular glomerulosclerosis, idiopathic",
+    "comments": "",
+    "codes": {
+      "native1": "46832",
+      "kbc": "529"
+    }
+  },
+  "norm": {
+    "main_body": "",
+    "conclusion": "Normal or near-normal biopsy",
+    "comments": "",
+    "codes": {
+      "native1": "100",
+      "kbc": "320"
+    }
+  },
+  "np1": {
+    "main_body": "Occasional tubules contain neutrophil casts.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "np2": {
+    "main_body": "Many tubules contain neutrophil casts.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "nr": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is no evidence of rejection.",
+    "codes": {}
+  },
+  "nrnr": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is no evidence of rejection or of recurrent disease.",
+    "codes": {}
+  },
+  "org": {
+    "main_body": "",
+    "conclusion": "Obesity-related glomerulopathy",
+    "comments": "",
+    "codes": {
+      "kbc": "166"
+    }
+  },
+  "ox": {
+    "main_body": "",
+    "conclusion": "Oxalate nephropathy",
+    "comments": "",
+    "codes": {
+      "kbc": "58"
+    }
+  },
+  "oxalate": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Is there a family history of renal failure that could indicate primary genetic hyperoxaluria? Are there any causes of enteric hyperoxaluria, such as Crohn\u2019s disease, cystic fibrosis, pancreatobiliary diseases, short bowel syndrome or surgical procedures for weight loss (esp. Roux-en-Y gastric bypass)? Is there any history of excess consumption of ethylene glycol or oxalate-containing foods (such as vitamin C, orlistat, cocoa, tea, rhubarb, spinach etc.)?",
+    "codes": {}
+  },
+  "p-amr": {
+    "main_body": "",
+    "conclusion": "Probable antibody-mediated rejection",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "pauci-gn": {
+    "main_body": "",
+    "conclusion": "Pauci-immune segmental necrotising glomerulonephritis",
+    "comments": "",
+    "codes": {
+      "native1": "46822",
+      "kbc": "126"
+    }
+  },
+  "pgnmid": {
+    "main_body": "",
+    "conclusion": "Proliferative GN with monoclonal Ig Deposits (PGNMID)",
+    "comments": "Although the findings are not typical, please rule out cryoglobulinaemia. If cryoglobulinaemia has been excluded, the findings fit best with \u201cPGNMID\u201d (proliferative glomerulonephritis with non-organised monoclonal immunoglobulin deposition). This entity is often associated with a monoclonal gammopathy, but it is unusual for a myeloma or lymphoma to be identified, even on long term follow-up. Recurrence after transplantation is described (see Nasr et al JASN 2009: 2055-2064). The mean age at presentation is 55\u2009years, but the disease may occur at any age. It is important at all ages to do a full haematological work up; in cases with negative haematological investigations, it has been speculated that PGNMID may results from oligoclonal production of nephrotoxic IgG3 secondary to a skewed B-cell repertoire induced by viral or other antigenic stimulation\u00a0(Bridoux et al. Nephrology Dialysis Transplantation 36(2): 208\u2013215).",
+    "codes": {
+      "native1": "46835",
+      "kbc": "133"
+    }
+  },
+  "polyoma": {
+    "main_body": "",
+    "conclusion": "Polyoma virus nephropathy",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "polyoma1": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The tubulointerstitial infiltrate could be related to polyoma virus nephropathy, but it is also above treshold for T cell-mediated rejection; consder treatment depending in clinical evolution and/or consider a re-biopsy.",
+    "codes": {}
+  },
+  "polyoma2": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Tubulointerstitial infiltrates that are negative for SV40 antigen immunohistochemistry do not fully exclude BK virus nephropathy and have been found in some cases to precede BK nephropathy detectable by immunohistochemistry (Mengel et al AJT 2017); please correlate with results of serum BK-PCR.",
+    "codes": {}
+  },
+  "prob-amr": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "In the context of circulating DSA, individual lesions of MVI (g, ptc, v, acute TMA, cg, ptcml) below the histological threshold for MVI (g+ptc<2) and in the absence of C4d deposition in peritubular capillaries, probably indicate antibody activity. This phenotype can be diagnosed in patients with normal or abnormal kidney function. Depending on the clinical context, antibody-targeted treatment could be considered. Further research is necessary to determine the prevalence, impact, and best treatment for this phenotype.",
+    "codes": {}
+  },
+  "prot?": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The cause for the proteinuria is not clear.",
+    "codes": {}
+  },
+  "ptc0": {
+    "main_body": "Peritubular capillary inflammation is present in <10% of cortical peritubular capillaries (ptc0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ptc1": {
+    "main_body": "Peritubular capillary inflammation with a maximum of 3-4 cells is present in >10% of cortical peritubular capillaries (ptc1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ptc2": {
+    "main_body": "Peritubular capillary inflammation with a maximum of 9 cells is present in >10% of cortical peritubular capillaries (ptc2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ptc3": {
+    "main_body": "Peritubular capillary inflammation with 10 or more cells is present in >10% of cortical peritubular capillaries (ptc3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ptcml": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is significant multilayering of the peritubular capillary basement membrane on electron microscopy, raising the possibility of chronic antibody-mediated rejection \u2013 does the patient have a DSA? Other described associations of multilayering include thrombotic microangiopathy, obstructive uropathy, chronic tubulointerstital nephritis, radiation nephritis, analgesic nephropathy and Balkan nephropathy",
+    "codes": {}
+  },
+  "rbc1": {
+    "main_body": "A few tubules contain red blood cell casts.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "rbc2": {
+    "main_body": "Many tubules contain red blood cell casts.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "scar?": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The cause for the scarring is not apparent.",
+    "codes": {}
+  },
+  "scl-nod": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The tubulointerstitial nodule is in keeping with a renal sclerosing peritubular nodule, a distinct unique lesion seen in patients with neurofibromatosis type II, but otherwise benign in terms of effect on renal function. In a patient with no known diagnosis of neurofibromatosis type II, this finding should prompt evaluation for neurofibromatosis [https://doi.org/10.1016/j.humpath.2009.04.014]",
+    "codes": {}
+  },
+  "sev-ifta": {
+    "main_body": "",
+    "conclusion": "Severe interstitial fibrosis/tubular atrophy",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "ss0": {
+    "main_body": "No segmental sclerosis is seen.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "subop": {
+    "main_body": "",
+    "conclusion": "Suboptimal sample",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "sv40_0": {
+    "main_body": "SV40: negative",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "sv40_1": {
+    "main_body": "SV40: positive nuclear staining in a small number of tubules.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "sv40_2": {
+    "main_body": "SV40: positive nuclear staining in many tubules.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "t-single": {
+    "main_body": "There is a single focus of tubulitis (not amounting to rejection)(t0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "t0": {
+    "main_body": "There is no tubulitis (t0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "t1": {
+    "main_body": "Mild tubulitis is present in >1 focus of non-severely atrophic tubules (t1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "t1a": {
+    "main_body": "",
+    "conclusion": "T cell-mediated rejection grade 1a",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "t1a-c": {
+    "main_body": "",
+    "conclusion": "Chronic active T cell-mediated rejection (grade 1a)",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "t1b": {
+    "main_body": "",
+    "conclusion": "T cell-mediated rejection grade 1b",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "t1b-c": {
+    "main_body": "",
+    "conclusion": "Chronic active T cell-mediated rejection (grade 1b)",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "t2": {
+    "main_body": "Moderate tubulitis is present in >1 focus of non-severely atrophic tubules (t2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "t2-c": {
+    "main_body": "",
+    "conclusion": "Chronic active T cell-mediated rejection (grade 2)",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "t2a": {
+    "main_body": "",
+    "conclusion": "T cell-mediated rejection grade 2a",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "t2b": {
+    "main_body": "",
+    "conclusion": "T cell-mediated rejection grade 2b",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "t3": {
+    "main_body": "Severe tubulitis is present in >1 focus of non-severely atrophic tubules (t3).",
+    "conclusion": "T cell-mediated rejection grade 3",
+    "comments": "",
+    "codes": {
+      "transplant": "VALUE"
+    }
+  },
+  "tb": {
+    "main_body": "Toluidine blue sections from the sample for electron microscopy were examined.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "tbm": {
+    "main_body": "",
+    "conclusion": "Thin basement membrane lesion",
+    "comments": "",
+    "codes": {
+      "native1": "46813",
+      "kbc": "175"
+    }
+  },
+  "tbm1": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The glomerular basement thinning is only seen in some areas and is likely not significant, however please correlate with family history of renal disease, hearing loss or ocular defects and consider genetic testing if appropriate.",
+    "codes": {}
+  },
+  "tbm2": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There is extensive thinning of the glomerular basement membranes (>50% capillary loops involved, GBM <250nm). This finding raises the possibility of a genetic abnormality of the alpha chains of collagen IV. Thin basement membranes can be seen in early Alport, in carriers of Alport or in \"benign\" familial haematuria (mostly carriers for autosomal recessive defects, rarely autosomal dominant). Please correlate with family history of renal disease, hearing loss or ocular defects. Some kindreds with thin basement membrane lesion show progressive renal dysfunction.More rarely, thinning/splitting of basement membranes can be due to other genetic causes, (such as LAMB2, LMX1B, WT1 etc). It can also be seen in association with severe hyperfiltration injury, healing immune complex glomerulonephritis or chronic (thrombotic) microangiopathy.",
+    "codes": {}
+  },
+  "tcmr-c": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "The findings are in keeping with chronic active T-cell mediated rejection Banff 1A, provided other causes of marked inflammation in scarred areas can be excluded, such as chronic obstruction/pyelonephritis, BK nephropathy, glomerulonephritis and antibody-mediated injury. Please check for a DSA.",
+    "codes": {}
+  },
+  "tcyst": {
+    "main_body": "Some tubules show microcystic change.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "tdil": {
+    "main_body": "Some tubules are dilated.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "tht": {
+    "main_body": "There is tubular hypertrophy.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ti-ca": {
+    "main_body": "",
+    "conclusion": "Tubulointerstitial calcification",
+    "comments": "",
+    "codes": {
+      "kbc": "52"
+    }
+  },
+  "ti0": {
+    "main_body": "Total cortical interstitial inflammation amounts to <10% of cortex (ti0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ti1": {
+    "main_body": "Total cortical interstitial inflammation amounts to 10-25% of cortex (ti1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ti2": {
+    "main_body": "Total cortical interstitial inflammation amounts to 25-50% of cortex (ti2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "ti3": {
+    "main_body": "Total cortical interstitial inflammation amounts to >50% of cortex (ti3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "tii0": {
+    "main_body": "There is no significant tubulointerstitial inflammation (i0, i-IFTA0, ti0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "tin": {
+    "main_body": "",
+    "conclusion": "Active tubulointerstitial nephritis",
+    "comments": "Possible causes of active tubulointerstitial nephritis include drugs, autoimmune disorders and infections.",
+    "codes": {
+      "native1": "46846",
+      "kbc": "185"
+    }
+  },
+  "tin-gr": {
+    "main_body": "",
+    "conclusion": "Active tubulointerstitial nephritis, granulomatous",
+    "comments": "granulomatous tubulointerstitial nephritis. Possible causes include drugs (in particular NSAIDS, anti-convulsivants and antibiotics), sarcoidosis and infections (in particular mycobacterial and fungal).",
+    "codes": {
+      "native1": "46848",
+      "kbc": "43"
+    }
+  },
+  "tin-ic": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Deposition of immune complexes along tubular basement membranes can be seen with autoimmune diseases e.g. SLE or Sjogren\u2019s, IgG4-related disease, viral infections (polyoma) and a few rare tubular diseases such as anti-brush border tubulointerstitial nephritis (anti-megalin/LRP2 antibodies). The absence of associated inflammation could potentially represent a modified expression of disease due to routine transplant inmmunosuppression. (Rosales I et al. JASN 2016).",
+    "codes": {}
+  },
+  "tin-igg4": {
+    "main_body": "",
+    "conclusion": "Active tubulointerstitial nephritis with IgG4-positive plasma cells",
+    "comments": "",
+    "codes": {
+      "native1": "46846",
+      "kbc": "47"
+    }
+  },
+  "tin-neut": {
+    "main_body": "",
+    "conclusion": "Pyelonephritis",
+    "comments": "",
+    "codes": {
+      "native1": "46843",
+      "kbc": "55"
+    }
+  },
+  "tin-old": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "In elderly patients, drugs are more often the cause of acute tubulointerstitial nephritis, with common culprits being antibiotics and proton pump inhibitors (Muriithi et al Kidney International 2015:458-64)",
+    "codes": {}
+  },
+  "tin-xan": {
+    "main_body": "",
+    "conclusion": "Active tubulointerstitial nephritis, xanthogranulomatous",
+    "comments": "",
+    "codes": {
+      "kbc": "517"
+    }
+  },
+  "tma": {
+    "main_body": "",
+    "conclusion": "Thrombotic microangiopathy",
+    "comments": "",
+    "codes": {
+      "native1": "46851",
+      "kbc": "230"
+    }
+  },
+  "tma-ht": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "There are features of chronic (thrombotic) microangiopathy with hypertension. Features of thrombotic microangiopathy can be seen in association with malignant hypertension, but please exclude first other causes: disorders of the regulation of the alternative pathway of complement activation (acquired or inherited), autoimmune conditions (especially lupus, scleroderma and antiphospholipid antibody syndrome), certain drugs, cancer, paraproteins, pancreatitis, and bacterial and viral infections. Please correlate with clinical and serological findings.",
+    "codes": {}
+  },
+  "tma-na": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "Histological features of (thrombotic) microangiopathy (endothelial injury) can be seen in association with disorders of the regulation of the alternative pathway of complement activation (acquired or inherited); autoimmune conditions (especially lupus, scleroderma and antiphospholipid antibody syndrome); malignant hypertension; drugs; cancer, cancer therapies and paraproteins; pancreatitis; pre-eclampsia/HELLP syndrome; and infections (bacterial or viral). Please correlate with clinical and serological findings.",
+    "codes": {}
+  },
+  "tma-tx": {
+    "main_body": "",
+    "conclusion": "",
+    "comments": "In view of the presence of TMA, in addition to AMR, other potential triggers (including transplant, anti-phospholipid antibodies, infection, drugs, malignancy, paraprotein, pregnancy, etc) and underlying etiologies (genetic or metabolic)\u00a0 should be considered\u00a0and standard nomenclature followed (ref: https://doi.org/10.1016/j.kint.2024.05.021). *",
+    "codes": {}
+  },
+  "tri": {
+    "main_body": "",
+    "conclusion": "Tubuloreticular inclusions",
+    "comments": "",
+    "codes": {}
+  },
+  "v0": {
+    "main_body": "No endarteritis (v0).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "v1": {
+    "main_body": "Mild endarteritis is seen (v1).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "v2": {
+    "main_body": "Moderate endarteritis is seen (v2).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "v3": {
+    "main_body": "Severe endarteritis is present (v3).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "vasculitis": {
+    "main_body": "",
+    "conclusion": "Vasculitis",
+    "comments": "",
+    "codes": {
+      "kbc": "249"
+    }
+  },
+  "~(\\d+)IL_(\\d+)AR": {
+    "main_body": "{1} interlobular, {2} arcuate.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~A(\\d+)": {
+    "main_body": "{1} arteries present in the sampled kidney.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~C(\\d+)M(\\d+)": {
+    "main_body": "There are {1} samples of cortex and {2} sample of medulla.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~IFTA(\\d+)": {
+    "main_body": "Tubular atrophy/interstitial fibrosis (nearest 10%): {1}%",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~SS(\\d+)_tip": {
+    "main_body": "{1} glomeruli show segmental sclerosis (tip variant).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~ccr(\\d+)": {
+    "main_body": "Cellular crescents are noted in {number} glomeruli.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~edif(\\d+)": {
+    "main_body": "Segmental endocapillary hypercellularity is noted in {number} glomeruli.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~eseg(\\d+)": {
+    "main_body": "Segmental endocapillary hypercellularity is noted in {number} glomeruli.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~fccr(\\d+)": {
+    "main_body": "Fibrocellular crescents are noted in {number} glomeruli.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~fcr(\\d+)": {
+    "main_body": "Fibrous crescents are noted in {number} glomeruli.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~fn(\\d+)": {
+    "main_body": "Fibrinoid necrosis is noted in {number} glomeruli.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~gs(\\d+)": {
+    "main_body": "Number of globally sclerosed glomeruli: {1}",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~isch(\\d+)-(\\d+)": {
+    "main_body": "A few/some/many glomeruli show mild/marked ischaemic-type capillary deflation",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~mm(\\d+)mc(\\d+) xxxx": {
+    "main_body": "There is a xxx increase in mesangial matrix and a xxx increase in cellularity.",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~ss(\\d+)_coll": {
+    "main_body": "{1} glomeruli show segmental sclerosis (collapsing variant).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~ss(\\d+)_nos": {
+    "main_body": "{1} glomeruli show segmental sclerosis (NOS).",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  },
+  "~tg(\\d+)": {
+    "main_body": "Total number of glomeruli: {1}",
+    "conclusion": "",
+    "comments": "",
+    "codes": {}
+  }
+}

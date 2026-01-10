@@ -7,7 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import logging
 
-from app.models.shorthand import ShorthandInput, GeneratedReport, ValidationResponse
+from app.models.shorthand import ShorthandInput, GeneratedReport, ValidationResponse, ConclusionCode
 from app.services.parser import ShorthandParser
 from app.services.template_engine import TemplateEngine
 from app.services.simple_mapper import SimpleMapper
@@ -74,28 +74,48 @@ async def health_check():
 async def generate_report(input_data: ShorthandInput):
     """
     Generate a kidney biopsy report from shorthand notation
-    
+
     Args:
         input_data: ShorthandInput containing the shorthand text
-        
+
     Returns:
         GeneratedReport with the formatted report text
     """
     try:
         shorthand = input_data.shorthand_text
         if not shorthand:
-            return GeneratedReport(report_text="", parsed_data={}, validation_errors=[])
-        
+            return GeneratedReport(report_text="", parsed_data={}, validation_errors=[], conclusion_codes=[])
+
+        # Section header mapping - which headers switch to which section
+        section_headers = {
+            '!conc': 'conclusion',
+            '!com': 'comments',
+            # All these stay in/switch to main_body
+            '!lm': 'main_body',
+            '!g': 'main_body',
+            '!t': 'main_body',
+            '!bv': 'main_body',
+            '!ihc': 'main_body',
+            '!ip': 'main_body',
+            '!ifp': 'main_body',
+            '!em': 'main_body',
+            '!iff': 'main_body',
+        }
+
+        # Track current section and conclusion keys
+        current_section = "main_body"
+        conclusion_keys = []
+
         # Process character by character, only expanding on word boundaries
         output = []
         current_token = ""
         in_protected_block = False
         protected_content = ""
-        
+
         i = 0
         while i < len(shorthand):
             char = shorthand[i]
-            
+
             # Handle @ markers
             if char == '@':
                 if in_protected_block:
@@ -120,21 +140,24 @@ async def generate_report(input_data: ShorthandInput):
                     if current_token:
                         output.append(current_token)  # Don't expand incomplete tokens
                         current_token = ""
-                    
+
                     # Start protected block
                     in_protected_block = True
                     protected_content = ""
-            
+
             elif in_protected_block:
                 # Inside @ block - just accumulate, never expand
                 protected_content += char
-            
+
             elif char in [' ', '\n']:
                 # Word boundary - check for expansion
                 if current_token:
-                    # Check if it's a header
-                    if current_token.upper().startswith('!'):
-                        expansion = simple_mapper.map_code(current_token.upper())
+                    token_lower = current_token.lower()
+
+                    # Check if it's a header (starts with !)
+                    if token_lower.startswith('!'):
+                        # Expand header using main_body (headers are defined there)
+                        expansion = simple_mapper.map_code(current_token, section="main_body")
                         if expansion:
                             # Add blank line before header if not first content
                             if output and output[-1] != '\n':
@@ -142,22 +165,30 @@ async def generate_report(input_data: ShorthandInput):
                             output.append(expansion)
                         else:
                             output.append(current_token)
+
+                        # Update section AFTER expanding header
+                        if token_lower in section_headers:
+                            current_section = section_headers[token_lower]
                     else:
-                        # Regular token - try to expand
-                        expansion = simple_mapper.map_code(current_token.upper())
+                        # Regular token - try to expand with section context
+                        expansion = simple_mapper.map_code(current_token, section=current_section)
                         output.append(expansion if expansion else current_token)
-                    
+
+                        # Track keys entered in conclusion section for code extraction
+                        if current_section == "conclusion":
+                            conclusion_keys.append(token_lower)
+
                     current_token = ""
-                
+
                 # Add the space or newline
                 output.append(char)
-            
+
             else:
                 # Regular character - accumulate token
                 current_token += char
-            
+
             i += 1
-        
+
         # Handle any remaining content
         if in_protected_block:
             # Unclosed @ block - show everything including @
@@ -165,15 +196,23 @@ async def generate_report(input_data: ShorthandInput):
         elif current_token:
             # Last token without space - don't expand (still typing)
             output.append(current_token)
-        
+
         report_text = ''.join(output)
-        
+
+        # Extract conclusion codes
+        extracted_codes = []
+        for key in conclusion_keys:
+            code = simple_mapper.get_conclusion_code(key, input_data.report_type)
+            if code:
+                extracted_codes.append(ConclusionCode(key=key, code=code))
+
         return GeneratedReport(
             report_text=report_text,
             parsed_data={},
-            validation_errors=[]
+            validation_errors=[],
+            conclusion_codes=extracted_codes
         )
-        
+
     except Exception as e:
         logger.error(f"Error generating report: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error generating report: {str(e)}")
@@ -241,18 +280,19 @@ async def autocomplete(request: AutocompleteRequest):
 async def get_phrases(report_type: str):
     """
     Get available phrase mappings for a report type
-    
+
     Args:
         report_type: Type of report (transplant or native)
-        
+
     Returns:
-        Dictionary of available phrases from flat JSON
+        Dictionary of available phrases with section labels
+        Format: { "key [SECTION]": "value", ... }
     """
     if report_type not in ["transplant", "native"]:
         raise HTTPException(status_code=400, detail="Invalid report type")
-    
-    # Return the flat mappings directly from SimpleMapper
-    return simple_mapper.mappings
+
+    # Return mappings with section labels for reference popup
+    return simple_mapper.get_all_mappings()
 
 
 if __name__ == "__main__":

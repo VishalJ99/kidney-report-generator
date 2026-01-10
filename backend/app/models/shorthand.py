@@ -19,12 +19,19 @@ class ShorthandInput(BaseModel):
     report_type: str = Field(default="transplant", description="Type of report (transplant or native)")
 
 
+class ConclusionCode(BaseModel):
+    """Model for extracted conclusion codes"""
+    key: str = Field(..., description="The shorthand key entered")
+    code: str = Field(..., description="The database code for this key")
+
+
 class GeneratedReport(BaseModel):
     """Model for generated report output"""
     report_text: str = Field(..., description="Generated report text")
     parsed_data: Dict[str, Any] = Field(..., description="Parsed structured data")
     validation_errors: list = Field(default=[], description="Any validation errors found")
     line_mappings: List[LineMapping] = Field(default=[], description="Mapping of lines to source shorthand codes")
+    conclusion_codes: List[ConclusionCode] = Field(default=[], description="Extracted codes from conclusion section")
     
 
 class ValidationResponse(BaseModel):

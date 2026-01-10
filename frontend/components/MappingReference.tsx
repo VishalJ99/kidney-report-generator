@@ -5,12 +5,35 @@ interface MappingReferenceProps {
   mappings: Record<string, string>;
 }
 
+// Parse section from key format "key [SECTION]"
+const parseKeyAndSection = (fullKey: string): { key: string; section: string | null } => {
+  const match = fullKey.match(/^(.+?) \[(.+)\]$/);
+  if (match) {
+    return { key: match[1], section: match[2] };
+  }
+  return { key: fullKey, section: null };
+};
+
+// Get section badge color
+const getSectionColor = (section: string | null): string => {
+  switch (section) {
+    case 'MAIN BODY':
+      return 'bg-blue-100 text-blue-700';
+    case 'CONCLUSION':
+      return 'bg-green-100 text-green-700';
+    case 'COMMENTS':
+      return 'bg-purple-100 text-purple-700';
+    default:
+      return 'bg-gray-100 text-gray-700';
+  }
+};
+
 const MappingReference: React.FC<MappingReferenceProps> = ({ isOpen, mappings }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Categorize mappings
+  // Categorize mappings (keys now include section labels like "key [SECTION]")
   const categorizedMappings = useMemo(() => {
-    const categories: Record<string, Array<[string, string]>> = {
+    const categories: Record<string, Array<[string, string, string | null]>> = {
       'Headers': [],
       'Sample Description': [],
       'Glomeruli': [],
@@ -24,33 +47,33 @@ const MappingReference: React.FC<MappingReferenceProps> = ({ isOpen, mappings })
       'Other': []
     };
 
-    Object.entries(mappings).forEach(([key, value]) => {
-      // Skip regex patterns for now (starting with ~)
-      const displayKey = key.startsWith('~') ? key.substring(1) + ' (pattern)' : key;
-      
+    Object.entries(mappings).forEach(([fullKey, value]) => {
+      const { key, section } = parseKeyAndSection(fullKey);
+      const keyLower = key.toLowerCase();
+
       // Categorize based on key patterns
-      if (key.startsWith('!')) {
-        categories['Headers'].push([displayKey, value]);
-      } else if (key.match(/^(C|M|CT|CM|CCT|MCT|CMCT|~C\d)/)) {
-        categories['Sample Description'].push([displayKey, value]);
-      } else if (key.match(/(^TG|^GS|^SS|^MM\d|^MC\d|^ISCH|^G\d|^CG\d|^FN|^CC)/)) {
-        categories['Glomeruli'].push([displayKey, value]);
-      } else if (key.match(/(^ATI|^IFTA|^T\d|^I\d|^TI\d|^CTCI)/)) {
-        categories['Tubulointerstitium'].push([displayKey, value]);
-      } else if (key.match(/(^A\d|^CV\d|^V\d|^AH\d|^PTC\d|^CAA|IL|Ar)/)) {
-        categories['Blood Vessels'].push([displayKey, value]);
-      } else if (key.match(/(^C4D|^SV40)/)) {
-        categories['Immunohistochemistry'].push([displayKey, value]);
-      } else if (key.match(/^EM/)) {
-        categories['Electron Microscopy'].push([displayKey, value]);
-      } else if (key.match(/(^FR|^IFFR|^IF)/)) {
-        categories['Immunofluorescence'].push([displayKey, value]);
-      } else if (key.match(/(^BL|^TCMR|^MVI|^AMR|IFTA$)/)) {
-        categories['Conclusion'].push([displayKey, value]);
-      } else if (key.match(/(^NR|^DP|^FSGS|^TMA)/)) {
-        categories['Comment'].push([displayKey, value]);
+      if (keyLower.startsWith('!')) {
+        categories['Headers'].push([key, value, section]);
+      } else if (keyLower.match(/^(c|m|ct|cm|cct|mct|cmct)$/) || keyLower.match(/^\d+c\d+m/)) {
+        categories['Sample Description'].push([key, value, section]);
+      } else if (keyLower.match(/(^tg|^gs|^ss|^mm\d|^mc\d|^isch|^g\d|^cg\d|^fn|^cc|^mexp|^mamyl|^gnorm|^ght|^eseg|^edif|^ccr|^fccr|^fcr)/)) {
+        categories['Glomeruli'].push([key, value, section]);
+      } else if (keyLower.match(/(^ati|^ifta|^t\d|^i\d|^ti\d|^ctci|^ct\d|^ci\d|^np)/)) {
+        categories['Tubulointerstitium'].push([key, value, section]);
+      } else if (keyLower.match(/(^a\d|^cv\d|^v\d|^ah\d|^ptc\d|^caa|il|ar$)/)) {
+        categories['Blood Vessels'].push([key, value, section]);
+      } else if (keyLower.match(/(^c4d|^sv40)/)) {
+        categories['Immunohistochemistry'].push([key, value, section]);
+      } else if (keyLower.match(/^em|^tb$|^lm$|^hb$/)) {
+        categories['Electron Microscopy'].push([key, value, section]);
+      } else if (keyLower.match(/(^fr|^iffr|^if)/)) {
+        categories['Immunofluorescence'].push([key, value, section]);
+      } else if (section === 'CONCLUSION') {
+        categories['Conclusion'].push([key, value, section]);
+      } else if (section === 'COMMENTS') {
+        categories['Comment'].push([key, value, section]);
       } else {
-        categories['Other'].push([displayKey, value]);
+        categories['Other'].push([key, value, section]);
       }
     });
 
@@ -68,13 +91,14 @@ const MappingReference: React.FC<MappingReferenceProps> = ({ isOpen, mappings })
   const filteredCategories = useMemo(() => {
     if (!searchTerm) return categorizedMappings;
 
-    const filtered: Record<string, Array<[string, string]>> = {};
+    const filtered: Record<string, Array<[string, string, string | null]>> = {};
     const searchLower = searchTerm.toLowerCase();
 
     Object.entries(categorizedMappings).forEach(([category, items]) => {
-      const filteredItems = items.filter(([key, value]) => 
-        key.toLowerCase().includes(searchLower) || 
-        value.toLowerCase().includes(searchLower)
+      const filteredItems = items.filter(([key, value, section]) =>
+        key.toLowerCase().includes(searchLower) ||
+        value.toLowerCase().includes(searchLower) ||
+        (section && section.toLowerCase().includes(searchLower))
       );
       if (filteredItems.length > 0) {
         filtered[category] = filteredItems;
@@ -125,13 +149,18 @@ const MappingReference: React.FC<MappingReferenceProps> = ({ isOpen, mappings })
                     {category}
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    {items.map(([key, value], idx) => (
+                    {items.map(([key, value, section], idx) => (
                       <div
-                        key={`${category}-${idx}`}
+                        key={`${category}-${key}-${section}-${idx}`}
                         className="flex border border-gray-200 rounded-lg overflow-hidden hover:bg-gray-50 transition-colors"
                       >
-                        <div className="px-3 py-2 bg-gray-100 font-mono text-sm font-semibold text-gray-700 w-32 flex-shrink-0">
-                          {key}
+                        <div className="px-3 py-2 bg-gray-100 font-mono text-sm font-semibold text-gray-700 w-40 flex-shrink-0 flex items-center gap-2">
+                          <span>{key}</span>
+                          {section && (
+                            <span className={`px-1.5 py-0.5 text-xs rounded ${getSectionColor(section)}`}>
+                              {section === 'MAIN BODY' ? 'MB' : section === 'CONCLUSION' ? 'CON' : 'COM'}
+                            </span>
+                          )}
                         </div>
                         <div className="px-3 py-2 text-sm text-gray-600 flex-1">
                           {value}

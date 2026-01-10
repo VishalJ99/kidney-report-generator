@@ -8,7 +8,13 @@ import ShorthandInput from '@/components/ShorthandInput';
 import ReportPreview from '@/components/ReportPreview';
 import QuickActions from '@/components/QuickActions';
 import MappingReference from '@/components/MappingReference';
+import ConclusionCodes from '@/components/ConclusionCodes';
 import { usePhraseMappings } from '@/hooks/usePhraseMappings';
+
+interface ConclusionCode {
+  key: string;
+  code: string;
+}
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
@@ -44,6 +50,7 @@ export default function Home() {
   const [reportType, setReportType] = useState<'transplant' | 'native'>('transplant');
   const [shorthandText, setShorthandText] = useState('');
   const [generatedReport, setGeneratedReport] = useState('');
+  const [conclusionCodes, setConclusionCodes] = useState<ConclusionCode[]>([]);
   const [isGenerating, setIsGenerating] = useState(false);
   const [isReferenceOpen, setIsReferenceOpen] = useState(false);
   
@@ -88,6 +95,7 @@ export default function Home() {
   const generateReport = useCallback(async () => {
     if (!shorthandText.trim()) {
       setGeneratedReport('');
+      setConclusionCodes([]);
       return;
     }
 
@@ -99,6 +107,7 @@ export default function Home() {
       });
 
       setGeneratedReport(response.data.report_text);
+      setConclusionCodes(response.data.conclusion_codes || []);
     } catch (error: any) {
       console.error('Error generating report:', error);
       toast.error(error.response?.data?.detail || 'Failed to generate report');
@@ -117,6 +126,7 @@ export default function Home() {
   const handleClear = () => {
     setShorthandText('');
     setGeneratedReport('');
+    setConclusionCodes([]);
   };
 
   const handleLoadExample = () => {
@@ -208,6 +218,9 @@ export default function Home() {
               onExportCSV={handleExportCSV}
               disabled={!generatedReport}
             />
+
+            {/* Conclusion Codes Panel */}
+            <ConclusionCodes codes={conclusionCodes} />
           </div>
         </div>
 
