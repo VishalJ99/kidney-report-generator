@@ -26,7 +26,7 @@ interface PhraseEntry {
   codes: Record<string, string>;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_URL = '';
 
 const EXAMPLE_SHORTHAND = `NHS 234 4567 2345
 HN 31098674
