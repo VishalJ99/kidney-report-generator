@@ -116,6 +116,21 @@ class SimpleMapper:
 
         return self._normalize_entry(normalized_key, self.mappings[normalized_key])
 
+    def delete_phrase_entry(self, key: str) -> Dict[str, Any]:
+        """Delete a structured phrase entry and persist the updated dictionary."""
+        normalized_key = self._normalize_key(key)
+        if not normalized_key:
+            raise ValueError("Phrase key is required.")
+
+        with self._lock:
+            if normalized_key not in self.mappings:
+                raise ValueError(f"Phrase entry not found: {normalized_key}")
+
+            deleted_entry = self._normalize_entry(normalized_key, self.mappings.pop(normalized_key))
+            self._save_mappings()
+
+        return deleted_entry
+
     def get_case_code(self, key: str, section: str) -> Optional[Dict[str, Any]]:
         """Return structured case-code metadata for a shorthand key."""
         key_lower = self._normalize_key(key)
@@ -123,12 +138,18 @@ class SimpleMapper:
         if not entry:
             return None
 
+        raw_codes = entry.get("codes") or {}
         codes = {
             code_key: code_value.strip()
-            for code_key, code_value in (entry.get("codes") or {}).items()
+            for code_key, code_value in raw_codes.items()
             if self._is_resolved_code(code_value)
         }
-        if not codes:
+        pending_code_types = [
+            str(code_key).strip()
+            for code_key, code_value in raw_codes.items()
+            if str(code_value).strip().upper() == "VALUE"
+        ]
+        if not codes and not pending_code_types:
             return None
 
         label = (
@@ -144,6 +165,7 @@ class SimpleMapper:
             "section": section,
             "label": label,
             "codes": codes,
+            "pending_code_types": pending_code_types,
         }
 
     def map_code(self, code: str, section: str = "main_body") -> Optional[str]:

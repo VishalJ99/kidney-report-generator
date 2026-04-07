@@ -7,6 +7,7 @@ from typing import List, Optional
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
 from app.models.shorthand import (
@@ -225,6 +226,28 @@ async def upsert_phrase_entry(phrase_key: str, payload: PhraseEntryPayload):
     except Exception as e:
         logger.error(f"Error upserting phrase entry {phrase_key}: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error upserting phrase entry: {str(e)}")
+
+
+@app.delete("/api/phrases/entries/{phrase_key}", response_model=PhraseEntryResponse)
+async def delete_phrase_entry(phrase_key: str):
+    """Delete a phrase entry from the runtime dictionary."""
+    try:
+        return simple_mapper.delete_phrase_entry(phrase_key)
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        logger.error(f"Error deleting phrase entry {phrase_key}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error deleting phrase entry: {str(e)}")
+
+
+@app.get("/api/phrases/download")
+async def download_phrase_dictionary():
+    """Download the current runtime phrase dictionary as JSON."""
+    return FileResponse(
+        path=str(simple_mapper.json_path),
+        media_type="application/json",
+        filename="phrases_sectioned.json",
+    )
 
 
 @app.post("/api/autocomplete", response_model=AutocompleteResponse)

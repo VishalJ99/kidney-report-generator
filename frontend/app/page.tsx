@@ -16,6 +16,7 @@ interface CaseCode {
   section: string;
   label: string;
   codes: Record<string, string>;
+  pending_code_types: string[];
 }
 
 interface PhraseEntry {
@@ -198,6 +199,30 @@ export default function Home() {
     [generateReport, loadPhraseEntries, refreshMappings, shorthandText],
   );
 
+  const handleDeletePhraseEntry = useCallback(
+    async (phraseKey: string) => {
+      const normalizedKey = phraseKey.trim().toLowerCase();
+      if (!normalizedKey) {
+        toast.error('Shorthand key is required');
+        return;
+      }
+
+      try {
+        await axios.delete(`${API_URL}/api/phrases/entries/${encodeURIComponent(normalizedKey)}`);
+        toast.success(`Deleted phrase entry: ${normalizedKey}`);
+        await Promise.all([
+          loadPhraseEntries(),
+          refreshMappings(),
+          shorthandText.trim() ? generateReport() : Promise.resolve(),
+        ]);
+      } catch (error: any) {
+        console.error('Error deleting phrase entry:', error);
+        toast.error(error.response?.data?.detail || 'Failed to delete phrase entry');
+      }
+    },
+    [generateReport, loadPhraseEntries, refreshMappings, shorthandText],
+  );
+
   const handleExportCSV = () => {
     toast('CSV export coming soon!', {
       icon: 'i',
@@ -216,6 +241,8 @@ export default function Home() {
         error={phraseEntriesError}
         onClose={() => setIsPhraseManagerOpen(false)}
         onSave={handleSavePhraseEntry}
+        onDelete={handleDeletePhraseEntry}
+        downloadUrl="/api/phrases/download"
       />
 
       <div className="container mx-auto px-4 py-8">

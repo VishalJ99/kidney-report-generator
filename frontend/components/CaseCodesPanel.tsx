@@ -5,6 +5,7 @@ interface CaseCode {
   section: string;
   label: string;
   codes: Record<string, string>;
+  pending_code_types: string[];
 }
 
 interface CaseCodesPanelProps {
@@ -22,8 +23,8 @@ const formatCodeLabel = (codeType: string) => codeType.replace(/_/g, ' ').toUppe
 export default function CaseCodesPanel({ codes, reportType }: CaseCodesPanelProps) {
   const preferredOrder = CODE_PRIORITY[reportType];
 
-  const sortCodes = (entries: [string, string][]) => {
-    return [...entries].sort(([left], [right]) => {
+  const sortCodeTypes = (codeTypes: string[]) => {
+    return [...codeTypes].sort((left, right) => {
       const leftIndex = preferredOrder.indexOf(left);
       const rightIndex = preferredOrder.indexOf(right);
       const normalizedLeft = leftIndex === -1 ? preferredOrder.length : leftIndex;
@@ -65,7 +66,8 @@ export default function CaseCodesPanel({ codes, reportType }: CaseCodesPanelProp
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2">
-                {sortCodes(Object.entries(entry.codes)).map(([codeType, codeValue]) => {
+                {sortCodeTypes(Object.keys(entry.codes)).map((codeType) => {
+                  const codeValue = entry.codes[codeType];
                   const isPreferred = preferredOrder[0] === codeType;
                   return (
                     <div
@@ -75,6 +77,19 @@ export default function CaseCodesPanel({ codes, reportType }: CaseCodesPanelProp
                         : 'rounded border border-gray-200 bg-gray-50 px-3 py-2 text-sm text-gray-700'}
                     >
                       <span className="font-medium">{formatCodeLabel(codeType)}:</span> {codeValue}
+                    </div>
+                  );
+                })}
+                {sortCodeTypes(entry.pending_code_types || []).map((codeType) => {
+                  const isPreferred = preferredOrder[0] === codeType;
+                  return (
+                    <div
+                      key={`${entry.key}-${codeType}-pending`}
+                      className={isPreferred
+                        ? 'rounded border border-amber-300 bg-amber-100 px-3 py-2 text-sm text-amber-900'
+                        : 'rounded border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-800'}
+                    >
+                      <span className="font-medium">{formatCodeLabel(codeType)}:</span> pending
                     </div>
                   );
                 })}

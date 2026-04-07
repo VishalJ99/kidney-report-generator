@@ -51,6 +51,10 @@ class CaseCode(BaseModel):
     section: str = Field(..., description="Section where the shorthand was entered")
     label: str = Field(..., description="Human-readable label for the shorthand entry")
     codes: Dict[str, str] = Field(default_factory=dict, description="All non-empty resolved codes for the entry")
+    pending_code_types: List[str] = Field(
+        default_factory=list,
+        description="Code families present as unresolved placeholders such as VALUE",
+    )
 
 
 class GeneratedReport(BaseModel):
