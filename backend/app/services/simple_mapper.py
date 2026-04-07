@@ -4,124 +4,213 @@ Supports section-specific values and code extraction.
 """
 
 import json
+import os
 import re
+import shutil
 from pathlib import Path
-from typing import Optional
+from tempfile import NamedTemporaryFile
+from threading import Lock
+from typing import Any, Dict, List, Optional
 
 
 class SimpleMapper:
     """Maps shorthand codes to full medical phrases using sectioned JSON lookup."""
 
-    def __init__(self, json_path: str = None):
+    def __init__(self, json_path: Optional[str] = None):
         """Initialize mapper with phrases from sectioned JSON file."""
-        if json_path is None:
-            # Default to phrases_sectioned.json in data directory
-            json_path = Path(__file__).parent.parent / "data" / "phrases_sectioned.json"
+        default_json_path = Path(__file__).parent.parent / "data" / "phrases_sectioned.json"
+        configured_path = json_path or os.getenv("PHRASES_JSON_PATH")
+        self.json_path = Path(configured_path) if configured_path else default_json_path
+        self.default_json_path = default_json_path
+        self._lock = Lock()
+        self._ensure_json_exists()
+        self._load_mappings()
 
-        with open(json_path, 'r') as f:
-            self.mappings = json.load(f)
+    def _ensure_json_exists(self) -> None:
+        """Seed a configured phrases file from the bundled default if needed."""
+        if self.json_path.exists():
+            return
+
+        self.json_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(self.default_json_path, self.json_path)
+
+    def _load_mappings(self) -> None:
+        """Load mappings from disk."""
+        with open(self.json_path, "r", encoding="utf-8") as file_handle:
+            self.mappings = json.load(file_handle)
+
+    def _save_mappings(self) -> None:
+        """Persist mappings atomically to disk."""
+        self.json_path.parent.mkdir(parents=True, exist_ok=True)
+
+        with NamedTemporaryFile("w", dir=self.json_path.parent, delete=False, encoding="utf-8") as file_handle:
+            json.dump(self.mappings, file_handle, indent=2)
+            file_handle.write("\n")
+            temp_path = Path(file_handle.name)
+
+        temp_path.replace(self.json_path)
+
+    @staticmethod
+    def _normalize_key(key: str) -> str:
+        """Normalize a shorthand key."""
+        return key.strip().lower()
+
+    @staticmethod
+    def _clean_text(value: Optional[str]) -> str:
+        """Normalize free-text fields to strings."""
+        if value is None:
+            return ""
+        return str(value).strip()
+
+    @staticmethod
+    def _is_resolved_code(value: Optional[str]) -> bool:
+        """Return True when a code value is usable."""
+        if value is None:
+            return False
+        cleaned = str(value).strip()
+        return bool(cleaned) and cleaned.upper() != "VALUE"
+
+    def _normalize_entry(self, key: str, entry: Dict[str, Any]) -> Dict[str, Any]:
+        """Normalize a stored entry without dropping unknown code fields."""
+        codes = {}
+        for code_key, code_value in (entry.get("codes") or {}).items():
+            if not code_key:
+                continue
+            codes[str(code_key).strip()] = self._clean_text(code_value)
+
+        return {
+            "key": self._normalize_key(key),
+            "main_body": self._clean_text(entry.get("main_body")),
+            "conclusion": self._clean_text(entry.get("conclusion")),
+            "comments": self._clean_text(entry.get("comments")),
+            "codes": codes,
+        }
+
+    def get_phrase_entries(self) -> List[Dict[str, Any]]:
+        """Return structured phrase entries for the frontend phrase manager."""
+        entries = [self._normalize_entry(key, entry) for key, entry in self.mappings.items()]
+        return sorted(entries, key=lambda entry: entry["key"])
+
+    def upsert_phrase_entry(self, key: str, payload: Dict[str, Any]) -> Dict[str, Any]:
+        """Create or update a structured phrase entry and persist it."""
+        normalized_key = self._normalize_key(key)
+        if not normalized_key:
+            raise ValueError("Phrase key is required.")
+
+        with self._lock:
+            existing_entry = self._normalize_entry(normalized_key, self.mappings.get(normalized_key, {}))
+            merged_codes = dict(existing_entry.get("codes", {}))
+
+            for code_key, code_value in (payload.get("codes") or {}).items():
+                if not code_key:
+                    continue
+                merged_codes[str(code_key).strip()] = self._clean_text(code_value)
+
+            self.mappings[normalized_key] = {
+                "main_body": self._clean_text(payload.get("main_body")),
+                "conclusion": self._clean_text(payload.get("conclusion")),
+                "comments": self._clean_text(payload.get("comments")),
+                "codes": merged_codes,
+            }
+            self._save_mappings()
+
+        return self._normalize_entry(normalized_key, self.mappings[normalized_key])
+
+    def get_case_code(self, key: str, section: str) -> Optional[Dict[str, Any]]:
+        """Return structured case-code metadata for a shorthand key."""
+        key_lower = self._normalize_key(key)
+        entry = self.mappings.get(key_lower)
+        if not entry:
+            return None
+
+        codes = {
+            code_key: code_value.strip()
+            for code_key, code_value in (entry.get("codes") or {}).items()
+            if self._is_resolved_code(code_value)
+        }
+        if not codes:
+            return None
+
+        label = (
+            self._clean_text(entry.get("conclusion"))
+            or self._clean_text(entry.get(section))
+            or self._clean_text(entry.get("main_body"))
+            or self._clean_text(entry.get("comments"))
+            or key_lower
+        )
+
+        return {
+            "key": key_lower,
+            "section": section,
+            "label": label,
+            "codes": codes,
+        }
 
     def map_code(self, code: str, section: str = "main_body") -> Optional[str]:
-        """
-        Map a single shorthand code to its full phrase for a given section.
+        """Map a single shorthand code to its full phrase for a given section."""
+        code_lower = self._normalize_key(code)
 
-        Args:
-            code: Shorthand code (e.g., "MM0", "TG5", "IFTA20")
-            section: Current section ("main_body", "conclusion", "comments")
-
-        Returns:
-            Full medical phrase, empty string if no expansion, or None if key not found
-        """
-        # Normalize to lowercase
-        code_lower = code.lower().strip()
-
-        # Try direct lookup first
         if code_lower in self.mappings:
             entry = self.mappings[code_lower]
             value = entry.get(section, "")
-            # Return None if empty string (frontend will keep original key)
             return value if value else None
 
-        # Try regex patterns (prefixed with ~)
         for key, entry in self.mappings.items():
-            if key.startswith('~'):
-                pattern = key[1:]  # Remove ~ prefix
+            if key.startswith("~"):
+                pattern = key[1:]
                 match = re.match(pattern, code_lower, re.IGNORECASE)
                 if match:
-                    # Get template for this section
                     template = entry.get(section, "")
                     if not template:
                         return None
 
-                    # Substitute captured groups into template
                     result = template
                     for i, group in enumerate(match.groups(), 1):
-                        result = result.replace(f'{{{i}}}', group)
+                        result = result.replace(f"{{{i}}}", group)
                     return result
 
         return None
 
     def get_conclusion_code(self, key: str, report_type: str = "transplant") -> Optional[str]:
-        """
-        Get database code for a conclusion key.
-
-        Args:
-            key: The shorthand key
-            report_type: "transplant" or "native"
-
-        Returns:
-            The code value, or None if no code exists
-        """
-        key_lower = key.lower().strip()
+        """Get database code for a conclusion key."""
+        key_lower = self._normalize_key(key)
 
         if key_lower not in self.mappings:
             return None
 
-        codes = self.mappings[key_lower].get('codes', {})
+        codes = self.mappings[key_lower].get("codes", {})
         if not codes:
             return None
 
-        # Map report type to code field
         if report_type == "transplant":
-            code_value = codes.get('transplant')
+            code_value = codes.get("transplant")
         else:
-            # For native, try native1 first, then native2
-            code_value = codes.get('native1') or codes.get('native2')
+            code_value = codes.get("native1") or codes.get("kbc") or codes.get("native2")
 
-        if not code_value:
+        if not self._is_resolved_code(code_value):
             return None
 
-        # If code is "VALUE", return the conclusion value itself
-        if code_value == "VALUE":
-            return self.mappings[key_lower].get('conclusion', '')
+        return str(code_value).strip()
 
-        return code_value
-
-    def get_all_mappings(self) -> dict:
-        """
-        Return all mappings for the reference popup.
-        Returns flat dict with section labels for keys that have values.
-
-        Format: { "key [SECTION]": "value", ... }
-        """
+    def get_all_mappings(self) -> Dict[str, str]:
+        """Return all mappings for the reference popup."""
         result = {}
         section_labels = {
-            'main_body': 'MAIN BODY',
-            'conclusion': 'CONCLUSION',
-            'comments': 'COMMENTS'
+            "main_body": "MAIN BODY",
+            "conclusion": "CONCLUSION",
+            "comments": "COMMENTS",
         }
 
         for key, entry in self.mappings.items():
-            # Skip regex patterns for display (or show with pattern indicator)
-            display_key = key[1:] + ' (pattern)' if key.startswith('~') else key
+            display_key = key[1:] + " (pattern)" if key.startswith("~") else key
 
             for section, label in section_labels.items():
                 value = entry.get(section, "")
-                if value:  # Only include if value exists
+                if value:
                     result[f"{display_key} [{label}]"] = value
 
         return result
 
     def is_header(self, code: str) -> bool:
         """Check if a code represents a section header."""
-        return code.lower().strip().startswith('!')
+        return self._normalize_key(code).startswith("!")
