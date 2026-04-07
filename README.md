@@ -39,6 +39,13 @@ The UI will be available at `http://localhost:3000`
 docker-compose up
 ```
 
+## Documentation
+
+- `docs/architecture.md`: current systems architecture and runtime flow
+- `AGENTS.md`: onboarding guide for new coding agents and contributors
+- `CLAUDE.md`: product intent and domain background
+- `context.md`, `prompt.md`, `task_log.md`: historical notes from earlier iterations
+
 ## Example Shorthand
 
 ```
