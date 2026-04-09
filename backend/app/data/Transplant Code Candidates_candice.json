@@ -1,0 +1,308 @@
+{
+  "a-amr": {
+    "main_body": "",
+    "conclusion": "Acute/active antibody-mediated rejection",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "ac-amr": {
+    "main_body": "",
+    "conclusion": "Chronic active antibody-mediated rejection",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "ah2": {
+    "main_body": "Moderate arteriolar hyalinosis (ah2).",
+    "conclusion": "Moderate arteriolar hyalinosis",
+    "comments": "",
+    "codes": {Banff lesion score}
+  },
+  "ah3": {
+    "main_body": "Severe arteriolar hyalinosis (ah3).",
+    "conclusion": "Severe arteriolar hyalinosis",
+    "comments": "",
+    "codes": {Banff lesion score
+      "transplant": "VALUE"
+    }
+  },
+  "ati-micro": {
+    "main_body": "",
+    "conclusion": "Acute tubular injury with tubular epithelial cell cytoplasmic microvacuolation",
+    "comments": "There is acute tubular injury with isometric clear vacuolation of tubular epithelial cells. Possible causes include acute tubular toxicity related to calcineurin inhibitors (tends to be focal), or osmotic tubulopathy (tends to be diffuse). The latter can be seen with plasma expanders (e.g. mannitol, dextran), some pre-transplant perfusion solutions (containing hydroxyethyl starch), some radiological contrast solutions, IVIg (due to the stabilising agents) and SGLT2i (due to inhibition of glucose resorption in proximal S1 tubule).",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "bl": {
+    "main_body": "",
+    "conclusion": "Borderline for T cell-mediated rejection",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "c-amr": {
+    "main_body": "",
+    "conclusion": "Chronic antibody-mediated rejection",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "cv2": {
+    "main_body": "Arteries show moderate fibrointimal thickening (cv2).",
+    "conclusion": "Moderate arterial fibrointimal thickening",
+    "comments": "",
+    "codes": {Banff lesion score}
+  },
+  "cv3": {
+    "main_body": "Arteries show severe fibrointimal thickening (cv3).",
+    "conclusion": "Severe arterial fibrointimal thickening",
+    "comments": "",
+    "codes": {Banff lesion score
+      "transplant": "VALUE"
+    }
+  },
+  "diab": {
+    "main_body": "Glomeruli are abnormal and show a marked, often nodular increase in mesangial matrix, with a mild increase in mesangial cellularity. Capillary walls are also markedly thickened.",
+    "conclusion": "Diabetic glomerulopathy",
+    "comments": "Glomerular basement membranes are thickened and there is an increase in mesangial matrix. Although not specific, the findings are most often associated with diabetes \u2013 although the patient is not stated to be diabetic, please correlate with glycaemic parameters. In the absence of diabetes, such features are referred to as \u201cidiopathic nodular glomerulosclerosis\u201d and can be seen in association with smoking and hypertension (Idiopathic Nodular Glomerulosclerosis Is a Distinct Clinicopathologic Entity Linked to Hypertension and Smoking.  Markowitz G et al. Human Pathology 2002)",
+    "codes": {KBC 171
+      "transplant": "VALUE"
+    }
+  },
+  "fibr": {
+    "main_body": "",
+    "conclusion": "Fibrillary glomerulonephritis, DNAJB9-positive",
+    "comments": "",
+    "codes": {KBC 365
+      "native1": "46834"
+    }
+  },
+  "fsgs": {
+    "main_body": "",
+    "conclusion": "Focal and segmenal glomerulosclerosis",
+    "comments": "In the post-transplant setting, glomerular segmental sclerosis can be recurrence of primary FSGS or, more commonly, a glomerular pattern developed secondary to a number of glomerular insults. Careful clinico-pathological correlation is needed to distinguish these. A history of (or evocative of) primary FSGS in the development of ESRF, early post-transplant development of new onset proteinuria, and extensive foot process effacement of epithelial cells would favour recurrent primary FSGS.Late post-transplant development of new onset proteinuria, previous or concurrent significant glomerular or tubulointerstitial disease of a different nature (e.g. alloimmune), as well as segmental foot process effacement favour secondary adaptive FSGS.  This can be seen in association with reduction of functioning nephrons, increased haemodynamic stress on a normal nephron population, or in association with some infections (e.g. HIV) and drugs (e.g. CNI, heroin). In this case, the features overall favour...",
+    "codes": {KBC 19
+      "transplant": "VALUE"
+    }
+  },
+  "iga-recurr": {
+    "main_body": "",
+    "conclusion": "Recurrent IgA nephropathy",
+    "comments": "",
+    "codes": {code for "recurrent" TBC + KBC 103
+      "transplant": "VALUE"
+    }
+  },
+  "igm": {
+    "main_body": "",
+    "conclusion": "Features in keeping with IgM nephropathy",
+    "comments": "",
+    "codes": {No code yet - use KBC 
+      "native1": "46817"
+    }
+  },
+  "infar": {
+    "main_body": "",
+    "conclusion": "Infarcted kidney",
+    "comments": "",
+    "codes": {KBC 75
+      "transplant": "VALUE"
+    }
+  },
+  "isch": {
+    "main_body": "",
+    "conclusion": "Glomerular ischaemia",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "lc-podo": {
+    "main_body": "",
+    "conclusion": "Light chain crytalline podocytopathy",
+    "comments": "",
+    "codes": {KBC 519
+      "native1": "46835"
+    }
+  },
+  "lccn": {
+    "main_body": "",
+    "conclusion": "Light chain cast nephropathy",
+    "comments": "in routine clinical practice, we propose to report only the highest number of casts per square millimeter in the cortex, using simple cutoffs of <5, 5 to 10, and >10 casts/mm2. https://doi.org/10.1182/blood.2019003807",
+    "codes": {KBC 215
+      "native1": "46835"
+    }
+  },
+  "ln-3-4": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 3+5",
+    "comments": "",
+    "codes": {KBC 118 + KBC 120
+      "native2": "38720.0"
+    }
+  },
+  "ln-3-5": {
+    "main_body": "",
+    "conclusion": "Lupus nephritis, class 3+4",
+    "comments": "",
+    "codes": {KBC 118 + KBC119
+      "native2": "38720.0"
+    }
+  },
+  "mb-mono": {
+    "main_body": "",
+    "conclusion": "Monoclonal membranous nephropathy",
+    "comments": "",
+    "codes": {No code yet - need to ask for one in KBC
+      "native1": "46835"
+    }
+  },
+  "mb-recurr": {
+    "main_body": "",
+    "conclusion": "Recurrent membranous nephropathy",
+    "comments": "",
+    "codes": {Code for "recurrence" TBC + KBC 139
+      "transplant": "VALUE"
+    }
+  },
+  "mild-ifta": {
+    "main_body": "",
+    "conclusion": "Mild interstitial fibrosis/tubular atrophy",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "mod-ifta": {
+    "main_body": "",
+    "conclusion": "Moderate interstitial fibrosis/tubular atrophy",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "mvi": {
+    "main_body": "",
+    "conclusion": "Microcirculation inflammation, C4d-negative, DSA-negative",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "neut": {
+    "main_body": "",
+    "conclusion": "Neutrophilic tubulitis",
+    "comments": "In view of the small focus of neutrophilic tubulitis, please exclude a urinary tract infection.",
+    "codes": {KBC 280
+      "transplant": "VALUE"
+    }
+  },
+  "p-amr": {
+    "main_body": "",
+    "conclusion": "Probable antibody-mediated rejection",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "polyoma": {
+    "main_body": "",
+    "conclusion": "Polyoma virus nephropathy",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "sev-ifta": {
+    "main_body": "",
+    "conclusion": "Severe interstitial fibrosis/tubular atrophy",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "subop": {
+    "main_body": "",
+    "conclusion": "Suboptimal sample",
+    "comments": "",
+    "codes": {New code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "t1a": {
+    "main_body": "",
+    "conclusion": "T cell-mediated rejection grade 1a",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "t1a-c": {
+    "main_body": "",
+    "conclusion": "Chronic active T cell-mediated rejection (grade 1a)",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "t1b": {
+    "main_body": "",
+    "conclusion": "T cell-mediated rejection grade 1b",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "t1b-c": {
+    "main_body": "",
+    "conclusion": "Chronic active T cell-mediated rejection (grade 1b)",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "t2-c": {
+    "main_body": "",
+    "conclusion": "Chronic active T cell-mediated rejection (grade 2)",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "t2a": {
+    "main_body": "",
+    "conclusion": "T cell-mediated rejection grade 2a",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "t2b": {
+    "main_body": "",
+    "conclusion": "T cell-mediated rejection grade 2b",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "t3": {
+    "main_body": "Severe tubulitis is present in >1 focus of non-severely atrophic tubules (t3).",
+    "conclusion": "T cell-mediated rejection grade 3",
+    "comments": "",
+    "codes": {new code TBC
+      "transplant": "VALUE"
+    }
+  },
+  "tri": {
+    "main_body": "",
+    "conclusion": "Tubuloreticular inclusions",
+    "comments": "",
+    "codes": {KBC 436}
+  }
+}

@@ -180,10 +180,10 @@ async def generate_report(input_data: ShorthandInput):
         extracted_codes = []
         seen_conclusion_pairs = set()
         for key in conclusion_keys:
-            code = simple_mapper.get_conclusion_code(key, input_data.report_type)
-            if code and (key, code) not in seen_conclusion_pairs:
-                extracted_codes.append(ConclusionCode(key=key, code=code))
-                seen_conclusion_pairs.add((key, code))
+            for code in simple_mapper.get_conclusion_codes(key, input_data.report_type):
+                if (key, code) not in seen_conclusion_pairs:
+                    extracted_codes.append(ConclusionCode(key=key, code=code))
+                    seen_conclusion_pairs.add((key, code))
 
         return GeneratedReport(
             report_text=report_text,

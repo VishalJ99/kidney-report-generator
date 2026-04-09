@@ -123,10 +123,16 @@
     "main_body": "",
     "conclusion": "Histological features in keeping with Alport's syndrome",
     "comments": "",
-    "codes": {
-      "native1": "46814",
-      "kbc": "174"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46814",
+          "kbc": "174"
+        }
+      }
+    ]
   },
   "amr": {
     "main_body": "",
@@ -138,28 +144,46 @@
     "main_body": "",
     "conclusion": "Amyloid, AL",
     "comments": "Secondary amyloidosis is seen in condition associated with chronic immune activation, including rheumatoid arthritis, ankylosing spondylitis, chronic infections (osteomyelitis, skin infections, ulcers, bronchiectasis), Crohn\u2019s disease, tuberculosis and familial Mediterranean fever.",
-    "codes": {
-      "native1": "55101",
-      "kbc": "223"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "55101",
+          "kbc": "223"
+        }
+      }
+    ]
   },
   "amyl-al": {
     "main_body": "",
     "conclusion": "Amyloid, AA",
     "comments": "",
-    "codes": {
-      "native1": "55102",
-      "kbc": "222"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "55102",
+          "kbc": "222"
+        }
+      }
+    ]
   },
   "amyl-neg": {
     "main_body": "",
     "conclusion": "Amyloid, NOS",
     "comments": "",
-    "codes": {
-      "native1": "55100",
-      "kbc": "221"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "55100",
+          "kbc": "221"
+        }
+      }
+    ]
   },
   "amyl-nos": {
     "main_body": "",
@@ -177,10 +201,16 @@
     "main_body": "",
     "conclusion": "Pauci-immune segmental necrotising glomerulonephritis in keeping with an ANCA-mediated process",
     "comments": "",
-    "codes": {
-      "native1": "46823",
-      "kbc": "127"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46823",
+          "kbc": "127"
+        }
+      }
+    ]
   },
   "anca1": {
     "main_body": "",
@@ -198,10 +228,16 @@
     "main_body": "",
     "conclusion": "Anti-glomerular basement membrane glomerulonephritis",
     "comments": "",
-    "codes": {
-      "native1": "46822",
-      "kbc": "130"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46822",
+          "kbc": "130"
+        }
+      }
+    ]
   },
   "anti-gbm-atyp": {
     "main_body": "",
@@ -225,18 +261,30 @@
     "main_body": "",
     "conclusion": "Arteriolar hyalinosis",
     "comments": "",
-    "codes": {
-      "kbc": "354"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "354"
+        }
+      }
+    ]
   },
   "art-scl": {
     "main_body": "",
     "conclusion": "Arterial fibrointimal thickening",
     "comments": "",
-    "codes": {
-      "native1": "73810",
-      "kbc": "74"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "73810",
+          "kbc": "74"
+        }
+      }
+    ]
   },
   "as": {
     "main_body": "",
@@ -248,10 +296,16 @@
     "main_body": "",
     "conclusion": "Acute tubular injury",
     "comments": "",
-    "codes": {
-      "native1": "46840",
-      "kbc": "216"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46840",
+          "kbc": "216"
+        }
+      }
+    ]
   },
   "ati-micro": {
     "main_body": "",
@@ -329,17 +383,29 @@
     "main_body": "",
     "conclusion": "C3 glomerulonephritis",
     "comments": "",
-    "codes": {
-      "kbc": "137"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "137"
+        }
+      }
+    ]
   },
   "c3-gp": {
     "main_body": "",
     "conclusion": "C3 glomerulopathy",
     "comments": "",
-    "codes": {
-      "kbc": "136"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "136"
+        }
+      }
+    ]
   },
   "c3gn": {
     "main_body": "",
@@ -411,9 +477,15 @@
     "main_body": "",
     "conclusion": "Neutrophil casts",
     "comments": "",
-    "codes": {
-      "kbc": "280"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "280"
+        }
+      }
+    ]
   },
   "cct": {
     "main_body": "The sample consists of cortex and connective tissue.",
@@ -449,10 +521,16 @@
     "main_body": "",
     "conclusion": "Cholesterol emboli",
     "comments": "",
-    "codes": {
-      "native1": "35360",
-      "kbc": "68"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "35360",
+          "kbc": "68"
+        }
+      }
+    ]
   },
   "cm": {
     "main_body": "The sample consists of cortex and medulla.",
@@ -470,9 +548,15 @@
     "main_body": "",
     "conclusion": "Collagenofibrotic glomerulopathy",
     "comments": "",
-    "codes": {
-      "kbc": "178"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "178"
+        }
+      }
+    ]
   },
   "cr0": {
     "main_body": "Congo red stain is negative.",
@@ -508,10 +592,16 @@
     "main_body": "",
     "conclusion": "Type 1 cryoglobulinaemic GN",
     "comments": "",
-    "codes": {
-      "native1": "47600",
-      "kbc": "134"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "47600",
+          "kbc": "134"
+        }
+      }
+    ]
   },
   "cryo-2": {
     "main_body": "",
@@ -523,10 +613,16 @@
     "main_body": "",
     "conclusion": "Cryoglobulinaemic glomerulonephritis",
     "comments": "",
-    "codes": {
-      "native1": "47600",
-      "kbc": "271"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "47600",
+          "kbc": "271"
+        }
+      }
+    ]
   },
   "cryo-seroneg": {
     "main_body": "",
@@ -544,19 +640,31 @@
     "main_body": "",
     "conclusion": "Crystalglobulin-induced nephropathy",
     "comments": "",
-    "codes": {
-      "native1": "46835",
-      "kbc": "451"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46835",
+          "kbc": "451"
+        }
+      }
+    ]
   },
   "crystalcryo-gn": {
     "main_body": "",
     "conclusion": "Crystalline Cryoglobulinaemic GN type 1",
     "comments": "",
-    "codes": {
-      "native1": "46835",
-      "kbc": "134"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46835",
+          "kbc": "134"
+        }
+      }
+    ]
   },
   "ct": {
     "main_body": "The sample consists of connective tissue only.",
@@ -648,18 +756,30 @@
     "main_body": "",
     "conclusion": "Cystine deposition",
     "comments": "",
-    "codes": {
-      "kbc": "62"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "62"
+        }
+      }
+    ]
   },
   "ddd": {
     "main_body": "",
     "conclusion": "Dense deposit disease",
     "comments": "",
-    "codes": {
-      "native1": "46827",
-      "kbc": "138"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46827",
+          "kbc": "138"
+        }
+      }
+    ]
   },
   "dha": {
     "main_body": "",
@@ -671,9 +791,15 @@
     "main_body": "",
     "conclusion": "2,8-DHA deposition",
     "comments": "",
-    "codes": {
-      "kbc": "61"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "61"
+        }
+      }
+    ]
   },
   "diab": {
     "main_body": "Glomeruli are abnormal and show a marked, often nodular increase in mesangial matrix, with a mild increase in mesangial cellularity. Capillary walls are also markedly thickened.",
@@ -687,21 +813,33 @@
     "main_body": "",
     "conclusion": "Diffuse diabetic glomerulopathy",
     "comments": "",
-    "codes": {
-      "native1": "46832",
-      "native2": "23810.0",
-      "kbc": "171"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46832",
+          "native2": "23810.0",
+          "kbc": "171"
+        }
+      }
+    ]
   },
   "diab-nod": {
     "main_body": "",
     "conclusion": "Nodular diabetic glomerulopathy",
     "comments": "",
-    "codes": {
-      "native1": "46832",
-      "native2": "23810.0",
-      "kbc": "171"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46832",
+          "native2": "23810.0",
+          "kbc": "171"
+        }
+      }
+    ]
   },
   "diab-tma": {
     "main_body": "",
@@ -725,10 +863,16 @@
     "main_body": "",
     "conclusion": "Endocapillary hypercellularity",
     "comments": "",
-    "codes": {
-      "native1": "46820",
-      "kbc": "3"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46820",
+          "kbc": "3"
+        }
+      }
+    ]
   },
   "e0": {
     "main_body": "No endocapillary hypercellularity.",
@@ -764,9 +908,15 @@
     "main_body": "",
     "conclusion": "Fabry's disease",
     "comments": "",
-    "codes": {
-      "kbc": "181"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "181"
+        }
+      }
+    ]
   },
   "fibr": {
     "main_body": "",
@@ -792,9 +942,15 @@
     "main_body": "",
     "conclusion": "Fibronectin glomerulopathy",
     "comments": "",
-    "codes": {
-      "kbc": "177"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "177"
+        }
+      }
+    ]
   },
   "fn0": {
     "main_body": "No fibrinoid necrosis.",
@@ -826,10 +982,16 @@
     "main_body": "",
     "conclusion": "Focal and segmental glomerulosclerosis, cellular variant",
     "comments": "",
-    "codes": {
-      "native1": "46812",
-      "kbc": "22"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46812",
+          "kbc": "22"
+        }
+      }
+    ]
   },
   "fsgs-cellular": {
     "main_body": "",
@@ -841,28 +1003,46 @@
     "main_body": "",
     "conclusion": "Focal and segmental glomerulosclerosis, collapsing variant",
     "comments": "The collapsing variant of focal segmental glomerulosclerosis may be idiopathic, particularly in patients of african descent, or can be seen in association with drugs (bisphosphonate, interferon therapy, CNI, lithium), infections (HIV, CMV, parvovirus B19, COVID-19), inflammatory disorders (Still disease, haemophagocytic syndrome) or ischaemia. ??genetic disorders",
-    "codes": {
-      "native1": "46812",
-      "kbc": "20"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46812",
+          "kbc": "20"
+        }
+      }
+    ]
   },
   "fsgs-nos": {
     "main_body": "",
     "conclusion": "Focal and segmental glomerulosclerosis, NOS",
     "comments": "",
-    "codes": {
-      "native1": "46812",
-      "kbc": "19"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46812",
+          "kbc": "19"
+        }
+      }
+    ]
   },
   "fsgs-perih": {
     "main_body": "",
     "conclusion": "Focal and segmental glomerulosclerosis, perihilar variant",
     "comments": "",
-    "codes": {
-      "native1": "46812",
-      "kbc": "23"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46812",
+          "kbc": "23"
+        }
+      }
+    ]
   },
   "fsgs-primary": {
     "main_body": "",
@@ -880,10 +1060,16 @@
     "main_body": "",
     "conclusion": "Focal and segmental glomerulosclerosis, tip variant",
     "comments": "",
-    "codes": {
-      "native1": "46812",
-      "kbc": "21"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46812",
+          "kbc": "21"
+        }
+      }
+    ]
   },
   "g0": {
     "main_body": "There is no glomerulitis (g0).",
@@ -919,25 +1105,43 @@
     "main_body": "",
     "conclusion": "Global glomerulosclerosis above expected for age",
     "comments": "",
-    "codes": {
-      "kbc": "29"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "29"
+        }
+      }
+    ]
   },
   "glom-ht": {
     "main_body": "",
     "conclusion": "Glomerulomegaly",
     "comments": "",
-    "codes": {
-      "kbc": "24"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "24"
+        }
+      }
+    ]
   },
   "glom-sch": {
     "main_body": "",
     "conclusion": "Glomerular ischaemia",
     "comments": "",
-    "codes": {
-      "kbc": "36"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "36"
+        }
+      }
+    ]
   },
   "gn-nos": {
     "main_body": "",
@@ -961,10 +1165,16 @@
     "main_body": "",
     "conclusion": "Uric acid crystal deposition",
     "comments": "",
-    "codes": {
-      "native1": "12010",
-      "kbc": "59"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "12010",
+          "kbc": "59"
+        }
+      }
+    ]
   },
   "hc0": {
     "main_body": "No hypercellularity.",
@@ -1090,10 +1300,16 @@
     "main_body": "",
     "conclusion": "Immune complex glomerulonephritis, NOS",
     "comments": "",
-    "codes": {
-      "native1": "46833",
-      "kbc": "101"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46833",
+          "kbc": "101"
+        }
+      }
+    ]
   },
   "ifp": {
     "main_body": "Immunofluorescence was performed on paraffin sections after protease digestion.",
@@ -1105,10 +1321,16 @@
     "main_body": "",
     "conclusion": "Tubulointerstitial scarring, NOS",
     "comments": "",
-    "codes": {
-      "native1": "46850",
-      "kbc": "276"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46850",
+          "kbc": "276"
+        }
+      }
+    ]
   },
   "ifta-cause0": {
     "main_body": "",
@@ -1126,10 +1348,16 @@
     "main_body": "",
     "conclusion": "IgA nephropathy",
     "comments": "Histological grading of the lesion of IgA nephropathy according to the Oxford Classification is MEST. Scores of M1 and S1, respectively, indicate mesangial hypercellularity and focal segmental sclerosis, and by themselves indicate a mildly increased risk of renal functional deterioration; however, together these suggest a considerable risk of such deterioration. Tubular atrophy (T) scores of 1 and 2 indicate progressively greater risk of renal functional decline compared with T0, and augment the poor prognosis associated with M1 and S1. Endocapillary proliferation (E1), if present, suggests a lesion which may improve with immunosuppressive therapy (Reference: Kidney Int. 76:534-545 and 546-556, 2009).",
-    "codes": {
-      "native1": "46818",
-      "kbc": "102"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46818",
+          "kbc": "102"
+        }
+      }
+    ]
   },
   "iga-gbm": {
     "main_body": "",
@@ -1211,27 +1439,45 @@
     "main_body": "",
     "conclusion": "Inadequate/suboptimal biopsy",
     "comments": "",
-    "codes": {
-      "native1": "9000",
-      "kbc": "259"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "9000",
+          "kbc": "259"
+        }
+      }
+    ]
   },
   "inf": {
     "main_body": "An area of cortical infarction is present.",
     "conclusion": "Infarction",
     "comments": "",
-    "codes": {
-      "native1": "44321",
-      "kbc": "75"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "44321",
+          "kbc": "75"
+        }
+      }
+    ]
   },
   "inf-gn": {
     "main_body": "",
     "conclusion": "Infection-related glomerulonephritis",
     "comments": "",
-    "codes": {
-      "kbc": "107"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "107"
+        }
+      }
+    ]
   },
   "infar": {
     "main_body": "",
@@ -1245,10 +1491,16 @@
     "main_body": "",
     "conclusion": "Intracapillary monoclonal IgM glomerulopathy",
     "comments": "",
-    "codes": {
-      "native1": "46835",
-      "kbc": "363"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46835",
+          "kbc": "363"
+        }
+      }
+    ]
   },
   "isch": {
     "main_body": "",
@@ -1274,10 +1526,16 @@
     "main_body": "",
     "conclusion": "Monoclonal Immunotactoid glomerulopathy",
     "comments": "",
-    "codes": {
-      "native1": "46836",
-      "kbc": "453"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46836",
+          "kbc": "453"
+        }
+      }
+    ]
   },
   "jga": {
     "main_body": "",
@@ -1301,10 +1559,16 @@
     "main_body": "",
     "conclusion": "Light chain crystal-storing histiocytosis",
     "comments": "",
-    "codes": {
-      "native1": "46835",
-      "kbc": "439"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46835",
+          "kbc": "439"
+        }
+      }
+    ]
   },
   "lc-podo": {
     "main_body": "",
@@ -1318,9 +1582,15 @@
     "main_body": "",
     "conclusion": "Lecithin-Cholesterol Acyltransferase (LCAT) Deficiency",
     "comments": "LCAT deficiency due to LCAT genetic mutations\u200b may be complicated by chronic progressive nephrotic syndrome, resulting in end-stage kidney disease usually by the fourth or fifth decade of life. \u200b In LCAT deficiency the lack of esterification of cholesterol esters on HDL results in hypoalphaliproteinaemia, hypercholesterolaemia and increased lipid tissue deposition, which in the kidney occurs in the mesangium and glomerular basement membrane leading to progressive glomerulosclerosis. Acquired LCAT deficiency, due to anti-LCAT circulating antibodies, histologically appear similar to congenital LCAT deficiency. There is a single report of association with membranous nephropathy with acquired LCAT deficiency. In this case report, the authors demonstrated that the LCAT antigen was the antigen implicated in the immune complexes of the membranous nephropathy.",
-    "codes": {
-      "kbc": "179"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "179"
+        }
+      }
+    ]
   },
   "lccn": {
     "main_body": "",
@@ -1334,10 +1604,16 @@
     "main_body": "",
     "conclusion": "Light chain proximal tubulopathy, crystalline/non-crystalline",
     "comments": "",
-    "codes": {
-      "native1": "46835",
-      "kbc": "263"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46835",
+          "kbc": "263"
+        }
+      }
+    ]
   },
   "lcpt-noncrys": {
     "main_body": "",
@@ -1349,30 +1625,48 @@
     "main_body": "",
     "conclusion": "Lupus nephritis, class 1",
     "comments": "",
-    "codes": {
-      "native2": "38720.0",
-      "kbc": "116"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native2": "38720.0",
+          "kbc": "116"
+        }
+      }
+    ]
   },
   "ln-2": {
     "main_body": "",
     "conclusion": "Lupus nephritis, class 2",
     "comments": "",
-    "codes": {
-      "native1": "46819",
-      "native2": "38720.0",
-      "kbc": "117"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46819",
+          "native2": "38720.0",
+          "kbc": "117"
+        }
+      }
+    ]
   },
   "ln-3": {
     "main_body": "",
     "conclusion": "Lupus nephritis, class 3",
     "comments": "",
-    "codes": {
-      "native1": "46820",
-      "native2": "38720.0",
-      "kbc": "118"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46820",
+          "native2": "38720.0",
+          "kbc": "118"
+        }
+      }
+    ]
   },
   "ln-3-4": {
     "main_body": "",
@@ -1394,21 +1688,33 @@
     "main_body": "",
     "conclusion": "Lupus nephritis, class 4",
     "comments": "",
-    "codes": {
-      "native1": "46815",
-      "native2": "38720.0",
-      "kbc": "119"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46815",
+          "native2": "38720.0",
+          "kbc": "119"
+        }
+      }
+    ]
   },
   "ln-5": {
     "main_body": "",
     "conclusion": "Lupus nephritis, class 5",
     "comments": "",
-    "codes": {
-      "native1": "46829",
-      "native2": "38720.0",
-      "kbc": "120"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46829",
+          "native2": "38720.0",
+          "kbc": "120"
+        }
+      }
+    ]
   },
   "lupus": {
     "main_body": "",
@@ -1432,10 +1738,16 @@
     "main_body": "",
     "conclusion": "Membranous glomerulopathy",
     "comments": "Membranous glomerulonephritis can be a primary or secondary disease. There are no histological findings to suggest a secondary membranous, but please correlate with serological and radiological findings. Possible causes for a secondary membranous glomerulonephritis include malignancies (carcinomas, sarcomas and leukaemias), infections (hepatitis B and C, syphilis, filariasis), autoimmune diseases (SLE, rheumatoid arthritis, Sjogren syndrome, mixed connective tissue disease, Hashimoto thyroiditis, Graves disease) and drugs/toxins (penicillamine, gold, mercuric chloride, captopril, cationic bovine serum albumin). Please correlate with clinical, radiological and serological findings.",
-    "codes": {
-      "native1": "46829",
-      "kbc": "139"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46829",
+          "kbc": "139"
+        }
+      }
+    ]
   },
   "mb-cll": {
     "main_body": "",
@@ -1467,10 +1779,16 @@
     "main_body": "",
     "conclusion": "Membranous glomerulopathy, PLA2R-positive",
     "comments": "PLA2R-positive membranous GP can be a primary disease, or can be secondary to infections (viral), autoimmune diseases, and malignancy.",
-    "codes": {
-      "native1": "46829",
-      "kbc": "141"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46829",
+          "kbc": "141"
+        }
+      }
+    ]
   },
   "mb-pla2r0": {
     "main_body": "",
@@ -1580,10 +1898,16 @@
     "main_body": "",
     "conclusion": "Monoclonal Immunoglobulin Deposition Disease (LCDD, HCDD, LHCDD)",
     "comments": "",
-    "codes": {
-      "native1": "46835",
-      "kbc": "172"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46835",
+          "kbc": "172"
+        }
+      }
+    ]
   },
   "midd-if": {
     "main_body": "",
@@ -1609,19 +1933,31 @@
     "main_body": "",
     "conclusion": "Minimal change disease",
     "comments": "",
-    "codes": {
-      "native1": "46810",
-      "kbc": "155"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46810",
+          "kbc": "155"
+        }
+      }
+    ]
   },
   "min-glom": {
     "main_body": "",
     "conclusion": "Minor/No glomerular abnormalities",
     "comments": "",
-    "codes": {
-      "native1": "46811",
-      "kbc": "30"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46811",
+          "kbc": "30"
+        }
+      }
+    ]
   },
   "minch-igm": {
     "main_body": "",
@@ -1683,10 +2019,16 @@
     "main_body": "",
     "conclusion": "Membranoproliferative glomerulonephritis, immune complex type (IC-MPGN)",
     "comments": "A membranoproliferative pattern glomerulonephritis with polyclonal immune complex deposition is seen in association with infections (including Hep C and HIV, occult infections such as endocarditis or rare infections such as Bartonella henselae \u2013 cats?), autoimmune disease (including lupus) and cryoglobulins. It can also be seen as part of an acute, generally infection-related exacerbations of an underlying C3-predominant GN, so investigations for abnormalities of the alternative pathway of complement activation are warranted. Patients with IC-MPGN can have a genetic or acquired abnormality of the alternative pathway of complement activation in ~5-10% of cases, and transition between IC-MPGN and C3-dominant forms is described. The exudative pattern (neutrophil-rich) is more commonly seen in cryoglobulinaemia and C3 GN. In some cases no cause is identified despite extensive investigation, and these are referred to as \"idiopathic\".",
-    "codes": {
-      "native1": "46826",
-      "kbc": "16"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46826",
+          "kbc": "16"
+        }
+      }
+    ]
   },
   "mvi": {
     "main_body": "",
@@ -1726,19 +2068,31 @@
     "main_body": "",
     "conclusion": "Nodular glomerulosclerosis, idiopathic",
     "comments": "",
-    "codes": {
-      "native1": "46832",
-      "kbc": "529"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46832",
+          "kbc": "529"
+        }
+      }
+    ]
   },
   "norm": {
     "main_body": "",
     "conclusion": "Normal or near-normal biopsy",
     "comments": "",
-    "codes": {
-      "native1": "100",
-      "kbc": "320"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "100",
+          "kbc": "320"
+        }
+      }
+    ]
   },
   "np1": {
     "main_body": "Occasional tubules contain neutrophil casts.",
@@ -1768,17 +2122,29 @@
     "main_body": "",
     "conclusion": "Obesity-related glomerulopathy",
     "comments": "",
-    "codes": {
-      "kbc": "166"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "166"
+        }
+      }
+    ]
   },
   "ox": {
     "main_body": "",
     "conclusion": "Oxalate nephropathy",
     "comments": "",
-    "codes": {
-      "kbc": "58"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "58"
+        }
+      }
+    ]
   },
   "oxalate": {
     "main_body": "",
@@ -1798,19 +2164,31 @@
     "main_body": "",
     "conclusion": "Pauci-immune segmental necrotising glomerulonephritis",
     "comments": "",
-    "codes": {
-      "native1": "46822",
-      "kbc": "126"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46822",
+          "kbc": "126"
+        }
+      }
+    ]
   },
   "pgnmid": {
     "main_body": "",
     "conclusion": "Proliferative GN with monoclonal Ig Deposits (PGNMID)",
     "comments": "Although the findings are not typical, please rule out cryoglobulinaemia. If cryoglobulinaemia has been excluded, the findings fit best with \u201cPGNMID\u201d (proliferative glomerulonephritis with non-organised monoclonal immunoglobulin deposition). This entity is often associated with a monoclonal gammopathy, but it is unusual for a myeloma or lymphoma to be identified, even on long term follow-up. Recurrence after transplantation is described (see Nasr et al JASN 2009: 2055-2064). The mean age at presentation is 55\u2009years, but the disease may occur at any age. It is important at all ages to do a full haematological work up; in cases with negative haematological investigations, it has been speculated that PGNMID may results from oligoclonal production of nephrotoxic IgG3 secondary to a skewed B-cell repertoire induced by viral or other antigenic stimulation\u00a0(Bridoux et al. Nephrology Dialysis Transplantation 36(2): 208\u2013215).",
-    "codes": {
-      "native1": "46835",
-      "kbc": "133"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46835",
+          "kbc": "133"
+        }
+      }
+    ]
   },
   "polyoma": {
     "main_body": "",
@@ -2036,10 +2414,16 @@
     "main_body": "",
     "conclusion": "Thin basement membrane lesion",
     "comments": "",
-    "codes": {
-      "native1": "46813",
-      "kbc": "175"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46813",
+          "kbc": "175"
+        }
+      }
+    ]
   },
   "tbm1": {
     "main_body": "",
@@ -2081,9 +2465,15 @@
     "main_body": "",
     "conclusion": "Tubulointerstitial calcification",
     "comments": "",
-    "codes": {
-      "kbc": "52"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "52"
+        }
+      }
+    ]
   },
   "ti0": {
     "main_body": "Total cortical interstitial inflammation amounts to <10% of cortex (ti0).",
@@ -2119,19 +2509,31 @@
     "main_body": "",
     "conclusion": "Active tubulointerstitial nephritis",
     "comments": "Possible causes of active tubulointerstitial nephritis include drugs, autoimmune disorders and infections.",
-    "codes": {
-      "native1": "46846",
-      "kbc": "185"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46846",
+          "kbc": "185"
+        }
+      }
+    ]
   },
   "tin-gr": {
     "main_body": "",
     "conclusion": "Active tubulointerstitial nephritis, granulomatous",
     "comments": "granulomatous tubulointerstitial nephritis. Possible causes include drugs (in particular NSAIDS, anti-convulsivants and antibiotics), sarcoidosis and infections (in particular mycobacterial and fungal).",
-    "codes": {
-      "native1": "46848",
-      "kbc": "43"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46848",
+          "kbc": "43"
+        }
+      }
+    ]
   },
   "tin-ic": {
     "main_body": "",
@@ -2143,19 +2545,31 @@
     "main_body": "",
     "conclusion": "Active tubulointerstitial nephritis with IgG4-positive plasma cells",
     "comments": "",
-    "codes": {
-      "native1": "46846",
-      "kbc": "47"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "native1": "46846",
+          "kbc": "47"
+        }
+      }
+    ]
   },
   "tin-neut": {
     "main_body": "",
     "conclusion": "Pyelonephritis",
     "comments": "",
-    "codes": {
-      "native1": "46843",
-      "kbc": "55"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46843",
+          "kbc": "55"
+        }
+      }
+    ]
   },
   "tin-old": {
     "main_body": "",
@@ -2167,18 +2581,30 @@
     "main_body": "",
     "conclusion": "Active tubulointerstitial nephritis, xanthogranulomatous",
     "comments": "",
-    "codes": {
-      "kbc": "517"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "517"
+        }
+      }
+    ]
   },
   "tma": {
     "main_body": "",
     "conclusion": "Thrombotic microangiopathy",
     "comments": "",
-    "codes": {
-      "native1": "46851",
-      "kbc": "230"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "native1": "46851",
+          "kbc": "230"
+        }
+      }
+    ]
   },
   "tma-ht": {
     "main_body": "",
@@ -2232,9 +2658,15 @@
     "main_body": "",
     "conclusion": "Vasculitis",
     "comments": "",
-    "codes": {
-      "kbc": "249"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "249"
+        }
+      }
+    ]
   },
   "~(\\d+)IL_(\\d+)AR": {
     "main_body": "{1} interlobular, {2} arcuate.",

@@ -2,9 +2,12 @@
 Pydantic models for shorthand input, phrase management, and report output.
 """
 
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field
+
+PhraseClassification = Literal["diagnosis", "pattern", "attribute"]
+CodeMedium = Literal["PATIENT", "LM", "EM", "IHC"]
 
 
 class LineMapping(BaseModel):
@@ -22,13 +25,39 @@ class ShorthandInput(BaseModel):
     report_type: str = Field(default="transplant", description="Type of report (transplant or native)")
 
 
+class CodingGroup(BaseModel):
+    """A single coded concept associated with a shorthand entry."""
+
+    classification: PhraseClassification = Field(..., description="Classification for this coded concept")
+    medium: CodeMedium = Field(..., description="Medium/source for this coded concept")
+    codes: Dict[str, str] = Field(
+        default_factory=dict,
+        description="Single code per code system for this coded concept",
+    )
+
+
 class PhraseEntryPayload(BaseModel):
     """Structured phrase payload for create/update operations."""
 
     main_body: str = Field(default="", description="Expansion used in the main body section")
     conclusion: str = Field(default="", description="Expansion used in the conclusion section")
     comments: str = Field(default="", description="Expansion used in the comments section")
-    codes: Dict[str, str] = Field(default_factory=dict, description="Code values keyed by code type")
+    coding: List[CodingGroup] = Field(
+        default_factory=list,
+        description="Canonical coded concepts for the shorthand entry",
+    )
+    classification: Optional[PhraseClassification] = Field(
+        default=None,
+        description="Legacy compatibility field derived from or convertible into coding",
+    )
+    pattern_metadata: Optional[Dict[str, Optional[CodeMedium]]] = Field(
+        default=None,
+        description="Legacy compatibility field derived from or convertible into coding",
+    )
+    codes: Dict[str, str] = Field(
+        default_factory=dict,
+        description="Legacy compatibility field derived from or convertible into coding",
+    )
 
 
 class PhraseEntryResponse(PhraseEntryPayload):
@@ -50,6 +79,18 @@ class CaseCode(BaseModel):
     key: str = Field(..., description="The shorthand key entered")
     section: str = Field(..., description="Section where the shorthand was entered")
     label: str = Field(..., description="Human-readable label for the shorthand entry")
+    coding: List[CodingGroup] = Field(
+        default_factory=list,
+        description="Canonical coded concepts resolved for this shorthand entry",
+    )
+    classification: Optional[PhraseClassification] = Field(
+        default=None,
+        description="Legacy compatibility field derived from coding where possible",
+    )
+    pattern_metadata: Optional[Dict[str, Optional[CodeMedium]]] = Field(
+        default=None,
+        description="Legacy compatibility field derived from coding where possible",
+    )
     codes: Dict[str, str] = Field(default_factory=dict, description="All non-empty resolved codes for the entry")
     pending_code_types: List[str] = Field(
         default_factory=list,
