@@ -50,9 +50,11 @@ Shorthand entries keep their text fields and use a top-level `coding` array for 
 3. Each `coding[]` item has exactly:
    - `classification`: `diagnosis | pattern | attribute`
    - `medium`: `PATIENT | LM | EM | IHC`
-   - `codes`: scalar code values keyed by code system, for example `kbc`, `native1`, `native2`, `transplant`
-4. `codes["kbc"]` or `codes["transplant"]` always resolves to a single code value when present.
-5. If one shorthand maps to multiple codes within the same family, represent that as multiple `coding[]` items, not a list inside one `codes` object.
+   - `codes`: scalar-or-null code values keyed by code system, for example `kbc`, `native1`, `native2`, `transplant`
+4. Code-system values inside one `coding[]` item are never lists.
+5. `codes["kbc"]` or `codes["transplant"]` always resolves to a single code value when present.
+6. Use `null` when a code system has been considered for that coded concept but no code has been provided yet, for example `native1: null`.
+7. If one shorthand maps to multiple codes within the same family, represent that as multiple `coding[]` items, not a list inside one `codes` object.
 
 ## Medium semantics
 
@@ -73,6 +75,8 @@ Native and transplant export do not consume shorthand text directly. They consum
 
 Inside one coding group, `codes["kbc"]` should always be a scalar. That keeps downstream logic simple and predictable. If a shorthand needs two KBC diagnoses, it becomes two coding groups.
 
+Allowing `null` for an explicitly missing system keeps the structure inspectable without turning `codes` values into lists or forcing every downstream consumer to infer whether absence means “not considered” or “considered but not provided”.
+
 ### 3. Pattern codes need explicit modality
 
 Pattern codes are not just “pattern yes/no”. The medium matters for interpretation and later export. Making `medium` explicit removes the previous ambiguity around `null` and makes `LM` the concrete default for generic “Pattern of injury”.
@@ -92,3 +96,19 @@ The backend still accepts and can read legacy top-level fields during transition
 When those legacy fields are present and `coding` is absent, the backend normalizes them into a single canonical coding group at runtime where possible.
 
 This compatibility layer exists so the live UI and hand-edited review files can transition incrementally without breaking the report-generation path.
+
+## Code-family provenance
+
+The code-family names in runtime JSON come from the source workbook rather than from later hand-edited review files.
+
+In particular:
+- `native1`
+- `native2`
+- other workbook-derived code columns
+
+should be treated as source-defined names.
+
+Source:
+- [phrases_flat v4 2026_01_09.xlsx](/Users/dross/kidney-report-generator/backend/app/data/phrases_flat%20v4%202026_01_09.xlsx), `CONCLUSION` sheet, row 2
+
+This is important because `native2` can look suspicious when it appears in later review artifacts, but its provenance is older: workbook -> conversion script -> runtime JSON -> mapper logic.

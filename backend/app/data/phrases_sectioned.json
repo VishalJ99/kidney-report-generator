@@ -805,9 +805,17 @@
     "main_body": "Glomeruli are abnormal and show a marked, often nodular increase in mesangial matrix, with a mild increase in mesangial cellularity. Capillary walls are also markedly thickened.",
     "conclusion": "Diabetic glomerulopathy",
     "comments": "Glomerular basement membranes are thickened and there is an increase in mesangial matrix. Although not specific, the findings are most often associated with diabetes \u2013 although the patient is not stated to be diabetic, please correlate with glycaemic parameters. In the absence of diabetes, such features are referred to as \u201cidiopathic nodular glomerulosclerosis\u201d and can be seen in association with smoking and hypertension (Idiopathic Nodular Glomerulosclerosis Is a Distinct Clinicopathologic Entity Linked to Hypertension and Smoking.  Markowitz G et al. Human Pathology 2002)",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "171",
+          "native1": null,
+          "transplant": null
+        }
+      }
+    ]
   },
   "diab-diff": {
     "main_body": "",
@@ -922,9 +930,16 @@
     "main_body": "",
     "conclusion": "Fibrillary glomerulonephritis, DNAJB9-positive",
     "comments": "",
-    "codes": {
-      "native1": "46834"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "365",
+          "native1": "46834"
+        }
+      }
+    ]
   },
   "fibrillary": {
     "main_body": "",
@@ -968,9 +983,17 @@
     "main_body": "",
     "conclusion": "Focal and segmenal glomerulosclerosis",
     "comments": "In the post-transplant setting, glomerular segmental sclerosis can be recurrence of primary FSGS or, more commonly, a glomerular pattern developed secondary to a number of glomerular insults. Careful clinico-pathological correlation is needed to distinguish these. A history of (or evocative of) primary FSGS in the development of ESRF, early post-transplant development of new onset proteinuria, and extensive foot process effacement of epithelial cells would favour recurrent primary FSGS.Late post-transplant development of new onset proteinuria, previous or concurrent significant glomerular or tubulointerstitial disease of a different nature (e.g. alloimmune), as well as segmental foot process effacement favour secondary adaptive FSGS.  This can be seen in association with reduction of functioning nephrons, increased haemodynamic stress on a normal nephron population, or in association with some infections (e.g. HIV) and drugs (e.g. CNI, heroin). In this case, the features overall favour...",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "19",
+          "native1": null,
+          "transplant": null
+        }
+      }
+    ]
   },
   "fsgs-apo": {
     "main_body": "",
@@ -1393,9 +1416,17 @@
     "main_body": "",
     "conclusion": "Recurrent IgA nephropathy",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "103",
+          "native1": null,
+          "transplant": null
+        }
+      }
+    ]
   },
   "iga-sec": {
     "main_body": "",
@@ -1483,9 +1514,17 @@
     "main_body": "",
     "conclusion": "Infarted kidney",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "75",
+          "native1": null,
+          "transplant": null
+        }
+      }
+    ]
   },
   "intracap-igm": {
     "main_body": "",
@@ -1574,9 +1613,16 @@
     "main_body": "",
     "conclusion": "Light chain crytalline podocytopathy",
     "comments": "",
-    "codes": {
-      "native1": "46835"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "IHC",
+        "codes": {
+          "kbc": "519",
+          "native1": "46835"
+        }
+      }
+    ]
   },
   "lcat": {
     "main_body": "",
@@ -1596,9 +1642,16 @@
     "main_body": "",
     "conclusion": "Light chain cast nephropathy",
     "comments": "in routine clinical practice, we propose to report only the highest number of casts per square millimeter in the cortex, using simple cutoffs of <5, 5 to 10, and >10 casts/mm2. https://doi.org/10.1182/blood.2019003807",
-    "codes": {
-      "native1": "46835"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "215",
+          "native1": "46835"
+        }
+      }
+    ]
   },
   "lcpt": {
     "main_body": "",
@@ -1672,17 +1725,51 @@
     "main_body": "",
     "conclusion": "Lupus nephritis, class 3+5",
     "comments": "",
-    "codes": {
-      "native2": "38720.0"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "118",
+          "native1": null,
+          "native2": "38720.0"
+        }
+      },
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "120",
+          "native1": null,
+          "native2": "38720.0"
+        }
+      }
+    ]
   },
   "ln-3-5": {
     "main_body": "",
     "conclusion": "Lupus nephritis, class 3+4",
     "comments": "",
-    "codes": {
-      "native2": "38720.0"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "118",
+          "native1": null,
+          "native2": "38720.0"
+        }
+      },
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "119",
+          "native1": null,
+          "native2": "38720.0"
+        }
+      }
+    ]
   },
   "ln-4": {
     "main_body": "",
@@ -1800,9 +1887,17 @@
     "main_body": "",
     "conclusion": "Recurrent membranous nephropathy",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": "139",
+          "native1": null,
+          "transplant": null
+        }
+      }
+    ]
   },
   "mb-rvt": {
     "main_body": "",
@@ -2060,9 +2155,17 @@
     "main_body": "",
     "conclusion": "Neutrophilic tubulitis",
     "comments": "In view of the small focus of neutrophilic tubulitis, please exclude a urinary tract infection.",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "LM",
+        "codes": {
+          "kbc": "280",
+          "native1": null,
+          "transplant": null
+        }
+      }
+    ]
   },
   "nod-gs": {
     "main_body": "",
@@ -2628,7 +2731,16 @@
     "main_body": "",
     "conclusion": "Tubuloreticular inclusions",
     "comments": "",
-    "codes": {}
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": "EM",
+        "codes": {
+          "kbc": "436",
+          "native1": null
+        }
+      }
+    ]
   },
   "v0": {
     "main_body": "No endarteritis (v0).",

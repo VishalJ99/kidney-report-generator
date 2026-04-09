@@ -30,7 +30,7 @@ class CodingGroup(BaseModel):
 
     classification: PhraseClassification = Field(..., description="Classification for this coded concept")
     medium: CodeMedium = Field(..., description="Medium/source for this coded concept")
-    codes: Dict[str, str] = Field(
+    codes: Dict[str, Optional[str]] = Field(
         default_factory=dict,
         description="Single code per code system for this coded concept",
     )
@@ -54,7 +54,7 @@ class PhraseEntryPayload(BaseModel):
         default=None,
         description="Legacy compatibility field derived from or convertible into coding",
     )
-    codes: Dict[str, str] = Field(
+    codes: Dict[str, Optional[str]] = Field(
         default_factory=dict,
         description="Legacy compatibility field derived from or convertible into coding",
     )

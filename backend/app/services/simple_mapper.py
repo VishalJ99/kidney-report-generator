@@ -96,7 +96,13 @@ class SimpleMapper:
         return bool(cleaned) and cleaned.upper() != "VALUE"
 
     @classmethod
-    def _normalize_codes(cls, value: Any, *, allow_placeholders: bool = False) -> Dict[str, str]:
+    def _normalize_codes(
+        cls,
+        value: Any,
+        *,
+        allow_placeholders: bool = False,
+        preserve_nulls: bool = False,
+    ) -> Dict[str, Optional[str]]:
         """Normalize a code-system mapping."""
         codes = {}
         if not isinstance(value, dict):
@@ -106,6 +112,10 @@ class SimpleMapper:
             if not code_key:
                 continue
             cleaned_key = str(code_key).strip()
+            if code_value is None:
+                if preserve_nulls:
+                    codes[cleaned_key] = None
+                continue
             cleaned_value = cls._clean_text(code_value)
             if not cleaned_value:
                 continue
@@ -122,8 +132,9 @@ class SimpleMapper:
 
         classification = self._normalize_classification(value.get("classification"))
         medium = self._normalize_medium(value.get("medium"), classification)
-        codes = self._normalize_codes(value.get("codes"))
-        if classification is None or medium is None or not codes:
+        codes = self._normalize_codes(value.get("codes"), preserve_nulls=True)
+        resolved_codes = {code_key: code_value for code_key, code_value in codes.items() if code_value is not None}
+        if classification is None or medium is None or not resolved_codes:
             return None
 
         return {
@@ -140,8 +151,9 @@ class SimpleMapper:
 
         pattern_metadata = entry.get("pattern_metadata") if isinstance(entry.get("pattern_metadata"), dict) else {}
         medium = self._normalize_medium(pattern_metadata.get("medium"), classification)
-        codes = self._normalize_codes(entry.get("codes"))
-        if medium is None or not codes:
+        codes = self._normalize_codes(entry.get("codes"), preserve_nulls=True)
+        resolved_codes = {code_key: code_value for code_key, code_value in codes.items() if code_value is not None}
+        if medium is None or not resolved_codes:
             return []
 
         return [
@@ -186,6 +198,8 @@ class SimpleMapper:
         flattened_codes: Dict[str, List[str]] = {}
         for group in coding:
             for code_key, code_value in group["codes"].items():
+                if code_value is None:
+                    continue
                 flattened_codes.setdefault(code_key, [])
                 if code_value not in flattened_codes[code_key]:
                     flattened_codes[code_key].append(code_value)
@@ -198,11 +212,26 @@ class SimpleMapper:
 
     @staticmethod
     def _pending_code_types(entry: Dict[str, Any]) -> List[str]:
-        """Return unresolved placeholder code families from legacy top-level codes."""
+        """Return unresolved placeholder code families from canonical coding or legacy top-level codes."""
         pending = []
+        seen = set()
+
+        for coding_group in entry.get("coding", []) or []:
+            if not isinstance(coding_group, dict):
+                continue
+            for code_key, code_value in (coding_group.get("codes") or {}).items():
+                if code_value is None:
+                    cleaned_key = str(code_key).strip()
+                    if cleaned_key and cleaned_key not in seen:
+                        pending.append(cleaned_key)
+                        seen.add(cleaned_key)
+
         for code_key, code_value in (entry.get("codes") or {}).items():
             if str(code_value).strip().upper() == "VALUE":
-                pending.append(str(code_key).strip())
+                cleaned_key = str(code_key).strip()
+                if cleaned_key and cleaned_key not in seen:
+                    pending.append(cleaned_key)
+                    seen.add(cleaned_key)
         return pending
 
     def _build_storage_entry(self, payload: Dict[str, Any], existing_entry: Dict[str, Any]) -> Dict[str, Any]:
