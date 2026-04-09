@@ -75,9 +75,16 @@ class SimpleMapper:
         return None
 
     @staticmethod
-    def _normalize_medium(value: Optional[str], classification: Optional[str]) -> Optional[str]:
+    def _normalize_medium(
+        value: Optional[str],
+        classification: Optional[str],
+        *,
+        has_resolved_codes: bool,
+    ) -> Optional[str]:
         """Normalize medium values for canonical coding groups."""
         if classification is None:
+            return None
+        if not has_resolved_codes:
             return None
         if classification in {"diagnosis", "attribute"}:
             return "PATIENT"
@@ -131,10 +138,14 @@ class SimpleMapper:
             return None
 
         classification = self._normalize_classification(value.get("classification"))
-        medium = self._normalize_medium(value.get("medium"), classification)
         codes = self._normalize_codes(value.get("codes"), preserve_nulls=True)
         resolved_codes = {code_key: code_value for code_key, code_value in codes.items() if code_value is not None}
-        if classification is None or medium is None or not resolved_codes:
+        medium = self._normalize_medium(
+            value.get("medium"),
+            classification,
+            has_resolved_codes=bool(resolved_codes),
+        )
+        if classification is None or not codes:
             return None
 
         return {
@@ -150,11 +161,15 @@ class SimpleMapper:
             return []
 
         pattern_metadata = entry.get("pattern_metadata") if isinstance(entry.get("pattern_metadata"), dict) else {}
-        medium = self._normalize_medium(pattern_metadata.get("medium"), classification)
         codes = self._normalize_codes(entry.get("codes"), preserve_nulls=True)
         resolved_codes = {code_key: code_value for code_key, code_value in codes.items() if code_value is not None}
-        if medium is None or not resolved_codes:
+        if not resolved_codes:
             return []
+        medium = self._normalize_medium(
+            pattern_metadata.get("medium"),
+            classification,
+            has_resolved_codes=True,
+        )
 
         return [
             {
@@ -181,7 +196,7 @@ class SimpleMapper:
     @staticmethod
     def _compatibility_fields_from_coding(
         coding: List[Dict[str, Any]],
-    ) -> Tuple[Optional[str], Optional[Dict[str, str]], Dict[str, str]]:
+    ) -> Tuple[Optional[str], Optional[Dict[str, Optional[str]]], Dict[str, str]]:
         """Derive legacy compatibility fields from canonical coding groups."""
         if not coding:
             return None, None, {}
@@ -261,8 +276,12 @@ class SimpleMapper:
         if incoming_coding:
             pending_legacy_codes = {
                 code_key: code_value
-                for code_key, code_value in self._normalize_codes(existing_entry.get("codes"), allow_placeholders=True).items()
-                if not self._is_resolved_code(code_value)
+                for code_key, code_value in self._normalize_codes(
+                    existing_entry.get("codes"),
+                    allow_placeholders=True,
+                    preserve_nulls=True,
+                ).items()
+                if code_value is None or not self._is_resolved_code(code_value)
             }
             if pending_legacy_codes:
                 stored_entry["codes"] = pending_legacy_codes
@@ -286,7 +305,19 @@ class SimpleMapper:
                 existing_entry.get("pattern_metadata") if isinstance(existing_entry.get("pattern_metadata"), dict) else {}
             )
             medium_source = payload_pattern_metadata.get("medium") or existing_pattern_metadata.get("medium")
-            stored_entry["pattern_metadata"] = {"medium": self._normalize_medium(medium_source, classification)}
+            stored_entry["pattern_metadata"] = {
+                "medium": self._normalize_medium(
+                    medium_source,
+                    classification,
+                    has_resolved_codes=bool(
+                        {
+                            code_key: code_value
+                            for code_key, code_value in legacy_codes.items()
+                            if code_value is not None and self._is_resolved_code(code_value)
+                        }
+                    ),
+                )
+            }
 
         return stored_entry
 
@@ -299,7 +330,14 @@ class SimpleMapper:
             pattern_metadata = None
             if classification == "pattern":
                 raw_pattern_metadata = entry.get("pattern_metadata") if isinstance(entry.get("pattern_metadata"), dict) else {}
-                pattern_metadata = {"medium": self._normalize_medium(raw_pattern_metadata.get("medium"), classification)}
+                resolved_codes = self._normalize_codes(entry.get("codes"))
+                pattern_metadata = {
+                    "medium": self._normalize_medium(
+                        raw_pattern_metadata.get("medium"),
+                        classification,
+                        has_resolved_codes=bool(resolved_codes),
+                    )
+                }
             codes = self._normalize_codes(entry.get("codes"), allow_placeholders=True)
 
         return {

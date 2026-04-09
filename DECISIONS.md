@@ -13,16 +13,18 @@ Implemented in the Linear project `candice report tool` under `PER-143`.
 Summary:
 - Each shorthand entry stores coded concepts under a top-level `coding` array.
 - Each `coding[]` item is one coded concept with `classification`, `medium`, and scalar-or-null `codes` keyed by code system.
-- `medium` is always explicit and uses `PATIENT`, `LM`, `EM`, or `IHC`.
+- `medium` uses `PATIENT`, `LM`, `EM`, `IHC`, or `null` when every code in the group is unresolved.
 - `PATIENT` is used for patient-level diagnosis or attribute concepts.
 - Multiple codes for one shorthand are represented as multiple `coding[]` items, not list values inside one code-system key.
+- Any coding group that has `native1`, `native2`, or `transplant` also carries `kbc`; if the universal KBC code has not been assigned yet, it is stored as `kbc: null`.
 
 Why this shape was chosen:
 - The product’s shorthand is optimized for typing speed, so one shorthand can legitimately map to more than one coded concept.
 - Export logic for native and transplant outputs needs to loop over coded concepts, not reverse-engineer meaning from flattened legacy fields.
 - Keeping each code-system value scalar inside one coding group means downstream code can rely on `codes["kbc"]` or `codes["transplant"]` being a single value when present.
 - Allowing explicit `null` values for a code-system slot preserves “considered but not provided” without introducing list parsing or ambiguous omission semantics.
-- Explicit `medium` removes ambiguity from older `null` pattern metadata and makes light microscopy (`LM`) the concrete default for generic “Pattern of injury”.
+- Requiring `kbc` alongside `native1`, `native2`, or `transplant` reflects the project rule that KBC is the universal coding system under development.
+- Placeholder-only coding groups should not infer a medium; when every code value is unresolved, `medium` remains `null`.
 - This structure separates text expansion concerns from code/export concerns while keeping both attached to the same shorthand entry.
 
 Current contract:
@@ -48,17 +50,47 @@ Why this matters:
 
 ## Pending review
 
-### Unresolved transplant-only placeholders without classification/medium
+### Provisional classification and medium assignments for transplant-only placeholder entries
 
 Status: pending review
 
 Current situation:
-- Some shorthand entries still only carry a legacy transplant placeholder such as `{"transplant": "VALUE"}`.
-- Those entries do not yet have enough information to create a canonical `coding[]` item because the schema requires both `classification` and `medium`.
+- Some shorthand entries had only a transplant placeholder and no explicit stored `classification` or `medium`.
+- To finish migration away from legacy top-level `codes`, these entries were converted into canonical `coding[]` using best-effort classification/medium assignments based on the conclusion text and Candice transplant review notes.
 
 Current implementation rule:
-- If an entry already has a canonical `coding[]` item and also had a legacy transplant placeholder, the placeholder should be merged into canonical schema as `transplant: null`.
-- If an entry has only a transplant placeholder and no known classification/medium yet, it remains temporarily on the legacy shim until curated classification data exists.
+- Entries treated as transplant diagnoses use `classification: diagnosis`, `medium: null` while the coding group is placeholder-only.
+- Entries treated as transplant patterns use `classification: pattern`, `medium: null` while the coding group is placeholder-only.
+- `subop` is currently treated as `classification: attribute`, `medium: null` while the coding group is placeholder-only.
+- Unresolved transplant codes are represented canonically as `codes.transplant = null`, with `kbc: null` also present.
+
+Current provisional assignments:
+- Diagnosis/null medium:
+  - `a-amr`
+  - `ac-amr`
+  - `bl`
+  - `c-amr`
+  - `p-amr`
+  - `polyoma`
+  - `t1a`
+  - `t1a-c`
+  - `t1b`
+  - `t1b-c`
+  - `t2-c`
+  - `t2a`
+  - `t2b`
+  - `t3`
+- Pattern/null medium:
+  - `ah3`
+  - `ati-micro`
+  - `cv3`
+  - `isch`
+  - `mild-ifta`
+  - `mod-ifta`
+  - `mvi`
+  - `sev-ifta`
+- Attribute/null medium:
+  - `subop`
 
 Why this is pending:
-- Forcing these entries into `coding[]` today would require inventing `classification` and `medium`, which would introduce bad data into later export logic.
+- These assignments are sufficient to eliminate the legacy schema and unblock frontend/export work, but some transplant entries may still need clinical review before they are treated as final ontology truth.

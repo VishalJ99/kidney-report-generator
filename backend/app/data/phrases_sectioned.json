@@ -69,17 +69,31 @@
     "main_body": "",
     "conclusion": "Acute/active antibody-mediated rejection",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "ac-amr": {
     "main_body": "",
     "conclusion": "Chronic active antibody-mediated rejection",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "adtkd": {
     "main_body": "",
@@ -115,9 +129,16 @@
     "main_body": "Severe arteriolar hyalinosis (ah3).",
     "conclusion": "Severe arteriolar hyalinosis",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "alport": {
     "main_body": "",
@@ -311,9 +332,16 @@
     "main_body": "",
     "conclusion": "Acute tubular injury with tubular epithelial cell cytoplasmic microvacuolation",
     "comments": "There is acute tubular injury with isometric clear vacuolation of tubular epithelial cells. Possible causes include acute tubular toxicity related to calcineurin inhibitors (tends to be focal), or osmotic tubulopathy (tends to be diffuse). The latter can be seen with plasma expanders (e.g. mannitol, dextran), some pre-transplant perfusion solutions (containing hydroxyethyl starch), some radiological contrast solutions, IVIg (due to the stabilising agents) and SGLT2i (due to inhibition of glucose resorption in proximal S1 tubule).",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "ati-vac": {
     "main_body": "",
@@ -355,9 +383,16 @@
     "main_body": "",
     "conclusion": "Borderline for T cell-mediated rejection",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "c": {
     "main_body": "The sample consists of cortex only.",
@@ -369,9 +404,16 @@
     "main_body": "",
     "conclusion": "Chronic antibody-mediated rejection",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "c1q-np": {
     "main_body": "",
@@ -718,9 +760,16 @@
     "main_body": "Arteries show severe fibrointimal thickening (cv3).",
     "conclusion": "Severe arterial fibrointimal thickening",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "cw-irr": {
     "main_body": "There is diffuse capillary wall thickening, with irregularities (holes/splitting) on silver stain.",
@@ -1456,9 +1505,16 @@
     "main_body": "",
     "conclusion": "Features in keeping with IgM nephropathy",
     "comments": "",
-    "codes": {
-      "native1": "46817"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": null,
+          "native1": "46817"
+        }
+      }
+    ]
   },
   "igm-cap": {
     "main_body": "",
@@ -1545,9 +1601,16 @@
     "main_body": "",
     "conclusion": "Glomerular ischaemia",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "isch1": {
     "main_body": "Some glomeruli show mild ischaemic-type capillary deflation.",
@@ -1858,9 +1921,16 @@
     "main_body": "",
     "conclusion": "Monoclonal membranous nephropathy",
     "comments": "",
-    "codes": {
-      "native1": "46835"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": "PATIENT",
+        "codes": {
+          "kbc": null,
+          "native1": "46835"
+        }
+      }
+    ]
   },
   "mb-pla2r": {
     "main_body": "",
@@ -2020,9 +2090,16 @@
     "main_body": "",
     "conclusion": "Mild interstitial fibrosis/tubular atrophy",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "min-ch": {
     "main_body": "",
@@ -2100,9 +2177,16 @@
     "main_body": "",
     "conclusion": "Moderate interstitial fibrosis/tubular atrophy",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "mpgn": {
     "main_body": "Glomeruli show a membranoproliferative pattern glomerulonephritis.",
@@ -2129,9 +2213,16 @@
     "main_body": "",
     "conclusion": "Microcirculation inflammation, C4d-negative, DSA-negative",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "mvi-c4d0-dsa0": {
     "main_body": "",
@@ -2259,9 +2350,16 @@
     "main_body": "",
     "conclusion": "Probable antibody-mediated rejection",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "pauci-gn": {
     "main_body": "",
@@ -2297,9 +2395,16 @@
     "main_body": "",
     "conclusion": "Polyoma virus nephropathy",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "polyoma1": {
     "main_body": "",
@@ -2383,9 +2488,16 @@
     "main_body": "",
     "conclusion": "Severe interstitial fibrosis/tubular atrophy",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "pattern",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "ss0": {
     "main_body": "No segmental sclerosis is seen.",
@@ -2397,9 +2509,16 @@
     "main_body": "",
     "conclusion": "Suboptimal sample",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "attribute",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "sv40_0": {
     "main_body": "SV40: negative",
@@ -2441,33 +2560,61 @@
     "main_body": "",
     "conclusion": "T cell-mediated rejection grade 1a",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "t1a-c": {
     "main_body": "",
     "conclusion": "Chronic active T cell-mediated rejection (grade 1a)",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "t1b": {
     "main_body": "",
     "conclusion": "T cell-mediated rejection grade 1b",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "t1b-c": {
     "main_body": "",
     "conclusion": "Chronic active T cell-mediated rejection (grade 1b)",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "t2": {
     "main_body": "Moderate tubulitis is present in >1 focus of non-severely atrophic tubules (t2).",
@@ -2479,33 +2626,61 @@
     "main_body": "",
     "conclusion": "Chronic active T cell-mediated rejection (grade 2)",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "t2a": {
     "main_body": "",
     "conclusion": "T cell-mediated rejection grade 2a",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "t2b": {
     "main_body": "",
     "conclusion": "T cell-mediated rejection grade 2b",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "t3": {
     "main_body": "Severe tubulitis is present in >1 focus of non-severely atrophic tubules (t3).",
     "conclusion": "T cell-mediated rejection grade 3",
     "comments": "",
-    "codes": {
-      "transplant": "VALUE"
-    }
+    "coding": [
+      {
+        "classification": "diagnosis",
+        "medium": null,
+        "codes": {
+          "transplant": null,
+          "kbc": null
+        }
+      }
+    ]
   },
   "tb": {
     "main_body": "Toluidine blue sections from the sample for electron microscopy were examined.",

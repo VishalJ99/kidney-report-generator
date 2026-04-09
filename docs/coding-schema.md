@@ -49,12 +49,14 @@ Shorthand entries keep their text fields and use a top-level `coding` array for 
 2. Each `coding[]` item is one coded concept that can be looped over independently.
 3. Each `coding[]` item has exactly:
    - `classification`: `diagnosis | pattern | attribute`
-   - `medium`: `PATIENT | LM | EM | IHC`
+   - `medium`: `PATIENT | LM | EM | IHC | null`
    - `codes`: scalar-or-null code values keyed by code system, for example `kbc`, `native1`, `native2`, `transplant`
 4. Code-system values inside one `coding[]` item are never lists.
 5. `codes["kbc"]` or `codes["transplant"]` always resolves to a single code value when present.
-6. Use `null` when a code system has been considered for that coded concept but no code has been provided yet, for example `native1: null`.
-7. If one shorthand maps to multiple codes within the same family, represent that as multiple `coding[]` items, not a list inside one `codes` object.
+6. Any coding group that has `native1`, `native2`, or `transplant` must also include a `kbc` key. Use `kbc: null` when a universal KBC code has not been assigned yet.
+7. Use `null` when a code system has been considered for that coded concept but no code has been provided yet, for example `native1: null`.
+8. If every code value in a coding group is `null`, then `medium` must also be `null`.
+9. If one shorthand maps to multiple codes within the same family, represent that as multiple `coding[]` items, not a list inside one `codes` object.
 
 ## Medium semantics
 
@@ -63,7 +65,7 @@ Shorthand entries keep their text fields and use a top-level `coding` array for 
 - `EM`: electron microscopy pattern
 - `IHC`: immunohistochemistry pattern
 
-`medium` is always explicit and never null in the canonical schema.
+`medium` is explicit whenever at least one code in the group is resolved. Placeholder-only groups use `medium: null`.
 
 ## Design motivations
 
@@ -76,6 +78,8 @@ Native and transplant export do not consume shorthand text directly. They consum
 Inside one coding group, `codes["kbc"]` should always be a scalar. That keeps downstream logic simple and predictable. If a shorthand needs two KBC diagnoses, it becomes two coding groups.
 
 Allowing `null` for an explicitly missing system keeps the structure inspectable without turning `codes` values into lists or forcing every downstream consumer to infer whether absence means “not considered” or “considered but not provided”.
+
+Making `kbc` mandatory alongside any `native1`, `native2`, or `transplant` slot reflects the project rule that KBC is the universal coding system under development. A missing KBC assignment should therefore be represented as `kbc: null`, not by omitting the key entirely.
 
 ### 3. Pattern codes need explicit modality
 
