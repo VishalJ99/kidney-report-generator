@@ -48,6 +48,59 @@ Why this matters:
 - The workbook defines the naming conventions for code columns, including `native1` and `native2`.
 - The converter script and runtime JSON preserve those names, so any cleanup or export refactor must treat them as source-derived legacy code families unless and until they are deliberately retired.
 
+### 2026-04-20: V0 transplant Banff lesion export codes use explicit per-column pattern groups
+
+Status: accepted
+
+Implemented in the Linear project `candice report tool` under `PER-168` and `PER-145`.
+
+Summary:
+- V0 transplant export support starts with the dark-pink Banff score columns from [transplant biopsy column headers.xlsx](/Users/dross/kidney-report-generator/transplant%20biopsy%20column%20headers.xlsx), `Sheet1`, row 2.
+- Each Banff shorthand maps to one or more canonical `coding[]` groups with `classification: pattern`, `medium: LM`, `kbc: null`, and a concrete `transplant` export code.
+- The export-code format is `banff_lesion_<COLUMN>_<VALUE>`.
+- Composite shorthand creates multiple coding groups, one per target column assignment.
+
+Current v0 column families:
+- Single-column families:
+  - `c4d0` to `c4d3` -> `C4D`
+  - `t0` to `t3` -> `T`
+  - `ti0` to `ti3` -> `TI`
+  - `cv0` to `cv3` -> `CV`
+  - `v0` to `v3` -> `V`
+  - `ah0` to `ah3` -> `AH`
+  - `cg0` to `cg3` -> `CG`
+  - `g0` to `g3` -> `GLOMERULITIS`
+  - `ptc0` to `ptc3` -> `PTC`
+- Composite families:
+  - `ct1ci0`, `ctci1`, `ctci2`, `ctci3` -> `CT` and `CI`
+  - `i0_i-ifta0` through `i3_i-ifta3` -> `I` and `IIFTA`
+
+Why this shape was chosen:
+- Transplant export needs to populate explicit spreadsheet columns, not just collect free-floating codes.
+- The canonical `coding[]` schema is designed for exactly this case: one shorthand can emit multiple independently exportable coded concepts.
+- Encoding the target column into the `transplant` code keeps the data dictionary self-describing enough for a v0 export path without introducing a second parallel Banff mapping layer.
+
+### 2026-04-20: Conclusion-bearing coding groups are placeholder-complete, but native-coded groups do not carry transplant placeholders
+
+Status: accepted
+
+Implemented in the Linear project `candice report tool` under `PER-168`.
+
+Summary:
+- Conclusion-bearing shorthand should be code-complete enough to support capture and later export work.
+- When a coded concept is not native-coded, it may carry `transplant: null` as an explicit unresolved placeholder.
+- When a coded concept has `native1` or `native2`, it should not also carry a `transplant` slot in that same coding group.
+
+Current rule:
+- If a coding group has `native1` or `native2`, omit `transplant` from that group.
+- If a conclusion-bearing coding group has no native slot and no transplant slot yet, add `transplant: null`.
+- Keep `kbc` present wherever `native1`, `native2`, or `transplant` is present; use `kbc: null` when unresolved.
+- If every code in a coding group is unresolved, keep `medium: null`.
+
+Why this shape was chosen:
+- Native and transplant outputs are different downstream workflows, so a single coding group should not imply both simultaneously when the concept is currently only known in one workflow.
+- Explicit placeholder slots make missing-code work visible and machine-readable, which is useful for dictionary cleanup and for UI capture checks before export logic is finalized.
+
 ## Pending review
 
 ### Provisional classification and medium assignments for transplant-only placeholder entries
