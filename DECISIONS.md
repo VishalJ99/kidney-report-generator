@@ -69,7 +69,7 @@ Current v0 column families:
   - `v0` to `v3` -> `V`
   - `ah0` to `ah3` -> `AH`
   - `cg0` to `cg3` -> `CG`
-  - `g0` to `g3` -> `GLOMERULITIS`
+  - `g0` to `g3` -> `G`
   - `ptc0` to `ptc3` -> `PTC`
 - Composite families:
   - `ct1ci0`, `ctci1`, `ctci2`, `ctci3` -> `CT` and `CI`

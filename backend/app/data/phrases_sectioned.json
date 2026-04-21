@@ -1371,7 +1371,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "GLOMERULITIS_0"
+          "transplant": "G_0"
         }
       }
     ]
@@ -1387,7 +1387,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "GLOMERULITIS_1"
+          "transplant": "G_1"
         }
       }
     ]
@@ -1403,7 +1403,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "GLOMERULITIS_2"
+          "transplant": "G_2"
         }
       }
     ]
@@ -1419,7 +1419,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "GLOMERULITIS_3"
+          "transplant": "G_3"
         }
       }
     ]
