@@ -7,7 +7,7 @@ from typing import List, Optional
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from pydantic import BaseModel, Field
 
 from app.models.shorthand import (
@@ -19,6 +19,7 @@ from app.models.shorthand import (
     ShorthandInput,
     ValidationResponse,
 )
+from app.services.export_builder import ExportConflictError, build_export_workbook
 from app.services.simple_mapper import SimpleMapper
 
 logging.basicConfig(level=logging.INFO)
@@ -194,6 +195,31 @@ async def generate_report(input_data: ShorthandInput):
     except Exception as e:
         logger.error(f"Error generating report: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error generating report: {str(e)}")
+
+
+@app.post("/api/export")
+async def export_report(input_data: ShorthandInput):
+    """Generate a report-type-specific XLSX export from shorthand notation."""
+    try:
+        generated_report = await generate_report(input_data)
+        workbook_bytes = build_export_workbook(
+            shorthand_text=input_data.shorthand_text,
+            report_type=input_data.report_type,
+            case_codes=[case_code.model_dump() for case_code in generated_report.case_codes],
+        )
+        filename = f"kidney-report-{input_data.report_type}-export.xlsx"
+        return StreamingResponse(
+            iter([workbook_bytes]),
+            media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        )
+    except ExportConflictError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error exporting report: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Error exporting report: {str(e)}")
 
 
 @app.post("/api/validate", response_model=ValidationResponse)

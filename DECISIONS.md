@@ -101,6 +101,26 @@ Why this shape was chosen:
 - Native and transplant outputs are different downstream workflows, so a single coding group should not imply both simultaneously when the concept is currently only known in one workflow.
 - Explicit placeholder slots make missing-code work visible and machine-readable, which is useful for dictionary cleanup and for UI capture checks before export logic is finalized.
 
+### 2026-04-21: Export logic uses the report-type toggle and canonical `coding[]`
+
+Status: accepted
+
+Implemented in the Linear project `candice report tool` under `PER-138`.
+
+Summary:
+- Export is driven by the frontend report-type toggle: `native` and `transplant` have different output rules.
+- Export should use the same shorthand parsing and canonical `coding[]` capture path as report preview generation.
+- Native export groups captured codes by classification and code family, with list-valued columns for diagnosis and pattern codes across `kbc`, `native1`, and `native2`.
+- Transplant export fills patient/header fields, collects diagnosis codes into a single `Diagnosis codes` column, and maps Banff pattern codes such as `T_3` into score columns such as `T = 3`.
+- The frontend export action downloads an XLSX file from `POST /api/export`.
+- The detailed export contract lives in [docs/export-logic.md](/Users/dross/kidney-report-generator/docs/export-logic.md).
+- If two entered shorthand tokens assign different values to the same Banff score column, export should fail with a warning rather than silently choosing a value.
+- Consent is exported as the raw value entered after the `Consent` prefix, for example `PISv.8`.
+
+Why this matters:
+- Export is clinically sensitive and easy to get subtly wrong, so the semantics should be documented before implementation.
+- The implementation should not invent a separate interpretation of shorthand; it should consume the same canonical `coding[]` concepts that power live code capture.
+
 ## Pending review
 
 ### Provisional classification and medium assignments for transplant-only placeholder entries

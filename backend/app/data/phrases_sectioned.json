@@ -118,7 +118,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_AH_0"
+          "transplant": "AH_0"
         }
       }
     ]
@@ -134,7 +134,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_AH_1"
+          "transplant": "AH_1"
         }
       }
     ]
@@ -149,7 +149,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_AH_2"
+          "transplant": "AH_2"
         }
       }
     ]
@@ -164,7 +164,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_AH_3"
+          "transplant": "AH_3"
         }
       }
     ]
@@ -516,7 +516,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_C4D_0"
+          "transplant": "C4D_0"
         }
       }
     ]
@@ -532,7 +532,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_C4D_1"
+          "transplant": "C4D_1"
         }
       }
     ]
@@ -548,7 +548,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_C4D_2"
+          "transplant": "C4D_2"
         }
       }
     ]
@@ -564,7 +564,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_C4D_3"
+          "transplant": "C4D_3"
         }
       }
     ]
@@ -619,7 +619,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CG_0"
+          "transplant": "CG_0"
         }
       }
     ]
@@ -635,7 +635,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CG_1"
+          "transplant": "CG_1"
         }
       }
     ]
@@ -651,7 +651,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CG_2"
+          "transplant": "CG_2"
         }
       }
     ]
@@ -667,7 +667,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CG_3"
+          "transplant": "CG_3"
         }
       }
     ]
@@ -839,7 +839,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CT_1"
+          "transplant": "CT_1"
         }
       },
       {
@@ -847,7 +847,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CI_0"
+          "transplant": "CI_0"
         }
       }
     ]
@@ -863,7 +863,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CT_1"
+          "transplant": "CT_1"
         }
       },
       {
@@ -871,7 +871,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CI_1"
+          "transplant": "CI_1"
         }
       }
     ]
@@ -887,7 +887,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CT_2"
+          "transplant": "CT_2"
         }
       },
       {
@@ -895,7 +895,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CI_2"
+          "transplant": "CI_2"
         }
       }
     ]
@@ -911,7 +911,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CT_3"
+          "transplant": "CT_3"
         }
       },
       {
@@ -919,7 +919,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CI_3"
+          "transplant": "CI_3"
         }
       }
     ]
@@ -935,7 +935,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CV_0"
+          "transplant": "CV_0"
         }
       }
     ]
@@ -951,7 +951,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CV_1"
+          "transplant": "CV_1"
         }
       }
     ]
@@ -966,7 +966,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CV_2"
+          "transplant": "CV_2"
         }
       }
     ]
@@ -981,7 +981,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_CV_3"
+          "transplant": "CV_3"
         }
       }
     ]
@@ -1371,7 +1371,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_GLOMERULITIS_0"
+          "transplant": "GLOMERULITIS_0"
         }
       }
     ]
@@ -1387,7 +1387,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_GLOMERULITIS_1"
+          "transplant": "GLOMERULITIS_1"
         }
       }
     ]
@@ -1403,7 +1403,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_GLOMERULITIS_2"
+          "transplant": "GLOMERULITIS_2"
         }
       }
     ]
@@ -1419,7 +1419,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_GLOMERULITIS_3"
+          "transplant": "GLOMERULITIS_3"
         }
       }
     ]
@@ -1543,7 +1543,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_0"
+          "transplant": "I_0"
         }
       },
       {
@@ -1551,7 +1551,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_0"
+          "transplant": "IIFTA_0"
         }
       }
     ]
@@ -1567,7 +1567,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_0"
+          "transplant": "I_0"
         }
       },
       {
@@ -1575,7 +1575,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_1"
+          "transplant": "IIFTA_1"
         }
       }
     ]
@@ -1591,7 +1591,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_0"
+          "transplant": "I_0"
         }
       },
       {
@@ -1599,7 +1599,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_2"
+          "transplant": "IIFTA_2"
         }
       }
     ]
@@ -1615,7 +1615,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_0"
+          "transplant": "I_0"
         }
       },
       {
@@ -1623,7 +1623,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_3"
+          "transplant": "IIFTA_3"
         }
       }
     ]
@@ -1639,7 +1639,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_1"
+          "transplant": "I_1"
         }
       },
       {
@@ -1647,7 +1647,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_0"
+          "transplant": "IIFTA_0"
         }
       }
     ]
@@ -1663,7 +1663,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_1"
+          "transplant": "I_1"
         }
       },
       {
@@ -1671,7 +1671,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_1"
+          "transplant": "IIFTA_1"
         }
       }
     ]
@@ -1687,7 +1687,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_1"
+          "transplant": "I_1"
         }
       },
       {
@@ -1695,7 +1695,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_2"
+          "transplant": "IIFTA_2"
         }
       }
     ]
@@ -1711,7 +1711,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_1"
+          "transplant": "I_1"
         }
       },
       {
@@ -1719,7 +1719,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_3"
+          "transplant": "IIFTA_3"
         }
       }
     ]
@@ -1735,7 +1735,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_2"
+          "transplant": "I_2"
         }
       },
       {
@@ -1743,7 +1743,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_0"
+          "transplant": "IIFTA_0"
         }
       }
     ]
@@ -1759,7 +1759,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_2"
+          "transplant": "I_2"
         }
       },
       {
@@ -1767,7 +1767,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_1"
+          "transplant": "IIFTA_1"
         }
       }
     ]
@@ -1783,7 +1783,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_2"
+          "transplant": "I_2"
         }
       },
       {
@@ -1791,7 +1791,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_2"
+          "transplant": "IIFTA_2"
         }
       }
     ]
@@ -1807,7 +1807,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_2"
+          "transplant": "I_2"
         }
       },
       {
@@ -1815,7 +1815,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_3"
+          "transplant": "IIFTA_3"
         }
       }
     ]
@@ -1831,7 +1831,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_3"
+          "transplant": "I_3"
         }
       },
       {
@@ -1839,7 +1839,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_0"
+          "transplant": "IIFTA_0"
         }
       }
     ]
@@ -1855,7 +1855,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_3"
+          "transplant": "I_3"
         }
       },
       {
@@ -1863,7 +1863,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_1"
+          "transplant": "IIFTA_1"
         }
       }
     ]
@@ -1879,7 +1879,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_3"
+          "transplant": "I_3"
         }
       },
       {
@@ -1887,7 +1887,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_2"
+          "transplant": "IIFTA_2"
         }
       }
     ]
@@ -1903,7 +1903,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_I_3"
+          "transplant": "I_3"
         }
       },
       {
@@ -1911,7 +1911,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_IIFTA_3"
+          "transplant": "IIFTA_3"
         }
       }
     ]
@@ -2989,7 +2989,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_PTC_0"
+          "transplant": "PTC_0"
         }
       }
     ]
@@ -3005,7 +3005,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_PTC_1"
+          "transplant": "PTC_1"
         }
       }
     ]
@@ -3021,7 +3021,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_PTC_2"
+          "transplant": "PTC_2"
         }
       }
     ]
@@ -3037,7 +3037,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_PTC_3"
+          "transplant": "PTC_3"
         }
       }
     ]
@@ -3143,7 +3143,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_T_0"
+          "transplant": "T_0"
         }
       }
     ]
@@ -3159,7 +3159,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_T_1"
+          "transplant": "T_1"
         }
       }
     ]
@@ -3235,7 +3235,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_T_2"
+          "transplant": "T_2"
         }
       }
     ]
@@ -3303,7 +3303,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_T_3"
+          "transplant": "T_3"
         }
       }
     ]
@@ -3391,7 +3391,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_TI_0"
+          "transplant": "TI_0"
         }
       }
     ]
@@ -3407,7 +3407,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_TI_1"
+          "transplant": "TI_1"
         }
       }
     ]
@@ -3423,7 +3423,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_TI_2"
+          "transplant": "TI_2"
         }
       }
     ]
@@ -3439,7 +3439,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_TI_3"
+          "transplant": "TI_3"
         }
       }
     ]
@@ -3596,7 +3596,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_V_0"
+          "transplant": "V_0"
         }
       }
     ]
@@ -3612,7 +3612,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_V_1"
+          "transplant": "V_1"
         }
       }
     ]
@@ -3628,7 +3628,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_V_2"
+          "transplant": "V_2"
         }
       }
     ]
@@ -3644,7 +3644,7 @@
         "medium": "LM",
         "codes": {
           "kbc": null,
-          "transplant": "banff_lesion_V_3"
+          "transplant": "V_3"
         }
       }
     ]

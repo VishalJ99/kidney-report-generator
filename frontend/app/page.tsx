@@ -223,11 +223,39 @@ export default function Home() {
     [generateReport, loadPhraseEntries, refreshMappings, shorthandText],
   );
 
-  const handleExportCSV = () => {
-    toast('CSV export coming soon!', {
-      icon: 'i',
-    });
-  };
+  const handleExportExcel = useCallback(async () => {
+    if (!shorthandText.trim()) {
+      toast.error('Enter shorthand before exporting');
+      return;
+    }
+
+    try {
+      const response = await axios.post(
+        `${API_URL}/api/export`,
+        {
+          shorthand_text: shorthandText,
+          report_type: reportType,
+        },
+        { responseType: 'blob' },
+      );
+
+      const disposition = response.headers['content-disposition'] as string | undefined;
+      const filenameMatch = disposition?.match(/filename="?([^"]+)"?/i);
+      const filename = filenameMatch?.[1] || `kidney-report-${reportType}-export.xlsx`;
+      const blobUrl = window.URL.createObjectURL(response.data);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(blobUrl);
+      toast.success('Export downloaded');
+    } catch (error: any) {
+      console.error('Error exporting report:', error);
+      toast.error(error.response?.data?.detail || 'Failed to export report');
+    }
+  }, [reportType, shorthandText]);
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -319,7 +347,7 @@ export default function Home() {
 
             <QuickActions
               onCopy={handleCopyReport}
-              onExportCSV={handleExportCSV}
+              onExportExcel={handleExportExcel}
               disabled={!generatedReport}
             />
 

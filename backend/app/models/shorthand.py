@@ -29,7 +29,7 @@ class CodingGroup(BaseModel):
     """A single coded concept associated with a shorthand entry."""
 
     classification: PhraseClassification = Field(..., description="Classification for this coded concept")
-    medium: CodeMedium = Field(..., description="Medium/source for this coded concept")
+    medium: Optional[CodeMedium] = Field(default=None, description="Medium/source for this coded concept")
     codes: Dict[str, Optional[str]] = Field(
         default_factory=dict,
         description="Single code per code system for this coded concept",

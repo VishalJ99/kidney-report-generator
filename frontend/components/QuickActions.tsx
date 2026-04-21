@@ -2,11 +2,11 @@ import React from 'react';
 
 interface QuickActionsProps {
   onCopy: () => void;
-  onExportCSV: () => void;
+  onExportExcel: () => void;
   disabled: boolean;
 }
 
-const QuickActions: React.FC<QuickActionsProps> = ({ onCopy, onExportCSV, disabled }) => {
+const QuickActions: React.FC<QuickActionsProps> = ({ onCopy, onExportExcel, disabled }) => {
   return (
     <div className="bg-white rounded-lg shadow p-4">
       <h3 className="text-sm font-semibold text-gray-700 mb-3">Quick Actions</h3>
@@ -34,7 +34,7 @@ const QuickActions: React.FC<QuickActionsProps> = ({ onCopy, onExportCSV, disabl
         </button>
         
         <button
-          onClick={onExportCSV}
+          onClick={onExportExcel}
           disabled={disabled}
           className="flex-1 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
         >
@@ -51,13 +51,13 @@ const QuickActions: React.FC<QuickActionsProps> = ({ onCopy, onExportCSV, disabl
               d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
             />
           </svg>
-          Export CSV
+          Export Excel
         </button>
       </div>
       
       <div className="mt-4 text-xs text-gray-500">
         <p>• Copy formatted report for LIMS</p>
-        <p>• Export CSV for registry upload</p>
+        <p>• Export XLSX for registry upload</p>
       </div>
     </div>
   );
